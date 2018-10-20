@@ -1,5 +1,21 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% block nav3 %}active{% endblock %}
+
 {% block content %}
-Home page
+<div class="container-fluid">
+  <div class="position-relative overflow-hidden p-3 p-md-5 text-left bg-light" style="min-height: 600px">
+		<h1 >Dynamic Data</h1>
+		<hr/>
+		<div class="row">
+			<div class="col-md-4 offset-md-4" style="padding-top: 50px">
+			<div class="bg-dark" style="align-content: center; text-align: center;padding: 30px;border-radius: 10px">
+			<h2 style="color: #DEDEDE">Coming Soon</h2>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
 {% endblock %}

@@ -1,5 +1,48 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+
+{% block nav2 %}active{% endblock %}
 {% block content %}
-Home page
+<div class="container-fluid">
+  <div class="position-relative overflow-hidden p-3 p-md-5 text-left bg-light" style="min-height: 300px">
+		<h1 >Static Data</h1>
+		<p>About static data can be written here, I hope it looks good.</p>
+		<hr/>
+	    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+	      <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden" style="margin-bottom: 10px">
+	        <div class="my-3 py-3" style="height: 250px">
+	          <h2 class="display-5">ROUTES</h2>
+	          <p class="lead">Information about all the routes plying in Delhi with clusters buses</p>
+	        </div>
+	        <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 250px; border-radius: 21px 21px 0 0;"><img src="{%static 'img/routes.png' %}" width="80%" style="padding-top: 10%"></div>
+	      </div>
+
+	      <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden" style="margin-bottom: 10px">
+	        <div class="my-3 p-3" style="height: 250px">
+	          <h2 class="display-5">STOP TIMES</h2>
+	          <p class="lead">Approximate arrival and departure times of buses on the stops</p>
+	        </div>
+	        <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 250px; border-radius: 21px 21px 0 0;"><img src="{%static 'img/time.png' %}" width="80%" style="padding-top: 20%"></div>
+	      </div>
+	      <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden" style="margin-bottom: 10px">
+	        <div class="my-3 py-3" style="height: 250px">
+	          <h2 class="display-5">TRIPS</h2>
+	          <p class="lead">Frequency and schedule of routes</p>
+	        </div>
+	        <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 250px; border-radius: 21px 21px 0 0;"><img src="{%static 'img/trips.png' %}" width="100%" style="padding-top: 20%"></div>
+	      </div>
+	      <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden" style="margin-bottom: 10px">
+	        <div class="my-3 p-3" style="height: 250px">
+	          <h2 class="display-5">STOP</h2>
+	          <p class="lead">List of all the active stops and terminals.</p>
+	        </div>
+	        <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 250px; border-radius: 21px 21px 0 0;"><img src="{%static 'img/busStop1.png' %}" width="80%" style="padding-top: 20%"></div>
+	      </div>
+	      
+
+	      
+	    </div>		
+	</div>
+</div>
+
 {% endblock %}

@@ -116,11 +116,11 @@
     overflow: hidden;
     background: #000;
 
-    -webkit-filter: blur(1px);
-    -moz-filter: blur(1px);
-    -o-filter: blur(1px);
-    -ms-filter: blur(1px);
-    filter: blur(1px);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
 }
 
 .video-container .poster img {
@@ -133,6 +133,7 @@
     z-index: 100;
     position: absolute;
     background: rgba(0, 0, 0, 0.4);
+    filter: blur(60px);
     width: 100%;
 }
 
@@ -153,5 +154,82 @@
 .video-container video.fillWidth {
     width: 100%;
 }
+.right-half {
+    background-color: white !important;
+    padding: 0;
+    position: relative;
+    /*overflow: hidden;*/
+}
 
+.right-half .cover_div{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
 
+.right-half .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    /*background-color: rgba(102, 51, 53, 0.5);*/
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.cover_div .main {
+    margin-top: 25px;
+    color: white;
+    text-align: center;
+}
+
+.container .box {
+    position:relative;
+    width: 300px;
+    height:50px;
+    text-align:center;
+    margin:0 10px;
+    background:#00171d;
+    overflow:hidden;
+    border-radius:4px;
+}
+.container .box .icon {
+    width:100%;
+    height:100%;
+    background:#00171d;
+    transition: 0.5s;
+}
+.container .box .icon .fa {
+    font-size: 1.5em;
+    line-height:50px;
+    color: #fff;
+}
+.container .box:hover .icon {
+    transform:scale(0);
+}
+.container .box .details {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#5BC0DE;
+    transition:0.5s;
+    transform:scale(2);
+    opacity:0;
+}
+.container .box:hover .details {
+    transform:scale(1);
+    opacity:1;
+}
+.container .box .details h3 {
+    margin:0;
+    padding:0;
+    line-height:50px;
+    font-size:24px;
+    color:#fff;
+}
+.container {
+    display:flex;
+    margin-bottom: 20px;
+}

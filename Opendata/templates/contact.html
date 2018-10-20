@@ -1,5 +1,35 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% block nav4 %}active{% endblock %}
+
 {% block content %}
-Home page
+
+<div class="container-fluid">
+  <div class="position-relative overflow-hidden p-3 p-md-5 text-left bg-light"    >
+		<h1>Contact Us</h1>
+		<hr/>
+		<div class="row">
+			<div class="col-md-6 col-lg-6" style="margin-bottom: 100px;margin-top: 50px">
+				<form>
+				  <div class="form-group">
+				    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required="" placeholder="Email Address">
+				  </div>
+				  <div class="form-group">
+				    <input type="number" class="form-control" required="" placeholder="Phone Number">
+				  </div>
+				  <div class="form-group">
+				  	<textarea class="form-control" required="" id="exampleFormControlTextarea1" placeholder="Message" rows="3"></textarea>
+				  </div>
+				  <div style="align-content: center;">
+				  	<button type="submit" style="margin-left: auto;margin-right: auto; display: block;width: 200px" class="btn btn-success">Submit</button>
+				  </div>
+				</form>				
+			</div>
+			<div class="col-md-6 col-lg-6">
+
+			</div>
+		</div>
+	</div>
+</div>
+
 {% endblock %}
