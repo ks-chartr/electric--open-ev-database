@@ -20,7 +20,7 @@ from django.conf.urls import include, url
 
 urlpatterns = [
     url(r'^$', home),
-    url(r'^staticdata/$', staticData),
+    url(r'^datastatic/$', staticData),
     url(r'^dynamicdata/$', dynamicData),
     url(r'^contact/$', contact),
     url(r'^about/$', about),
