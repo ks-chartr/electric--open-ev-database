@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^contact/$', contact),
     url(r'^about/$', about),
     path('admin/', admin.site.urls),
+
 ]

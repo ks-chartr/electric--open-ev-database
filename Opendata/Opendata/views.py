@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from contactusform.models import ContactRequest
 
 def home(request):
 	args = {}
@@ -14,6 +15,17 @@ def dynamicData(request):
 
 def contact(request):
 	args = {}
+	if (request.method == 'POST'):
+		email = request.POST.get('email')
+		phone = request.POST.get('phone')
+		message = request.POST.get('message')
+		contactRequest = ContactRequest (
+			email = email,
+			phone = phone,
+			message = message
+			)
+		contactRequest.save()
+		args['success'] = 'succcess'		
 	return render(request, 'contact.html', args)
 
 def about(request):
