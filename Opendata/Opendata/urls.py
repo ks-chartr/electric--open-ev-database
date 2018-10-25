@@ -24,6 +24,9 @@ urlpatterns = [
     url(r'^dynamicdata/$', dynamicData),
     url(r'^contact/$', contact),
     url(r'^about/$', about),
+    url(r'^documentation/$', documentation),
+    url(r'^terms/$', terms),
+    url(r'^privacy/$', privacy),
     path('admin/', admin.site.urls),
 
 ]
