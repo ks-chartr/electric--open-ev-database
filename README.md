@@ -15,12 +15,10 @@ Instructions for setup
 - Install the project's runtime requirements
 
     *use of virtualenv is recommended
+    
+        virtualenv -p python3.x venv
 
         pip install -r requirements.txt
-        
-        or
-        
-        pip3/3.x install -r requirements.txt
 
 
         python manage.py makemigrations
