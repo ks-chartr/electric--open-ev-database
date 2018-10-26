@@ -256,3 +256,9 @@
   background-color: #398EB4;
 
 }
+
+.bus_1 {
+    height: 200px;
+    margin: 0 auto;
+    display: block;
+}
