@@ -18,14 +18,16 @@ from django.urls import path
 from Opendata.views import *
 from django.conf.urls import include, url
 
+
 urlpatterns = [
     url(r'^$', home),
-    url(r'^datastatic/$', staticData),
-    url(r'^dynamicdata/$', dynamicData),
+    url(r'^data/static/$', staticData),
+    url(r'^data/realtime/$', dynamicData),
     url(r'^contact/$', contact),
     url(r'^about/$', about),
     url(r'^documentation/$', documentation),
     url(r'^terms/$', terms),
+    url(r'^policy/$', policy),
     url(r'^privacy/$', privacy),
     path('admin/', admin.site.urls),
 

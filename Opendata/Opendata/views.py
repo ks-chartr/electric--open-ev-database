@@ -1,9 +1,12 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from contactusform.models import *
+
 
 def home(request):
 	args = {}
 	return render(request, 'index.html', args)
+
 
 def staticData(request):
 	args = {}
@@ -25,9 +28,11 @@ def staticData(request):
 
 	return render(request, 'staticData.html', args)
 
+
 def dynamicData(request):
 	args = {}
 	return render(request, 'dynamicData.html', args)
+
 
 def contact(request):
 	args = {}
@@ -35,31 +40,45 @@ def contact(request):
 		email = request.POST.get('email')
 		phone = request.POST.get('phone')
 		message = request.POST.get('message')
-		contactRequest = ContactRequest (
-			email = email,
-			phone = phone,
-			message = message
-			)
+		contactRequest = ContactRequest(
+			email=email,
+			phone=phone,
+			message=message
+		)
 		contactRequest.save()
-		args['success'] = 'succcess'		
+		args['success'] = 'succcess'
 	return render(request, 'contact.html', args)
+
 
 def about(request):
 	args = {}
 	return render(request, 'about.html', args)
 
+
 def documentation(request):
 	args = {}
 	return render(request, 'documentation.html', args)
 
+
 def terms(request):
 	args = {}
-	terms = Terms.objects.all()
-	args['terms'] = terms
-	return render(request, 'terms.html', args)
+	# terms = Terms.objects.all()
+	# args['terms'] = terms
+	return HttpResponseRedirect("/static/assets/terms-and-conditions.pdf")
+	# return render(request, 'terms.html', args)
+
+
+def policy(request):
+	args = {}
+	# policy = Policy.objects.all()
+	# args['policies'] = policy
+	return HttpResponseRedirect("/static/assets/policy.pdf")
+	# return render(request, 'privacy.html', args)
+
 
 def privacy(request):
 	args = {}
-	policy = Policy.objects.all()
-	args['policies'] = policy
-	return render(request, 'privacy.html', args)
+	# policy = Policy.objects.all()
+	# args['policies'] = policy
+	return HttpResponseRedirect("/static/assets/privacy.pdf")
+	# return render(request, 'privacy.html', args)

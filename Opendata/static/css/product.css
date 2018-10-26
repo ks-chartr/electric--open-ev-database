@@ -7,7 +7,7 @@
  */
 
 .sticky-nav {
-  box-shadow: 2px 2px 2px 2px transparent;
+  box-shadow: 2px 2px 2px 2px transparent !important;
 }
 .site-header {
   background-color: rgba(0, 0, 0, .85);
@@ -261,4 +261,15 @@
     height: 200px;
     margin: 0 auto;
     display: block;
+}
+.lead {
+    font-size: 16px;
+}
+
+.lead > i {
+    font-size: 12px;
+}
+
+._p_small{
+    font-size: smaller;
 }
