@@ -17,6 +17,10 @@ Instructions for setup
     *use of virtualenv is recommended
 
         pip install -r requirements.txt
+        
+        or
+        
+        pip3/3.x install -r requirements.txt
 
 
         python manage.py makemigrations
