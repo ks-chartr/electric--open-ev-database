@@ -1,5 +1,6 @@
 # Create your models here.
 from django.db.models import * 
+from tinymce.models import HTMLField
 
 class ContactRequest(Model):
 	email = CharField(max_length=100)
@@ -11,6 +12,7 @@ class ContactRequest(Model):
 
 class Terms(Model):
 	text = CharField(max_length=200)
+	content = HTMLField()
 	def __str__(self):
 		return self.text
 

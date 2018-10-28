@@ -62,10 +62,11 @@ def documentation(request):
 
 def terms(request):
 	args = {}
-	# terms = Terms.objects.all()
-	# args['terms'] = terms
-	return HttpResponseRedirect("/static/assets/terms-and-conditions.pdf")
-	# return render(request, 'terms.html', args)
+	terms = Terms.objects.all()
+	# print(terms)
+	args['terms'] = terms
+	# return HttpResponseRedirect("/static/assets/terms-and-conditions.pdf")
+	return render(request, 'terms.html', args)
 
 
 def policy(request):

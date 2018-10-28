@@ -30,5 +30,6 @@ urlpatterns = [
     url(r'^policy/$', policy),
     url(r'^privacy/$', privacy),
     path('admin/', admin.site.urls),
+    url(r'^tinymce/', include('tinymce.urls')),
 
 ]

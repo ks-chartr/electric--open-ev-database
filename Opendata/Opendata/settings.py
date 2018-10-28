@@ -27,17 +27,19 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
+DJANGO_WYSIWYG_FLAVOR = "tinymce"
 # Application definition
 
 INSTALLED_APPS = [
     'contactusform.apps.ContactusformConfig',
+    'django_wysiwyg',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +124,4 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+# STATIC_ROOT = 'staticfiles'

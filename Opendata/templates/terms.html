@@ -6,15 +6,11 @@
   <div class="position-relative overflow-hidden p-3 p-md-5 text-left bg-light" style="min-height: 600px">
 		<h1 >Terms and Conditions</h1>
 		<hr/>
-		<div class="row">
-			{% if terms %}
-			<ul>
-			 {% for term in terms %}
-				<li>{{ term }}</li>
-			 {% endfor %}
-			</ul>
-			{% endif %}
-		</div>
+		{% if terms %}
+		 {% for term in terms %}
+			{{ term.content | safe }}
+		 {% endfor %}
+		{% endif %}
 
 	</div>
 </div>

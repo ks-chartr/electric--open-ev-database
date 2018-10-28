@@ -85,7 +85,7 @@
                 <li><a class="text-muted" target="_blank"
                        href="http://traffickarma.iiitd.edu.in:9010/static/agency.txt">Agency</a></li>
                 <li><a class="text-muted" target="_blank"
-                       href="http://delhi.gov.in/wps/wcm/connect/doit/Delhi+Govt/Delhi+Home">Delhi Govt.</a></li>
+                       href="http://delhi.gov.in/wps/wcm/connect/doit/Delhi+Govt/Delhi+Home">Delhi Government</a></li>
                 <li><a class="text-muted" target="_blank" href="https://iiitd.ac.in/">IIIT-Delhi</a></li>
             </ul>
         </div>
@@ -98,8 +98,6 @@
         <div class="col-6 col-md">
             <a target="_blank" href="http://delhi.gov.in/wps/wcm/connect/doit/Delhi+Govt/Delhi+Home"><img
                     src="{% static 'img/delhisarkar.png' %}" width="100%" style="padding-top: 20px"/></a>
-        </div>
-        <div class="col-6 col-md">
             <a target="_blank" href="https://iiitd.ac.in/"><img src="{% static 'img/iiitdlogo.png' %}"
                                                                 width="100%"/></a>
         </div>
@@ -107,6 +105,12 @@
             <div style="align-content: center;">
                 <a target="_blank" href="http://delhi.gov.in/wps/wcm/connect/DOIT_DTC/dtc/home">
                     <img src="{% static 'img/dtc.png' %}" width="80%"
+                         style="margin-left: auto;margin-right: auto; display: block;">
+                </a>
+            </div>
+            <div style="align-content: center;">
+                <a target="_blank" href="http://delhi.gov.in/wps/wcm/connect/DOIT_DTC/dtc/home">
+                    <img src="{% static 'img/dimts.jpg' %}" width="80%"
                          style="margin-left: auto;margin-right: auto; display: block;">
                 </a>
             </div>
@@ -153,5 +157,16 @@
         text: 'Thumbnail'
     });
 </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128216091-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128216091-1');
+</script>
+
+
 </body>
 </html>
