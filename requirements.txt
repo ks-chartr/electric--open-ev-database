@@ -1,2 +1,4 @@
 Django==2.1.2
+django-tinymce==2.7.0
+django-wysiwyg==0.8.0
 pytz==2018.5
