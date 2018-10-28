@@ -64,9 +64,10 @@ def terms(request):
 	args = {}
 	terms = Terms.objects.all()
 	# print(terms)
-	args['terms'] = terms
-	# return HttpResponseRedirect("/static/assets/terms-and-conditions.pdf")
-	return render(request, 'terms.html', args)
+	if (terms):
+		args['terms'] = terms
+		return render(request, 'terms.html', args)
+	return HttpResponseRedirect("/static/assets/terms-and-conditions.pdf")
 
 
 def policy(request):
