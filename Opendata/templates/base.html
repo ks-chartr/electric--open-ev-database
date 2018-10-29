@@ -16,6 +16,7 @@
 
     <!-- Custom styles for this template -->
     <link href="{% static 'css/product.css' %}" rel="stylesheet">
+    {#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">#}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
@@ -35,18 +36,15 @@
             <li class="nav-item {% block nav1 %}{% endblock %}">
                 <a class="nav-link" href="/">Home</a>
             </li>
-            <li class="nav-item {% block nav6 %}{% endblock %}">
-                <a class="nav-link" href="/documentation">Documentation</a>
-            </li>
+
             <li class="nav-item {% block nav2 %}{% endblock %}">
                 <a class="nav-link" href="/data/static">Static Data</a>
             </li>
             <li class="nav-item {% block nav3 %}{% endblock %}">
                 <a class="nav-link" href="/data/realtime">Real Time Data</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" target="_blank" href="http://traffickarma.iiitd.edu.in:9010/" targe="_blank">Routes
-                    Visualiser</a>
+            <li class="nav-item {% block nav6 %}{% endblock %}">
+                <a class="nav-link" href="/documentation">Documentation</a>
             </li>
             <li class="nav-item {% block nav4 %}{% endblock %}">
                 <a class="nav-link" href="/contact">Contact</a>
@@ -75,8 +73,8 @@
             <h5>Data</h5>
             <ul class="list-unstyled text-small">
                 <li><a class="text-muted" href="/documentation">Documentation</a></li>
-                <li><a class="text-muted" href="/datastatic">Static Data</a></li>
-                <li><a class="text-muted" href="/dynamicdata">Real Time Data</a></li>
+                <li><a class="text-muted" href="/data/static">Static Data</a></li>
+                <li><a class="text-muted" href="/data/realtime">Real Time Data</a></li>
             </ul>
         </div>
         <div class="col-6 col-md">
@@ -110,7 +108,7 @@
             </div>
             <div style="align-content: center;">
                 <a target="_blank" href="http://delhi.gov.in/wps/wcm/connect/DOIT_DTC/dtc/home">
-                    <img src="{% static 'img/dimts.jpg' %}" width="80%"
+                    <img class="dimts_logo" src="{% static 'img/dimts.jpg' %}"
                          style="margin-left: auto;margin-right: auto; display: block;">
                 </a>
             </div>
@@ -143,13 +141,13 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="{%static "js/jquery-slim.min.js" %}"><\/script>')</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="{% static 'js/popper.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
+{#<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>#}
+{#<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.fileDownload/1.4.2/jquery.fileDownload.min.js"></script>#}
+<script src="{% static 'js/main.js' %}"></script>
 <script>
     Holder.addTheme('thumb', {
         bg: '#55595c',
@@ -160,11 +158,15 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128216091-1"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'UA-128216091-1');
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'UA-128216091-1');
 </script>
 
 

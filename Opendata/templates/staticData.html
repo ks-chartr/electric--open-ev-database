@@ -14,11 +14,9 @@
                         <h2 class="display-5">STOPS</h2>
                         <p class="lead"><i>Count: 8371</i><br/>List of all the active stops and terminals.</p>
                     </div>
-                    <a href="http://traffickarma.iiitd.edu.in:9010/stops.html" target="_blank">
-                        <button class="btn btn-default download-button dark">visualise</button>
-                    </a><br/><br/>
+
                     <a href="http://traffickarma.iiitd.edu.in:9010/static/stops.txt" target="_blank">
-                        <button class="btn btn-default download-button dark">download data</button>
+                        <button class="btn btn-default download-button dark download_btn">download data</button>
                     </a>
                     <p><i>Last Updated: </i>{{ stopLastUpdated }}<br/></p>
                     <div class="bg-dark shadow-sm mx-auto"
@@ -31,12 +29,9 @@
                         <h2 class="display-5">ROUTES</h2>
                         <p class="lead"><i>Count: 543</i><br/>Information about all the routes plying in Delhi</p>
                     </div>
-                    <a href="http://traffickarma.iiitd.edu.in:9010/routes.html" target="_blank">
-                        <button class="btn btn-default download-button light">visualise</button>
-                    </a><br/><br/>
                     <a href="http://traffickarma.iiitd.edu.in:9010/static/routes.txt" target="_blank">
-                        <button class="btn btn-default download-button light">download data</button>
-                    </a><br/>
+                        <button class="btn btn-default download-button light download_btn">download data</button>
+                    </a>
                     <p><i>Last Updated: </i>{{ routesLastUpdated }}<br/></p>
                     <div class="bg-light shadow-sm mx-auto"
                          style="width: 80%; height: 250px; border-radius: 21px 21px 0 0;"><img
@@ -50,8 +45,8 @@
                         <p class="lead"><i>Count: 389145</i><br/>Approximate arrival and departure times of buses on the
                             stops</p>
                     </div>
-                    <br/><br/><a href="http://traffickarma.iiitd.edu.in:9010/static/stop_times.txt" target="_blank">
-                    <button class="btn btn-default download-button dark">download data</button>
+                    <a href="http://traffickarma.iiitd.edu.in:9010/static/stop_times.txt" target="_blank">
+                    <button class="btn btn-default download-button dark download_btn">download data</button>
                 </a>
                     <p><i>Last Updated: </i>{{ stopTimeLastUpdated }}<br/></p>
                     <div class="bg-dark shadow-sm mx-auto"
@@ -64,8 +59,8 @@
                         <h2 class="display-5">TRIPS</h2>
                         <p class="lead"><i>Count: 16562</i><br/>Frequency and schedule of routes</p>
                     </div>
-                    <br/><br/><a href="http://traffickarma.iiitd.edu.in:9010/static/trips.txt" target="_blank">
-                    <button class="btn btn-default download-button light">download data</button>
+                    <a href="http://traffickarma.iiitd.edu.in:9010/static/trips.txt" download="_blank">
+                    <button class="btn btn-default download-button light download_btn">download data</button>
                 </a>
                     <p><i>Last Updated: </i>{{ tripsLastUpdated }}<br/></p>
                     <div class="bg-light shadow-sm mx-auto"
