@@ -26,6 +26,23 @@ def staticData(request):
 	if (len(stopLastUpdated)):
 		args['stopLastUpdated'] = stopLastUpdated[0].date
 
+	if request.method == 'POST':
+		name = request.POST.get('name')
+		number = request.POST.get('number')
+		org = request.POST.get('org')
+		purpose = request.POST.get('purpose')
+		dataDownloaded = request.POST.get('dataDownloaded')
+		downloadData = DownloadData(
+			name=name,
+			number=number,
+			org=org,
+			purpose=purpose,
+			dataDownloaded=dataDownloaded
+		)
+		downloadData.save()
+		args['success'] = 'success'
+		return HttpResponseRedirect('http://traffickarma.iiitd.edu.in:9010/static/'+dataDownloaded+'.txt')
+
 	return render(request, 'staticData.html', args)
 
 

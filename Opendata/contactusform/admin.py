@@ -7,6 +7,8 @@ admin.site.register(RoutesLastUpdated)
 admin.site.register(StopTimeLastUpdated)
 admin.site.register(TripsLastUpdated)
 admin.site.register(StopLastUpdated)
+admin.site.register(DownloadData)
+
 
 class TermsAdmin(admin.ModelAdmin):
     change_form_template = 'contactusform/admin/change_form.html'

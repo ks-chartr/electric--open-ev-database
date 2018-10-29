@@ -1,6 +1,174 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
+{% block modal %}
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Download Data</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+				<form method="POST" action="/data/static/">
+				  <input type='hidden' name='csrfmiddlewaretoken' value='{{csrf_token}}' >
+				  <input type='hidden' name='dataDownloaded' value='stops' >
+				  <div class="form-group">
+				    <input type="name" class="form-control" id="exampleInputname1" aria-describedby="nameHelp" required="" placeholder="Name" name="name">
+				  </div>
+				  <div class="form-group">
+				    <input name="number" type="number" class="form-control" required="" placeholder="Phone Number">
+				  </div>
+				  <div class="form-group">
+				  	<input  name="org" class="form-control" required="" id="exampleFormControlTextarea1" placeholder="Organisation" >
+				  </div>
+				  <div class="form-group">
+				  	<select class="custom-select" name="purpose"  required="">
+					  <option selected>Purpose</option>
+					  <option value="Academic">Academic</option>
+					  <option value="Commercial">Commercial</option>
+					  <option value="Development">Development</option>
+					  <option value="others">others</option>
+					</select>
+				  </div>
+				  <div style="align-content: center;">
+				  	<button type="submit" style="margin-left: auto;margin-right: auto; display: block;width: 200px" class="btn btn-primary">Submit</button>
+				  </div>
+				</form>	        	
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Download Data</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+				<form method="POST" action="/data/static/">
+				  <input type='hidden' name='csrfmiddlewaretoken' value='{{csrf_token}}' >
+				  <input type='hidden' name='dataDownloaded' value='routes' >
+				  <div class="form-group">
+				    <input type="name" class="form-control" id="exampleInputname1" aria-describedby="nameHelp" required="" placeholder="Name" name="name">
+				  </div>
+				  <div class="form-group">
+				    <input name="number" type="number" class="form-control" required="" placeholder="Phone Number">
+				  </div>
+				  <div class="form-group">
+				  	<input  name="org" class="form-control" required="" id="exampleFormControlTextarea1" placeholder="Organisation" >
+				  </div>
+				  <div class="form-group">
+				  	<select class="custom-select" name="purpose"  required="">
+					  <option selected>Purpose</option>
+					  <option value="Academic">Academic</option>
+					  <option value="Commercial">Commercial</option>
+					  <option value="Development">Development</option>
+					  <option value="others">others</option>
+					</select>
+				  </div>
+				  <div style="align-content: center;">
+				  	<button type="submit" style="margin-left: auto;margin-right: auto; display: block;width: 200px" class="btn btn-primary">Submit</button>
+				  </div>
+				</form>	        	
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Download Data</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+				<form method="POST" action="/data/static/">
+				  <input type='hidden' name='csrfmiddlewaretoken' value='{{csrf_token}}' >
+				  <input type='hidden' name='dataDownloaded' value='stop_times' >
+				  <div class="form-group">
+				    <input type="name" class="form-control" id="exampleInputname1" aria-describedby="nameHelp" required="" placeholder="Name" name="name">
+				  </div>
+				  <div class="form-group">
+				    <input name="number" type="number" class="form-control" required="" placeholder="Phone Number">
+				  </div>
+				  <div class="form-group">
+				  	<input  name="org" class="form-control" required="" id="exampleFormControlTextarea1" placeholder="Organisation" >
+				  </div>
+				  <div class="form-group">
+				  	<select class="custom-select" name="purpose"  required="">
+					  <option selected>Purpose</option>
+					  <option value="Academic">Academic</option>
+					  <option value="Commercial">Commercial</option>
+					  <option value="Development">Development</option>
+					  <option value="others">others</option>
+					</select>
+				  </div>
+				  <div style="align-content: center;">
+				  	<button type="submit" style="margin-left: auto;margin-right: auto; display: block;width: 200px" class="btn btn-primary">Submit</button>
+				  </div>
+				</form>	        	
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Download Data</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+				<form method="POST" action="/data/static/">
+				  <input type='hidden' name='csrfmiddlewaretoken' value='{{csrf_token}}' >
+				  <input type='hidden' name='dataDownloaded' value='trips' >
+				  <div class="form-group">
+				    <input type="name" class="form-control" id="exampleInputname1" aria-describedby="nameHelp" required="" placeholder="Name" name="name">
+				  </div>
+				  <div class="form-group">
+				    <input name="number" type="number" class="form-control" required="" placeholder="Phone Number">
+				  </div>
+				  <div class="form-group">
+				  	<input  name="org" class="form-control" required="" id="exampleFormControlTextarea1" placeholder="Organisation" >
+				  </div>
+				  <div class="form-group">
+				  	<select class="custom-select" name="purpose"  required="">
+					  <option selected>Purpose</option>
+					  <option value="Academic">Academic</option>
+					  <option value="Commercial">Commercial</option>
+					  <option value="Development">Development</option>
+					  <option value="others">others</option>
+					</select>
+				  </div>
+				  <div style="align-content: center;">
+				  	<button type="submit" style="margin-left: auto;margin-right: auto; display: block;width: 200px" class="btn btn-primary">Submit</button>
+				  </div>
+				</form>	        	
+	      </div>
+	    </div>
+	  </div>
+	</div>				
+
+
+	{% endblock %}
+
 {% block nav2 %}active{% endblock %}
 {% block content %}
     <div class="container-fluid">
@@ -17,9 +185,7 @@
                     <a href="http://traffickarma.iiitd.edu.in:9010/stops.html" target="_blank">
                         <button class="btn btn-default download-button dark">visualise</button>
                     </a><br/><br/>
-                    <a href="http://traffickarma.iiitd.edu.in:9010/static/stops.txt" target="_blank">
-                        <button class="btn btn-default download-button dark">download data</button>
-                    </a>
+                    <button data-toggle="modal" data-target="#exampleModal1" class="btn btn-default download-button dark">download data</button>
                     <p><i>Last Updated: </i>{{ stopLastUpdated }}<br/></p>
                     <div class="bg-dark shadow-sm mx-auto"
                          style="width: 80%; height: 250px; border-radius: 21px 21px 0 0;"><img
@@ -34,9 +200,8 @@
                     <a href="http://traffickarma.iiitd.edu.in:9010/routes.html" target="_blank">
                         <button class="btn btn-default download-button light">visualise</button>
                     </a><br/><br/>
-                    <a href="http://traffickarma.iiitd.edu.in:9010/static/routes.txt" target="_blank">
-                        <button class="btn btn-default download-button light">download data</button>
-                    </a><br/>
+                    <button data-toggle="modal" data-target="#exampleModal2" class="btn btn-default download-button light">download data</button>
+                    <br/>
                     <p><i>Last Updated: </i>{{ routesLastUpdated }}<br/></p>
                     <div class="bg-light shadow-sm mx-auto"
                          style="width: 80%; height: 250px; border-radius: 21px 21px 0 0;"><img
@@ -50,9 +215,8 @@
                         <p class="lead"><i>Count: 389145</i><br/>Approximate arrival and departure times of buses on the
                             stops</p>
                     </div>
-                    <br/><br/><a href="http://traffickarma.iiitd.edu.in:9010/static/stop_times.txt" target="_blank">
-                    <button class="btn btn-default download-button dark">download data</button>
-                </a>
+                    <br/><br/>
+                    <button data-toggle="modal" data-target="#exampleModal3"  class="btn btn-default download-button dark">download data</button>
                     <p><i>Last Updated: </i>{{ stopTimeLastUpdated }}<br/></p>
                     <div class="bg-dark shadow-sm mx-auto"
                          style="width: 80%; height: 250px; border-radius: 21px 21px 0 0;"><img
@@ -64,9 +228,8 @@
                         <h2 class="display-5">TRIPS</h2>
                         <p class="lead"><i>Count: 16562</i><br/>Frequency and schedule of routes</p>
                     </div>
-                    <br/><br/><a href="http://traffickarma.iiitd.edu.in:9010/static/trips.txt" target="_blank">
-                    <button class="btn btn-default download-button light">download data</button>
-                </a>
+                    <br/><br/>
+                    <button  data-toggle="modal" data-target="#exampleModal4"  class="btn btn-default download-button light">download data</button>
                     <p><i>Last Updated: </i>{{ tripsLastUpdated }}<br/></p>
                     <div class="bg-light shadow-sm mx-auto"
                          style="width: 80%; height: 250px; border-radius: 21px 21px 0 0;"><img

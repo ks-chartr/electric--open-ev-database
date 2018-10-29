@@ -17,6 +17,7 @@
     <!-- Custom styles for this template -->
     <link href="{% static 'css/product.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% block modal %}{% endblock %}
 
 </head>
 
@@ -165,6 +166,15 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-128216091-1');
+
+  function forceDownload(href) {
+    var anchor = document.createElement('a');
+    anchor.href = href;
+    anchor.download = href;
+    anchor.target = '_blank'
+    document.body.appendChild(anchor);
+    anchor.click();
+  }
 </script>
 
 

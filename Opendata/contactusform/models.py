@@ -42,3 +42,15 @@ class StopLastUpdated(Model):
 	date = DateField()
 	def __str__(self):
 		return self.text
+class DownloadData(Model):
+	name = CharField(max_length=100)
+	number = CharField(max_length=100)
+	org = CharField(max_length=100)
+	purpose = CharField(max_length=100)
+	dataDownloaded = CharField(max_length=100, null=True, default='')
+	def __str__(self):
+		return self.name
+
+
+
+
