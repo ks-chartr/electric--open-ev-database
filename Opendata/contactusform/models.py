@@ -5,6 +5,7 @@ from tinymce.models import HTMLField
 class ContactRequest(Model):
 	email = CharField(max_length=100)
 	phone = CharField(max_length=100)
+	subject = CharField(max_length=100)
 	message = TextField()
 	def __str__(self):
 		return self.email
@@ -43,13 +44,13 @@ class StopLastUpdated(Model):
 	def __str__(self):
 		return self.text
 class DownloadData(Model):
-	name = CharField(max_length=100)
-	number = CharField(max_length=100)
-	org = CharField(max_length=100)
-	purpose = CharField(max_length=100)
+	name = CharField(max_length=100, null=True, default='')
+	email = CharField(max_length=100, null=True, default='')
+	usageType = CharField(max_length=100, null=True, default='')
+	purpose = CharField(max_length=300, null=True, default='')
 	dataDownloaded = CharField(max_length=100, null=True, default='')
 	def __str__(self):
-		return self.name
+		return self.name + ' ' +self.usageType
 
 
 
