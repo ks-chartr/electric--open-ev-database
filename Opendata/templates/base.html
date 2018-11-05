@@ -16,6 +16,7 @@
 
     <!-- Custom styles for this template -->
     <link href="{% static 'css/product.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-multiselect.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {% block modal %}{% endblock %}
 
@@ -145,7 +146,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="{% static 'js/popper.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-multiselect.js' %}"></script>
 <script>
     Holder.addTheme('thumb', {
         bg: '#55595c',
@@ -161,6 +162,18 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-128216091-1');
+
+  function forceDownload(href) {
+    var anchor = document.createElement('a');
+    anchor.href = href;
+    anchor.download = href;
+    anchor.target = '_blank'
+    document.body.appendChild(anchor);
+    anchor.click();
+  }
+  $(document).ready(function() {
+        $('.multiselect').multiselect();
+    });
 </script>
 
 

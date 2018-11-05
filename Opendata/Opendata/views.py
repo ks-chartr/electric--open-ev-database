@@ -27,15 +27,15 @@ def staticData(request):
 		args['stopLastUpdated'] = stopLastUpdated[0].date
 
 	if request.method == 'POST':
-		name = request.POST.get('name')
-		number = request.POST.get('number')
-		org = request.POST.get('org')
-		purpose = request.POST.get('purpose')
+		name = request.POST.get('name') or ''
+		email = request.POST.get('email') or ''
+		usageType = request.POST.get('usageType')
+		purpose = str(request.POST.getlist('purpose'))
 		dataDownloaded = request.POST.get('dataDownloaded')
 		downloadData = DownloadData(
 			name=name,
-			number=number,
-			org=org,
+			email=email,
+			usageType=usageType,
 			purpose=purpose,
 			dataDownloaded=dataDownloaded
 		)
@@ -57,10 +57,12 @@ def contact(request):
 		email = request.POST.get('email')
 		phone = request.POST.get('phone')
 		message = request.POST.get('message')
+		subject = request.POST.get('subject')
 		contactRequest = ContactRequest(
 			email=email,
 			phone=phone,
-			message=message
+			message=message,
+			subject=subject
 		)
 		contactRequest.save()
 		args['success'] = 'succcess'

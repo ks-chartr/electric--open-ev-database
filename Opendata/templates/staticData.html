@@ -2,224 +2,245 @@
 {% load staticfiles %}
 
 {% block modal %}
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Download Data</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form method="POST" action="/data/static/">
-                        <input type='hidden' name='csrfmiddlewaretoken' value='{{ csrf_token }}'>
-                        <input type='hidden' name='dataDownloaded' value='stops'>
-                        <div class="form-group">
-                            <input type="name" class="form-control" id="exampleInputname1" aria-describedby="nameHelp"
-                                   required="" placeholder="Name" name="name">
-                        </div>
-                        <div class="form-group">
-                            <input name="number" type="number" class="form-control" required=""
-                                   placeholder="Phone Number">
-                        </div>
-                        <div class="form-group">
-                            <input name="org" class="form-control" required="" id="exampleFormControlTextarea1"
-                                   placeholder="Organisation">
-                        </div>
-                        <div class="form-group">
-                            <select class="custom-select" name="purpose" required="">
-                                <option selected>Purpose</option>
-                                <option value="Academic">Academic</option>
-                                <option value="Commercial">Commercial</option>
-                                <option value="Development">Development</option>
-                                <option value="others">others</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <input class="form-check-inline" type="checkbox" required>By clicking this, you agree to our
-                            <a target="_blank" href="/terms">Terms
-                                and Conditions</a>, <a target="_blank" href="/policy">Usage Policy</a>, <a
-                                target="_blank" href="/privacy">Privacy
-                            Policy</a>
-                        </div>
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h6 class="modal-title" id="exampleModalLabel">Kindly state purpose of downloading this resource.</h6>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+				<form method="POST" action="/data/static/">
+				  <input type='hidden' name='csrfmiddlewaretoken' value='{{csrf_token}}' >
+				  <input type='hidden' name='dataDownloaded' value='stops' >
+				  <div class="form-group">
+				  	<label for="usageType" style="margin-right: 20px"><b>Usage Type*</b></label><br/>
+					  <input type="radio" value="Commercial" name="usageType" >
+				  	<label for="usageType" style="margin-right: 20px">Commercial</label>
+					  <input type="radio" value="NonCommercial" name="usageType">
+				  	<label for="usageType">Non-Commercial</label>
+					</select>
+				  </div>
+				  <div class="form-group">
+				  	<label for="purpose"><b>Purpose*</b></label><br/>
+					  <input type="checkbox" name="purpose" value="Academia">
+					  <label for="Academia" style="margin-right: 20px">Academia</label>
+					  <input type="checkbox" name="purpose" value="R&D">
+					  <label>R&D</label><br/>
+					  <input type="checkbox" name="purpose" value="Business">
+					  <label style="margin-right: 20px">Business</label>
+					  <input type="checkbox" name="purpose" value="Journalistic">
+					  <label>Journalistic</label><br/>
+					  <input type="checkbox" name="purpose" value="Govt Use">
+					  <label style="margin-right: 20px">Govt Use</label>
+					  <input type="checkbox" name="purpose" value="Other">
+					  <label>Other</label><br/>
+				  </div>
+				  <div class="form-group">
+				    <input type="name" class="form-control" id="exampleInputname1" aria-describedby="nameHelp" placeholder="Name" name="name">
+				  </div>
+				  <div class="form-group">
+				    <input name="email" type="email" class="form-control" placeholder="E-mail">
+				  </div>
+				  <div class="form-group">
+					  <input type="checkbox" required="">
+					  By clicking this, you agree to our
+	                    <a target="_blank" href="/terms">Terms
+	                        and Conditions</a>, <a target="_blank" href="/policy">Usage Policy</a>, <a
+	                        target="_blank" href="/privacy">Privacy
+	                     Policy</a><br/>	
+                  </div>
+				  <div style="align-content: center;">
+				  	<button type="submit" style="margin-left: auto;margin-right: auto; display: block;width: 200px" class="btn btn-primary">Submit</button>
+				  </div>
+				</form>	        	
+	      </div>
+	    </div>
+	  </div>
+	</div>
 
-                        <div style="align-content: center;">
-                            <button type="submit"
-                                    style="margin-left: auto;margin-right: auto; display: block;width: 200px"
-                                    class="btn btn-primary">Submit
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Download Data</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form method="POST" action="/data/static/">
-                        <input type='hidden' name='csrfmiddlewaretoken' value='{{ csrf_token }}'>
-                        <input type='hidden' name='dataDownloaded' value='routes'>
-                        <div class="form-group">
-                            <input type="name" class="form-control" id="exampleInputname1" aria-describedby="nameHelp"
-                                   required="" placeholder="Name" name="name">
-                        </div>
-                        <div class="form-group">
-                            <input name="number" type="number" class="form-control" required=""
-                                   placeholder="Phone Number">
-                        </div>
-                        <div class="form-group">
-                            <input name="org" class="form-control" required="" id="exampleFormControlTextarea1"
-                                   placeholder="Organisation">
-                        </div>
-                        <div class="form-group">
-                            <select class="custom-select" name="purpose" required="">
-                                <option selected>Purpose</option>
-                                <option value="Academic">Academic</option>
-                                <option value="Commercial">Commercial</option>
-                                <option value="Development">Development</option>
-                                <option value="others">others</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <input class="form-check-inline" type="checkbox" required>By clicking this, you agree to our
-                            <a target="_blank" href="/terms">Terms
-                                and Conditions</a>, <a target="_blank" href="/policy">Usage Policy</a>, <a
-                                target="_blank" href="/privacy">Privacy
-                            Policy</a>
-                        </div>
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h6 class="modal-title" id="exampleModalLabel">Kindly state purpose of downloading this resource.</h6>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+				<form method="POST" action="/data/static/">
+				  <input type='hidden' name='csrfmiddlewaretoken' value='{{csrf_token}}' >
+				  <input type='hidden' name='dataDownloaded' value='routes' >
+				  <div class="form-group">
+				  	<label for="usageType" style="margin-right: 20px"><b>Usage Type*</b></label><br/>
+					  <input type="radio" value="Commercial" name="usageType" >
+				  	<label for="usageType" style="margin-right: 20px">Commercial</label>
+					  <input type="radio" value="NonCommercial" name="usageType">
+				  	<label for="usageType">Non-Commercial</label>
+					</select>
+				  </div>
+				  <div class="form-group">
+				  	<label for="purpose"><b>Purpose*</b></label><br/>
+					  <input type="checkbox" name="purpose" value="Academia">
+					  <label for="Academia" style="margin-right: 20px">Academia</label>
+					  <input type="checkbox" name="purpose" value="R&D">
+					  <label>R&D</label><br/>
+					  <input type="checkbox" name="purpose" value="Business">
+					  <label style="margin-right: 20px">Business</label>
+					  <input type="checkbox" name="purpose" value="Journalistic">
+					  <label>Journalistic</label><br/>
+					  <input type="checkbox" name="purpose" value="Govt Use">
+					  <label style="margin-right: 20px">Govt Use</label>
+					  <input type="checkbox" name="purpose" value="Other">
+					  <label>Other</label><br/>
+				  </div>
+				  <div class="form-group">
+				    <input type="name" class="form-control" id="exampleInputname1" aria-describedby="nameHelp" placeholder="Name" name="name">
+				  </div>
+				  <div class="form-group">
+				    <input name="email" type="email" class="form-control" placeholder="E-mail">
+				  </div>
+				  <div class="form-group">
+					  <input type="checkbox" required="">
+					  By clicking this, you agree to our
+	                    <a target="_blank" href="/terms">Terms
+	                        and Conditions</a>, <a target="_blank" href="/policy">Usage Policy</a>, <a
+	                        target="_blank" href="/privacy">Privacy
+	                     Policy</a><br/>	
+                  </div>
+				  <div style="align-content: center;">
+				  	<button type="submit" style="margin-left: auto;margin-right: auto; display: block;width: 200px" class="btn btn-primary">Submit</button>
+				  </div>
+				</form>	        	
+	      </div>
+	    </div>
+	  </div>
+	</div>
 
-                        <div style="align-content: center;">
-                            <button type="submit"
-                                    style="margin-left: auto;margin-right: auto; display: block;width: 200px"
-                                    class="btn btn-primary">Submit
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Download Data</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form method="POST" action="/data/static/">
-                        <input type='hidden' name='csrfmiddlewaretoken' value='{{ csrf_token }}'>
-                        <input type='hidden' name='dataDownloaded' value='stop_times'>
-                        <div class="form-group">
-                            <input type="name" class="form-control" id="exampleInputname1" aria-describedby="nameHelp"
-                                   required="" placeholder="Name" name="name">
-                        </div>
-                        <div class="form-group">
-                            <input name="number" type="number" class="form-control" required=""
-                                   placeholder="Phone Number">
-                        </div>
-                        <div class="form-group">
-                            <input name="org" class="form-control" required="" id="exampleFormControlTextarea1"
-                                   placeholder="Organisation">
-                        </div>
-                        <div class="form-group">
-                            <select class="custom-select" name="purpose" required="">
-                                <option selected>Purpose</option>
-                                <option value="Academic">Academic</option>
-                                <option value="Commercial">Commercial</option>
-                                <option value="Development">Development</option>
-                                <option value="others">others</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <input class="form-check-inline" type="checkbox" required>By clicking this, you agree to our
-                            <a target="_blank" href="/terms">Terms
-                                and Conditions</a>, <a target="_blank" href="/policy">Usage Policy</a>, <a
-                                target="_blank" href="/privacy">Privacy
-                            Policy</a>
-                        </div>
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h6 class="modal-title" id="exampleModalLabel">Kindly state purpose of downloading this resource.</h6>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+				<form method="POST" action="/data/static/">
+				  <input type='hidden' name='csrfmiddlewaretoken' value='{{csrf_token}}' >
+				  <input type='hidden' name='dataDownloaded' value='stop_times' >
+				  <div class="form-group">
+				  	<label for="usageType" style="margin-right: 20px"><b>Usage Type*</b></label><br/>
+					  <input type="radio" value="Commercial" name="usageType" >
+				  	<label for="usageType" style="margin-right: 20px">Commercial</label>
+					  <input type="radio" value="NonCommercial" name="usageType">
+				  	<label for="usageType">Non-Commercial</label>
+					</select>
+				  </div>
+				  <div class="form-group">
+				  	<label for="purpose"><b>Purpose*</b></label><br/>
+					  <input type="checkbox" name="purpose" value="Academia">
+					  <label for="Academia" style="margin-right: 20px">Academia</label>
+					  <input type="checkbox" name="purpose" value="R&D">
+					  <label>R&D</label><br/>
+					  <input type="checkbox" name="purpose" value="Business">
+					  <label style="margin-right: 20px">Business</label>
+					  <input type="checkbox" name="purpose" value="Journalistic">
+					  <label>Journalistic</label><br/>
+					  <input type="checkbox" name="purpose" value="Govt Use">
+					  <label style="margin-right: 20px">Govt Use</label>
+					  <input type="checkbox" name="purpose" value="Other">
+					  <label>Other</label><br/>
+				  </div>
+				  <div class="form-group">
+				    <input type="name" class="form-control" id="exampleInputname1" aria-describedby="nameHelp" placeholder="Name" name="name">
+				  </div>
+				  <div class="form-group">
+				    <input name="email" type="email" class="form-control" placeholder="E-mail">
+				  </div>
+				  <div class="form-group">
+					  <input type="checkbox" required="">
+					  By clicking this, you agree to our
+	                    <a target="_blank" href="/terms">Terms
+	                        and Conditions</a>, <a target="_blank" href="/policy">Usage Policy</a>, <a
+	                        target="_blank" href="/privacy">Privacy
+	                     Policy</a><br/>	
+                  </div>
+				  <div style="align-content: center;">
+				  	<button type="submit" style="margin-left: auto;margin-right: auto; display: block;width: 200px" class="btn btn-primary">Submit</button>
+				  </div>
+				</form>	        	
+	      </div>
+	    </div>
+	  </div>
+	</div>
 
-                        <div style="align-content: center;">
-                            <button type="submit"
-                                    style="margin-left: auto;margin-right: auto; display: block;width: 200px"
-                                    class="btn btn-primary">Submit
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Download Data</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form method="POST" action="/data/static/">
-                        <input type='hidden' name='csrfmiddlewaretoken' value='{{ csrf_token }}'>
-                        <input type='hidden' name='dataDownloaded' value='trips'>
-                        <div class="form-group">
-                            <input type="name" class="form-control" id="exampleInputname1" aria-describedby="nameHelp"
-                                   required="" placeholder="Name" name="name">
-                        </div>
-                        <div class="form-group">
-                            <input name="number" type="number" class="form-control" required=""
-                                   placeholder="Phone Number">
-                        </div>
-                        <div class="form-group">
-                            <input name="org" class="form-control" required="" id="exampleFormControlTextarea1"
-                                   placeholder="Organisation">
-                        </div>
-                        <div class="form-group">
-                            <select class="custom-select" name="purpose" required="">
-                                <option selected>Purpose</option>
-                                <option value="Academic">Academic</option>
-                                <option value="Commercial">Commercial</option>
-                                <option value="Development">Development</option>
-                                <option value="others">others</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <input class="form-check-inline" type="checkbox" required>By clicking this, you agree to our
-                            <a target="_blank" href="/terms">Terms
-                                and Conditions</a>, <a target="_blank" href="/policy">Usage Policy</a>, <a
-                                target="_blank" href="/privacy">Privacy
-                            Policy</a>
-                        </div>
-
-                        <div style="align-content: center;">
-                            <button type="submit"
-                                    style="margin-left: auto;margin-right: auto; display: block;width: 200px"
-                                    class="btn btn-primary">Submit
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h6 class="modal-title" id="exampleModalLabel">Kindly state purpose of downloading this resource.</h6>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+				<form method="POST" action="/data/static/">
+				  <input type='hidden' name='csrfmiddlewaretoken' value='{{csrf_token}}' >
+				  <input type='hidden' name='dataDownloaded' value='trips' >
+				  <div class="form-group">
+				  	<label for="usageType" style="margin-right: 20px"><b>Usage Type*</b></label><br/>
+					  <input type="radio" value="Commercial" name="usageType" >
+				  	<label for="usageType" style="margin-right: 20px">Commercial</label>
+					  <input type="radio" value="NonCommercial" name="usageType">
+				  	<label for="usageType">Non-Commercial</label>
+					</select>
+				  </div>
+				  <div class="form-group">
+				  	<label for="purpose"><b>Purpose*</b></label><br/>
+					  <input type="checkbox" name="purpose" value="Academia">
+					  <label for="Academia" style="margin-right: 20px">Academia</label>
+					  <input type="checkbox" name="purpose" value="R&D">
+					  <label>R&D</label><br/>
+					  <input type="checkbox" name="purpose" value="Business">
+					  <label style="margin-right: 20px">Business</label>
+					  <input type="checkbox" name="purpose" value="Journalistic">
+					  <label>Journalistic</label><br/>
+					  <input type="checkbox" name="purpose" value="Govt Use">
+					  <label style="margin-right: 20px">Govt Use</label>
+					  <input type="checkbox" name="purpose" value="Other">
+					  <label>Other</label><br/>
+				  </div>
+				  <div class="form-group">
+				    <input type="name" class="form-control" id="exampleInputname1" aria-describedby="nameHelp" placeholder="Name" name="name">
+				  </div>
+				  <div class="form-group">
+				    <input name="email" type="email" class="form-control" placeholder="E-mail">
+				  </div>
+				  <div class="form-group">
+					  <input type="checkbox" required="">
+					  By clicking this, you agree to our
+	                    <a target="_blank" href="/terms">Terms
+	                        and Conditions</a>, <a target="_blank" href="/policy">Usage Policy</a>, <a
+	                        target="_blank" href="/privacy">Privacy
+	                     Policy</a><br/>	
+                  </div>
+				  <div style="align-content: center;">
+				  	<button type="submit" style="margin-left: auto;margin-right: auto; display: block;width: 200px" class="btn btn-primary">Submit</button>
+				  </div>
+				</form>	        	
+	      </div>
+	    </div>
+	  </div>
+	</div>
 
 {% endblock %}
 
@@ -234,7 +255,7 @@
                      style="margin-bottom: 10px">
                     <div class="my-3 p-3" style="height: 220px">
                         <h2 class="display-5">STOPS</h2>
-                        <p class="lead"><i>Count: 8371</i><br/>List of all the active stops and terminals.</p>
+                        <p class="lead"><i>Count: 3464</i><br/>List of all the active stops and terminals.</p>
                     </div>
 
                     <div class="my-3 p-3">
@@ -270,7 +291,7 @@
                      style="margin-bottom: 10px">
                     <div class="my-3 p-3" style="height: 220px">
                         <h2 class="display-5">STOP TIMES</h2>
-                        <p class="lead"><i>Count: 389145</i><br/>Approximate arrival and departure times of buses on the
+                        <p class="lead"><i>Count: 378324</i><br/>Approximate arrival and departure times of buses on the
                             stops</p>
                     </div>
                     <div class="clearfix"></div>
