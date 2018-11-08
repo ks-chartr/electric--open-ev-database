@@ -14,12 +14,22 @@ Instructions for setup
 
 - Install the project's runtime requirements
 
-    *use of virtualenv is recommended
+    (use of virtualenv is recommended)
     
         virtualenv -p python3.x venv
-
         pip install -r requirements.txt
 
+- Create .env
+ 
+        cd Opendata
+        touch .env
+    add following in it.
+    
+        SECRET_KEY=asdasdasd
+        DEBUG=True
+
+
+- Migrations
 
         python manage.py makemigrations
         python manage.py migrate
@@ -47,6 +57,3 @@ Issues
 ------------
 
 Please report any bugs or requests that you have using the GitHub issue tracker!
-
-
-**Author is not liable for any misuse; Use carefully!
