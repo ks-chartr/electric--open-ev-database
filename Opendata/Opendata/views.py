@@ -54,13 +54,13 @@ def dynamicData(request):
 def contact(request):
 	args = {}
 	if (request.method == 'POST'):
+		name = request.POST.get('name')
 		email = request.POST.get('email')
-		phone = request.POST.get('phone')
 		message = request.POST.get('message')
 		subject = request.POST.get('subject')
 		contactRequest = ContactRequest(
+			name=name,
 			email=email,
-			phone=phone,
 			message=message,
 			subject=subject
 		)

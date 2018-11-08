@@ -12,13 +12,17 @@
                 <div class="col-md-6 col-lg-6" style="margin-bottom: 100px;margin-top: 50px">
                     <form method="POST" action="/contact/">
                         <input type='hidden' name='csrfmiddlewaretoken' value='{{ csrf_token }}'>
+
+                        <div class="form-group">
+                            <input name="name" type="text" class="form-control" required="" placeholder="Name">
+                        </div>
+
                         <div class="form-group">
                             <input type="email" class="form-control" id="exampleInputEmail1"
                                    aria-describedby="emailHelp" required="" placeholder="Email Address" name="email">
                         </div>
-
                         <div class="form-group">
-                            <input name="subject" type="text" class="form-control" required="" placeholder="Subject">
+                            <input name="subject" type="text" class="form-control" required="" placeholder="Subject (Feedback/Enquiry)">
                         </div>
                         <div class="form-group">
                             <textarea name="message" class="form-control" required="" id="exampleFormControlTextarea1"

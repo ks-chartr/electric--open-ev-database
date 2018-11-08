@@ -3,8 +3,8 @@ from django.db.models import *
 from tinymce.models import HTMLField
 
 class ContactRequest(Model):
+	name = CharField(max_length=100, default="Unknown")
 	email = CharField(max_length=100)
-	phone = CharField(max_length=100)
 	subject = CharField(max_length=100)
 	message = TextField()
 	def __str__(self):
