@@ -31,5 +31,6 @@ urlpatterns = [
     url(r'^privacy/$', privacy),
     path('admin/', admin.site.urls),
     url(r'^tinymce/', include('tinymce.urls')),
+    url(r'^api/realtime/', api_realtime),
 
 ]
