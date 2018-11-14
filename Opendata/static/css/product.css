@@ -278,3 +278,10 @@
     height: 70px;
     width: auto;
 }
+
+.full_view {
+margin-top: 50px;
+  @media(max-width: 768px){
+    display: none;
+  }
+}

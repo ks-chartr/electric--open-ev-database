@@ -1,7 +1,8 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from contactusform.models import *
-
+from downloadRealDataForm.models import *
+from django.utils.crypto import get_random_string
 
 def home(request):
 	args = {}
@@ -48,6 +49,51 @@ def staticData(request):
 
 def dynamicData(request):
 	args = {}
+	if request.method == 'POST':
+		name = request.POST.get('name') or ''
+		email = request.POST.get('email') or ''
+		number = request.POST.get('number') or ''
+		companyName = request.POST.get('companyName') or ''
+		purpose = str(request.POST.getlist('purpose')) or ''
+		description = request.POST.get('description') or ''
+		if request.POST.get('subscribed'):
+			subscribed = True
+		else:
+			subscribed = False
+		downloadRealData = DownloadRealData(
+			name=name,
+			email=email,
+			number=number,
+			companyName=companyName,
+			purpose=purpose,
+			description=description,
+			subscribed=subscribed
+		)
+		try:
+			downloadRealData.save()
+			args['email'] = email
+			args['number'] = number
+			args['success'] = 'success'
+			unique_id = get_random_string(length=32)
+			downloadRealData.passCode = unique_id
+			downloadRealData.save()
+		except Exception as e:
+			args['e'] = str(e).split(":")[0] == 'UNIQUE constraint failed'
+			args['email'] = email
+			args['number'] = number
+			print(e)
+	else:
+		passCode = request.GET.get('passCode')
+		if passCode:
+			print('passCode', passCode)
+			downloadRealData = get_object_or_404(DownloadRealData, passCode=passCode)
+			print(downloadRealData)
+			if downloadRealData.authorised:
+				return HttpResponseRedirect('http://traffickarma.iiitd.edu.in:9010/static/stops.txt')
+			else:
+				args['notAuthorised'] = 'notAuthorised'
+
+
 	return render(request, 'dynamicData.html', args)
 
 
