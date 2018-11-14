@@ -4,3 +4,5 @@
 db.sq*
 .DS_Store
 /*.DS_Store
+.env
+00*.py
