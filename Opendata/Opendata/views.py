@@ -86,14 +86,14 @@ def dynamicData(request):
 		passCode = request.GET.get('passCode')
 		if passCode:
 			print('passCode', passCode)
-			downloadRealData = get_object_or_404(DownloadRealData, passCode=passCode)
-			print(downloadRealData)
-			if downloadRealData.authorised:
-				return HttpResponseRedirect('http://traffickarma.iiitd.edu.in:9010/static/stops.txt')
-			else:
-				args['notAuthorised'] = 'notAuthorised'
-
-
+			try:
+				downloadRealData = DownloadRealData.objects.get(passCode=passCode)
+				if downloadRealData.authorised:
+					return HttpResponseRedirect('http://traffickarma.iiitd.edu.in:9010/static/stops.txt')
+				else:
+					args['notAuthorised'] = '"' + str(passCode) + '" is not authorise yet!'
+			except:
+					args['notAuthorised'] = '"' + str(passCode) + '" is an invalid Key '
 	return render(request, 'dynamicData.html', args)
 
 

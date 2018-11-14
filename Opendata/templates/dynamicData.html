@@ -17,7 +17,7 @@
 			<div class="col-md-6">
 				<br/><h5><i>Have your private key?</i></h5>
 				{% if notAuthorised %}
-					<p style="color: red">You are not authorised yet.</p>
+					<p style="color: red">{{notAuthorised}}</p>
 				{% endif %}
 				<form method="GET" action="/data/realtime/">
 			    <div class="form-group">
