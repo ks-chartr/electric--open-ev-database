@@ -1,4 +1,6 @@
-from django.http import HttpResponseRedirect, JsonResponse
+import os
+
+from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from contactusform.models import *
 from downloadRealDataForm.models import *
@@ -137,9 +139,20 @@ def api_realtime(request):
 					# ONLYVALIDCASE
 					msg = 200
 					responseCode = 200
-			except:
-				responseCode = 400
-				msg = 'Invalid key.'
+
+					from django.utils.encoding import smart_str
+
+					response = HttpResponse(content_type='application/force-download')
+					response['Content-Disposition'] = 'attachment; filename=%s' % smart_str('VehiclePositions.pb')
+					# response['Content-Length'] = os.path.getsize('http://192.168.1.3:8081/VehiclePositions.pb')
+					response['X-Sendfile'] = smart_str('http://192.168.1.3:8081/VehiclePositions.pb')
+					# It's usually a good idea to set the 'Content-Length' header too.
+					# You can also set any other required headers: Cache-Control, etc.
+					return response
+
+			except Exception:
+				responseCode = 500
+				msg = 'Unknown error.'
 		else:
 			responseCode = 500
 
