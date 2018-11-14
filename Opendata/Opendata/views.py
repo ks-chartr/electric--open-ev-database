@@ -1,8 +1,14 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from contactusform.models import *
 from downloadRealDataForm.models import *
 from django.utils.crypto import get_random_string
+
+from decouple import config
+
+REALTIME_DATA_FILE_PATH = config('SECRET_KEY', default=None, cast=str)
+assert REALTIME_DATA_FILE_PATH != 'None'
+
 
 def home(request):
 	args = {}
@@ -42,7 +48,7 @@ def staticData(request):
 		)
 		downloadData.save()
 		args['success'] = 'success'
-		return HttpResponseRedirect('http://traffickarma.iiitd.edu.in:9010/static/'+dataDownloaded+'.txt')
+		return HttpResponseRedirect('http://traffickarma.iiitd.edu.in:9010/static/' + dataDownloaded + '.txt')
 
 	return render(request, 'staticData.html', args)
 
@@ -82,19 +88,63 @@ def dynamicData(request):
 			args['email'] = email
 			args['number'] = number
 			print(e)
+	# else:
+	# passCode = request.GET.get('key')
+	# if passCode:
+	# 	print('passCode', passCode)
+	# 	try:
+	# 		downloadRealData = DownloadRealData.objects.get(passCode=passCode)
+	# 		if downloadRealData.authorised:
+	# 			return HttpResponseRedirect('http://traffickarma.iiitd.edu.in:9010/static/stops.txt')
+	# 		else:
+	# 			args['notAuthorised'] = '"' + str(passCode) + '" is not authorise yet!'
+	# 	except:
+	# 		args['notAuthorised'] = '"' + str(passCode) + '" is an invalid Key '
+	return render(request, 'dynamicData.html', args)
+
+
+'''
+	response codes
+	
+	400: invalid request
+	403: unauthorised token
+'''
+
+
+def api_realtime(request):
+	responseCode = 400
+	msg = ''
+	if request.method != 'GET':
+		responseCode = 400
 	else:
-		passCode = request.GET.get('passCode')
-		if passCode:
-			print('passCode', passCode)
+		# GET REQUEST
+		passCode = request.GET.get('key')
+		if passCode is None or passCode.isalnum() == False:
+			responseCode = 400
+			msg = 'Invalid key.'
+		elif passCode.isalnum():
 			try:
 				downloadRealData = DownloadRealData.objects.get(passCode=passCode)
-				if downloadRealData.authorised:
-					return HttpResponseRedirect('http://traffickarma.iiitd.edu.in:9010/static/stops.txt')
+				print("")
+				print(downloadRealData)
+				if downloadRealData is None:
+					responseCode = 400
+					msg = 'Invalid key.'
+				elif not downloadRealData.authorised:
+					responseCode = 403
+					msg = 'Key not authorised.'
 				else:
-					args['notAuthorised'] = '"' + str(passCode) + '" is not authorise yet!'
+					# ONLYVALIDCASE
+					msg = 200
+					responseCode = 200
 			except:
-					args['notAuthorised'] = '"' + str(passCode) + '" is an invalid Key '
-	return render(request, 'dynamicData.html', args)
+				responseCode = 400
+				msg = 'Invalid key.'
+		else:
+			responseCode = 500
+
+	response = JsonResponse({'status': responseCode, 'msg': msg}, status=responseCode)
+	return response
 
 
 def contact(request):
@@ -140,7 +190,9 @@ def policy(request):
 	# policy = Policy.objects.all()
 	# args['policies'] = policy
 	return HttpResponseRedirect("/static/assets/policy.pdf")
-	# return render(request, 'privacy.html', args)
+
+
+# return render(request, 'privacy.html', args)
 
 
 def privacy(request):
@@ -148,4 +200,4 @@ def privacy(request):
 	# policy = Policy.objects.all()
 	# args['policies'] = policy
 	return HttpResponseRedirect("/static/assets/privacy.pdf")
-	# return render(request, 'privacy.html', args)
+# return render(request, 'privacy.html', args)
