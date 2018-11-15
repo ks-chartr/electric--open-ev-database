@@ -5,9 +5,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from contactusform.models import *
 from downloadRealDataForm.models import *
 from django.utils.crypto import get_random_string
-
+import logging
 from decouple import config
 
+logger = logging.getLogger(__name__)
 REALTIME_DATA_FILE_PATH = config('SECRET_KEY', default=None, cast=str)
 assert REALTIME_DATA_FILE_PATH != 'None'
 
@@ -113,16 +114,29 @@ def dynamicData(request):
 '''
 
 
-def api_realtime(request):
-	responseCode = 400
+def authenticate_api_key(request):
+	responseCode = 401
+	passCode = None
 	msg = ''
 	if request.method != 'GET':
-		responseCode = 400
+		responseCode = 401
 	else:
 		# GET REQUEST
+
+		# fetch key from original request url
 		passCode = request.GET.get('key')
+		if passCode is None:
+			print('no key found in URL')
+			try:
+				passCode = request.META.get('HTTP_X_ORIGINAL_URI').split('key=')[-1]
+				print('key found in HTTP_X_ORIGINAL_URI: {}'.format(passCode))
+			except Exception as err:
+				print(err)
+				print('no key found in HTTP_X_ORIGINAL_URI')
+
+
 		if passCode is None or passCode.isalnum() == False:
-			responseCode = 400
+			responseCode = 401
 			msg = 'Invalid key.'
 		elif passCode.isalnum():
 			try:
@@ -130,31 +144,20 @@ def api_realtime(request):
 				print("")
 				print(downloadRealData)
 				if downloadRealData is None:
-					responseCode = 400
+					responseCode = 401
 					msg = 'Invalid key.'
 				elif not downloadRealData.authorised:
-					responseCode = 403
+					responseCode = 401
 					msg = 'Key not authorised.'
 				else:
 					# ONLYVALIDCASE
 					msg = 200
 					responseCode = 200
-
-					from django.utils.encoding import smart_str
-
-					response = HttpResponse(content_type='application/force-download')
-					response['Content-Disposition'] = 'attachment; filename=%s' % smart_str('VehiclePositions.pb')
-					# response['Content-Length'] = os.path.getsize('http://192.168.1.3:8081/VehiclePositions.pb')
-					response['X-Sendfile'] = smart_str('http://192.168.1.3:8081/VehiclePositions.pb')
-					# It's usually a good idea to set the 'Content-Length' header too.
-					# You can also set any other required headers: Cache-Control, etc.
-					return response
-
 			except Exception:
-				responseCode = 500
+				responseCode = 401
 				msg = 'Unknown error.'
 		else:
-			responseCode = 500
+			responseCode = 401
 
 	response = JsonResponse({'status': responseCode, 'msg': msg}, status=responseCode)
 	return response
