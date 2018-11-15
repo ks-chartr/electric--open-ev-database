@@ -9,9 +9,6 @@ import logging
 from decouple import config
 
 logger = logging.getLogger(__name__)
-REALTIME_DATA_FILE_PATH = config('SECRET_KEY', default=None, cast=str)
-assert REALTIME_DATA_FILE_PATH != 'None'
-
 
 def home(request):
 	args = {}
