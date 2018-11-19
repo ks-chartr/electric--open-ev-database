@@ -5,7 +5,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from contactusform.models import *
 from downloadRealDataForm.models import *
 from django.utils.crypto import get_random_string
-from django.contrib.auth.hashers import make_password
+import hashlib
 import logging
 from decouple import config
 logger = logging.getLogger(__name__)
@@ -58,7 +58,7 @@ def dynamicData(request):
 	if request.method == 'POST':
 		name = request.POST.get('name') or ''
 		email = request.POST.get('email') or ''
-		number = request.POST.get('number') or ''
+		number = request.POST.get('countryCode') + request.POST.get('number') or ''
 		companyName = request.POST.get('companyName') or ''
 		purpose = str(request.POST.getlist('purpose')) or ''
 		description = request.POST.get('description') or ''
@@ -81,7 +81,8 @@ def dynamicData(request):
 			args['number'] = number
 			args['success'] = 'success'
 			unique_id = get_random_string(length=32)
-			downloadRealData.passCode = make_password(unique_id)
+			args['unique_id'] = unique_id
+			downloadRealData.passCode = hashlib.sha224(unique_id.encode('utf-8')).hexdigest()
 			downloadRealData.save()
 		except Exception as e:
 			args['e'] = str(e).split(":")[0] == 'UNIQUE constraint failed'
@@ -121,7 +122,7 @@ def authenticate_api_key(request):
 		# GET REQUEST
 
 		# fetch key from original request url
-		passCode = request.GET.get('key')
+		passCode = hashlib.sha224(request.GET.get('key').encode('utf-8')).hexdigest()
 		if passCode is None:
 			print('no key found in URL')
 			try:
