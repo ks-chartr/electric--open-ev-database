@@ -1,34 +1,36 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% block nav3 %}active{% endblock %}
 
+{% block nav3 %}active{% endblock %}
+{% block modal %}
+
+	<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header alert-success">
+	        <b>You have been successfully registered!</b>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      	<p>Please note the following secret api key for data collection:</p>
+			<div class="alert alert-primary">
+			  {{unique_id}}
+			</div>
+	      	<p><i>We will inform you on {{email}} or {{number}} when your api key is authorised.</i></p>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+{% endblock %}
 {% block content %}
 <div class="container-fluid">
   <div class="position-relative overflow-hidden p-3 p-md-5 text-left bg-light" style="min-height: 600px">
 		<h1 >Real Time Data</h1>
 		<hr/>
-<!-- 		<div class="row">
-			<div class="col-md-4 offset-md-4" style="padding-top: 50px">
-			<div class="bg-dark" style="align-content: center; text-align: center;padding: 30px;border-radius: 10px">
-			<h2 style="color: #DEDEDE">Coming Soon</h2>
-			</div>
-		</div> -->
 		<div class="row">
 			<div class="col-md-6">
-{#				<br/><h5><i>Have your private key?</i></h5>#}
-{#				{% if notAuthorised %}#}
-{#					<p style="color: red">{{notAuthorised}}</p>#}
-{#				{% endif %}#}
-{#				<form method="GET" action="/data/realtime/">#}
-{#			    <div class="form-group">#}
-{#			    	<div class="row" style="padding-left: 15px">#}
-{#				    	<input required="" class="form-control col-md-6 col-sm-6 col-xs-6" aria-describedby="nameHelp" name="passCode">#}
-{#				    	<button class="btn btn-primary form-control col-md-3 col-sm-3 col-xs-3" style="margin-left: 50px" >Submit</button>#}
-{#			    	</div>#}
-{#				</div>#}
-{#		    	</form>#}
-{#			    <br/>#}
-{#			    <div class="block" style="width: 100%;align-items: center;text-align: center;"><b>Or</b></div>#}
 				<br/><h5><i>Request For API Access and API Private Key</i></h5>
 				{% if e %}
 					<p style="color: red">{{email}} or {{number}} is already registered.</p>
@@ -342,6 +344,12 @@
 
 	</div>
 </div>
-
+{% if success %}
+<script type="text/javascript">
+    $(window).on('load',function(){
+        $('#exampleModal1').modal('show');
+    });
+</script>
+{% endif %}
 
 {% endblock %}
