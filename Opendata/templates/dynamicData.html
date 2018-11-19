@@ -15,21 +15,21 @@
 		</div> -->
 		<div class="row">
 			<div class="col-md-6">
-				<br/><h5><i>Have your private key?</i></h5>
-				{% if notAuthorised %}
-					<p style="color: red">{{notAuthorised}}</p>
-				{% endif %}
-				<form method="GET" action="/data/realtime/">
-			    <div class="form-group">
-			    	<div class="row" style="padding-left: 15px">
-				    	<input required="" class="form-control col-md-6 col-sm-6 col-xs-6" aria-describedby="nameHelp" name="passCode">
-				    	<button class="btn btn-primary form-control col-md-3 col-sm-3 col-xs-3" style="margin-left: 50px" >Submit</button>
-			    	</div>
-				</div>
-		    	</form>
-			    <br/>
-			    <div class="block" style="width: 100%;align-items: center;text-align: center;"><b>Or</b></div>
-				<br/><h5><i>Please register below to generate your private key:</i></h5>
+{#				<br/><h5><i>Have your private key?</i></h5>#}
+{#				{% if notAuthorised %}#}
+{#					<p style="color: red">{{notAuthorised}}</p>#}
+{#				{% endif %}#}
+{#				<form method="GET" action="/data/realtime/">#}
+{#			    <div class="form-group">#}
+{#			    	<div class="row" style="padding-left: 15px">#}
+{#				    	<input required="" class="form-control col-md-6 col-sm-6 col-xs-6" aria-describedby="nameHelp" name="passCode">#}
+{#				    	<button class="btn btn-primary form-control col-md-3 col-sm-3 col-xs-3" style="margin-left: 50px" >Submit</button>#}
+{#			    	</div>#}
+{#				</div>#}
+{#		    	</form>#}
+{#			    <br/>#}
+{#			    <div class="block" style="width: 100%;align-items: center;text-align: center;"><b>Or</b></div>#}
+				<br/><h5><i>Request For API Access and API Private Key</i></h5>
 				{% if e %}
 					<p style="color: red">{{email}} or {{number}} is already registered.</p>
 				{% endif %}
@@ -75,13 +75,11 @@
 					  <input type="checkbox" required="">
 					  By clicking this, you agree to our
 	                    <a target="_blank" href="/terms">Terms
-	                        and Conditions</a>, <a target="_blank" href="/policy">Usage Policy</a>, <a
-	                        target="_blank" href="/privacy">Privacy
-	                     Policy</a><span style="color: red"> *</span><br/>	
+	                        and Conditions</a><span style="color: red"> *</span><br/>
                   </div>
 				  <div class="form-group">
 					  <input type="checkbox" name="subscribed" value="True">
-					  I want to be notified (via email) when DataMall launches new datasets.<br/>
+					  I want to be notified (via email) when OTD launches new datasets.<br/>
                   </div>
 
 				  <div style="align-content: center;">
