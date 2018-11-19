@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from contactusform.models import *
 from downloadRealDataForm.models import *
 from django.utils.crypto import get_random_string
+from django.contrib.auth.hashers import make_password
 
 def home(request):
 	args = {}
@@ -75,7 +76,7 @@ def dynamicData(request):
 			args['number'] = number
 			args['success'] = 'success'
 			unique_id = get_random_string(length=32)
-			downloadRealData.passCode = unique_id
+			downloadRealData.passCode = make_password(unique_id)
 			downloadRealData.save()
 		except Exception as e:
 			args['e'] = str(e).split(":")[0] == 'UNIQUE constraint failed'
