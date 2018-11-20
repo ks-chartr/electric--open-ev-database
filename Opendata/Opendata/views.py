@@ -122,7 +122,7 @@ def authenticate_api_key(request):
 		# GET REQUEST
 
 		# fetch key from original request url
-		passCode = hashlib.sha224(request.GET.get('key').encode('utf-8')).hexdigest()
+		passCode = request.GET.get('key')
 		if passCode is None:
 			print('no key found in URL')
 			try:
@@ -138,9 +138,10 @@ def authenticate_api_key(request):
 			msg = 'Invalid key.'
 		elif passCode.isalnum():
 			try:
+				# print("old: {}".format(passCode))
+				passCode = hashlib.sha224(passCode.encode('utf-8')).hexdigest()
+				# print("new: {}".format(passCode))
 				downloadRealData = DownloadRealData.objects.get(passCode=passCode)
-				print("")
-				print(downloadRealData)
 				if downloadRealData is None:
 					responseCode = 401
 					msg = 'Invalid key.'
