@@ -8,6 +8,10 @@ from django.utils.crypto import get_random_string
 import hashlib
 import logging
 from decouple import config
+
+STATIC_DATA_FILES_URL = config('STATIC_DATA_FILES_URL', default='http://192.168.2.231:8000/', cast=str)
+assert STATIC_DATA_FILES_URL != 'None'
+
 logger = logging.getLogger(__name__)
 
 def home(request):
@@ -48,7 +52,20 @@ def staticData(request):
 		)
 		downloadData.save()
 		args['success'] = 'success'
-		return HttpResponseRedirect('http://traffickarma.iiitd.edu.in:9010/static/' + dataDownloaded + '.txt')
+
+		import urllib.request  # the lib that handles the url stuff
+		URL = '{}/{}.txt'.format(STATIC_DATA_FILES_URL, dataDownloaded)
+		print(URL)
+		test_file = urllib.request.urlopen(URL)
+		# test_file = open('/Users/atul/Desktop/tmp/{}.txt'.format(dataDownloaded), 'rb')
+		response = HttpResponse(content=test_file)
+		response['Content-Type'] = 'text/plain'
+		response['Content-Disposition'] = 'attachment; filename="%s.txt"' % dataDownloaded
+		return response
+		# response = JsonResponse({'status': 200,}, status=responseCode)
+		# return response
+
+		# return HttpResponseRedirect('http://traffickarma.iiitd.edu.in:9010/static/' + dataDownloaded + '.txt')
 
 	return render(request, 'staticData.html', args)
 
@@ -105,7 +122,6 @@ def dynamicData(request):
 	# 		args['notAuthorised'] = '"' + str(passCode) + '" is an invalid Key '
 	return render(request, 'dynamicData.html', args)
 
-
 '''
 	response codes
 	
@@ -124,7 +140,7 @@ def authenticate_api_key(request):
 		# GET REQUEST
 
 		# fetch key from original request url
-		passCode = hashlib.sha224(request.GET.get('key').encode('utf-8')).hexdigest()
+		passCode = request.GET.get('key')
 		if passCode is None:
 			print('no key found in URL')
 			try:
@@ -140,9 +156,10 @@ def authenticate_api_key(request):
 			msg = 'Invalid key.'
 		elif passCode.isalnum():
 			try:
+				# print("old: {}".format(passCode))
+				passCode = hashlib.sha224(passCode.encode('utf-8')).hexdigest()
+				# print("new: {}".format(passCode))
 				downloadRealData = DownloadRealData.objects.get(passCode=passCode)
-				print("")
-				print(downloadRealData)
 				if downloadRealData is None:
 					responseCode = 401
 					msg = 'Invalid key.'

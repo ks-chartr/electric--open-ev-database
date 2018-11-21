@@ -25,8 +25,10 @@ Instructions for setup
         touch .env
     add following in it.
     
-        SECRET_KEY=asdasdasd
-        DEBUG=True
+        STATIC_DATA_FILES_URL=<proxy-url>
+        REALTIME_DATA_FILE_PATH=<real-data-path>
+        SECRET_KEY=<secret-key>
+        DEBUG=False
 
 
 - Migrations
