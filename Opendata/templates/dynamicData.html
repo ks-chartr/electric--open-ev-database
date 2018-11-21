@@ -302,8 +302,15 @@
 				  	</div>
 				  </div>
 				  <div class="form-group">
-				  	<label for="contact"><b>Company/Institution</b></label><br/>
-				    <input name="companyName"  class="form-control" >
+				  	<label for="contact"><b>Company/Institution <span style="color: red"> *</span></b></label><br/>
+				    <input name="companyName" required="" class="form-control" >
+				  </div>
+				  <div class="form-group">
+				  	<label for="usageType" style="margin-right: 20px"><b>Usage Type <span style="color: red"> *</span></b></label><br/>
+					  <input type="radio" value="Commercial" name="usageType" required="">
+				  	<label for="usageType" style="margin-right: 20px">Commercial</label>
+					  <input type="radio" value="NonCommercial" name="usageType" required="">
+				  	<label for="usageType">Non-Commercial</label>
 				  </div>
 				  <div class="form-group">
 				  	<label ><b>Purpose of Usage</b> (please select all that is applicable)</label><br/>

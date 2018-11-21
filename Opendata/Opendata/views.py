@@ -62,6 +62,7 @@ def dynamicData(request):
 		companyName = request.POST.get('companyName') or ''
 		purpose = str(request.POST.getlist('purpose')) or ''
 		description = request.POST.get('description') or ''
+		usageType = request.POST.get('usageType')
 		if request.POST.get('subscribed'):
 			subscribed = True
 		else:
@@ -72,6 +73,7 @@ def dynamicData(request):
 			number=number,
 			companyName=companyName,
 			purpose=purpose,
+			usageType=usageType,
 			description=description,
 			subscribed=subscribed
 		)
