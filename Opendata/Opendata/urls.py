@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^terms/$', terms),
     url(r'^policy/$', policy),
     url(r'^privacy/$', privacy),
+    url(r'^announcement/$', announcement),
     path('admin/', admin.site.urls),
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^api/authenticate/', authenticate_api_key),

@@ -71,3 +71,12 @@ class DownloadData(Model):
 
 	def __str__(self):
 		return self.name + ' ' + self.usageType
+
+
+class Announcement(Model):
+	createdAt = DateField(auto_now_add=True)
+	message = CharField(max_length=500, null=True, blank=True,)
+	published = BooleanField(default=True)
+
+	def __str__(self):
+		return self.message

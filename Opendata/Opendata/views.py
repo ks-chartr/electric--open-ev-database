@@ -234,3 +234,12 @@ def privacy(request):
 	# args['policies'] = policy
 	return HttpResponseRedirect("/static/assets/privacy.pdf")
 # return render(request, 'privacy.html', args)
+
+
+
+def announcement(request):
+	args = {}
+	announcements = Announcement.objects.all().order_by('-createdAt')[::-1]
+	if (announcements):
+		args['announcements'] = announcements
+	return render(request, 'announcement.html', args)

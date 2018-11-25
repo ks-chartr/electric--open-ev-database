@@ -7,6 +7,7 @@ admin.site.register(RoutesLastUpdated)
 admin.site.register(StopTimeLastUpdated)
 admin.site.register(TripsLastUpdated)
 admin.site.register(StopLastUpdated)
+admin.site.register(Announcement)
 
 
 

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="position-relative overflow-hidden p-3 p-md-5 text-left bg-light" style="min-height: 600px">
+		<h1 >Announcements</h1>
+		<hr/>
+		<div class="row">
+			{% if announcements %}
+			<ol>
+			 {% for announcement in announcements %}
+			 	{% if announcement.published %}
+					<li>{{ announcement.message }}</li>
+				{% endif %}
+			 {% endfor %}
+			</ol>
+			{% else %}
+			<h4 style="color: green">No announcements yet!</h4>
+			{% endif %}
+		</div>
+
+	</div>
+</div>
+
+
+{% endblock %}
