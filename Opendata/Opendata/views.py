@@ -70,7 +70,7 @@ def staticData(request):
 	return render(request, 'staticData.html', args)
 
 
-def dynamicData(request):
+def realtimeData(request):
 	args = {}
 	if request.method == 'POST':
 		name = request.POST.get('name') or ''
@@ -120,7 +120,7 @@ def dynamicData(request):
 	# 			args['notAuthorised'] = '"' + str(passCode) + '" is not authorise yet!'
 	# 	except:
 	# 		args['notAuthorised'] = '"' + str(passCode) + '" is an invalid Key '
-	return render(request, 'dynamicData.html', args)
+	return render(request, 'realtimeData.html', args)
 
 '''
 	response codes

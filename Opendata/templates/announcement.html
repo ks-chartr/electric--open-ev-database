@@ -11,7 +11,7 @@
 			<ol>
 			 {% for announcement in announcements %}
 			 	{% if announcement.published %}
-					<li>{{ announcement.message }}</li>
+                    <li><span class="announcement_msg">{{ announcement.message }}</span><span class="announcement_datetime">{{ announcement.createdAt }}</span></li>
 				{% endif %}
 			 {% endfor %}
 			</ol>

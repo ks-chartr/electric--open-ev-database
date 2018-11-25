@@ -74,7 +74,7 @@ class DownloadData(Model):
 
 
 class Announcement(Model):
-	createdAt = DateField(auto_now_add=True)
+	createdAt = DateTimeField(auto_now_add=True)
 	message = CharField(max_length=500, null=True, blank=True,)
 	published = BooleanField(default=True)
 

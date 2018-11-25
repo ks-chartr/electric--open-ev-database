@@ -7,7 +7,7 @@ admin.site.register(RoutesLastUpdated)
 admin.site.register(StopTimeLastUpdated)
 admin.site.register(TripsLastUpdated)
 admin.site.register(StopLastUpdated)
-admin.site.register(Announcement)
+
 
 
 
@@ -27,6 +27,12 @@ class DownloadDataAdmin(admin.ModelAdmin):
     ordering = ['created_at', 'dataDownloaded']
 
 
+class AnnouncementAdmin(admin.ModelAdmin):
+    list_display = ['message', 'published', 'createdAt']
+    ordering = ['createdAt',]
+
+
 admin.site.register(DownloadData, DownloadDataAdmin)
 admin.site.register(ContactRequest, ContactRequestAdmin)
+admin.site.register(Announcement, AnnouncementAdmin)
 admin.site.register(Terms, TermsAdmin)
