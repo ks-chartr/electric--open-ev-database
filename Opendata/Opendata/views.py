@@ -8,6 +8,7 @@ from django.utils.crypto import get_random_string
 import hashlib
 import logging
 from decouple import config
+import datetime
 
 STATIC_DATA_FILES_URL = config('STATIC_DATA_FILES_URL', default='http://192.168.2.231:8000/', cast=str)
 assert STATIC_DATA_FILES_URL != 'None'
@@ -170,6 +171,10 @@ def authenticate_api_key(request):
 					# ONLYVALIDCASE
 					msg = 200
 					responseCode = 200
+					downloadRealData.hitsAllTime += 1
+					downloadRealData.lastHit = datetime.datetime.now()
+					downloadRealData.save()
+
 			except Exception:
 				responseCode = 401
 				msg = 'Unknown error.'

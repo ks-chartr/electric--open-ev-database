@@ -19,6 +19,9 @@ class DownloadRealData(Model):
 	updated_at = DateTimeField(auto_now=True)
 	authorised = BooleanField(default=False)
 	subscribed = BooleanField(default=False)
+	hitsToday = IntegerField(default=0)
+	hitsAllTime = IntegerField(default=0)
+	lastHit = DateTimeField(blank=True, null=True)
 
 	def __str__(self):
 		return self.name + ', ' + str(self.authorised)

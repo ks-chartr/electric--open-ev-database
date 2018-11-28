@@ -33,8 +33,8 @@ def unauthorise(modeladmin, request, queryset):
 
 
 class DownloadRealDataAdmin(admin.ModelAdmin):
-    readonly_fields = ('name', 'email', 'number', 'companyName', 'usageType', 'purpose', 'description', 'created_at', 'updated_at', )
-    list_display = ['name', 'email', 'companyName', 'authorised', 'created_at']
+    readonly_fields = ('name', 'email', 'number', 'companyName', 'usageType', 'purpose', 'description', 'created_at', 'updated_at', 'hitsToday', 'hitsAllTime', 'lastHit')
+    list_display = ['name', 'email', 'companyName', 'authorised', 'created_at', 'lastHit', 'hitsAllTime']
     ordering = ['created_at', 'name']
     actions = [authorise, unauthorise, export_as_csv]
     exclude = ('passCode',)
