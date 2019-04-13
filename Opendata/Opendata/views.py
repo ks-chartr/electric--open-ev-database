@@ -9,6 +9,7 @@ import hashlib
 import logging
 from decouple import config
 import datetime
+import urllib.request  # the lib that handles the url stuff
 
 STATIC_DATA_FILES_URL = config('STATIC_DATA_FILES_URL', default='http://192.168.2.231:8000/', cast=str)
 assert STATIC_DATA_FILES_URL != 'None'
@@ -44,6 +45,12 @@ def staticData(request):
 		usageType = request.POST.get('usageType')
 		purpose = str(request.POST.getlist('purpose'))
 		dataDownloaded = request.POST.get('dataDownloaded')
+
+		####################
+		# now downloading all static files as .zip
+		####################
+
+
 		downloadData = DownloadData(
 			name=name,
 			email=email,
@@ -54,14 +61,15 @@ def staticData(request):
 		downloadData.save()
 		args['success'] = 'success'
 
-		import urllib.request  # the lib that handles the url stuff
-		URL = '{}/{}.txt'.format(STATIC_DATA_FILES_URL, dataDownloaded)
+		# URL = '{}/{}.txt'.format(STATIC_DATA_FILES_URL, dataDownloaded)
+		URL = '{}/GTFS.zip'.format(STATIC_DATA_FILES_URL)
 		print(URL)
 		test_file = urllib.request.urlopen(URL)
-		# test_file = open('/Users/atul/Desktop/tmp/{}.txt'.format(dataDownloaded), 'rb')
+		# test_file = open(' /Users/atul/Desktop/rehi/GTFS.zip'.format(dataDownloaded), 'rb')
 		response = HttpResponse(content=test_file)
-		response['Content-Type'] = 'text/plain'
-		response['Content-Disposition'] = 'attachment; filename="%s.txt"' % dataDownloaded
+		# response['Content-Type'] = 'text/plain'
+		# response['Content-Disposition'] = 'attachment; filename="%s.txt"' % dataDownloaded
+		response['Content-Disposition'] = 'attachment; filename="GTFS.zip"'
 		return response
 		# response = JsonResponse({'status': 200,}, status=responseCode)
 		# return response
