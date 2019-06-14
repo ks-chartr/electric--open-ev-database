@@ -16,6 +16,7 @@ assert STATIC_DATA_FILES_URL != 'None'
 
 logger = logging.getLogger(__name__)
 
+
 def home(request):
 	args = {}
 	return render(request, 'index.html', args)
@@ -50,7 +51,6 @@ def staticData(request):
 		# now downloading all static files as .zip
 		####################
 
-
 		downloadData = DownloadData(
 			name=name,
 			email=email,
@@ -61,20 +61,19 @@ def staticData(request):
 		downloadData.save()
 		args['success'] = 'success'
 
+		file_name_w_extension = "GTFS.zip"
 		# URL = '{}/{}.txt'.format(STATIC_DATA_FILES_URL, dataDownloaded)
-		URL = '{}/GTFS.zip'.format(STATIC_DATA_FILES_URL)
-		print(URL)
-		test_file = urllib.request.urlopen(URL)
-		# test_file = open(' /Users/atul/Desktop/rehi/GTFS.zip'.format(dataDownloaded), 'rb')
-		response = HttpResponse(content=test_file)
+		URL = '{}/{}'.format(STATIC_DATA_FILES_URL, file_name_w_extension)
+
+		# test_file = urllib.request.urlopen(URL)
+		# response = HttpResponse(content=test_file)
 		# response['Content-Type'] = 'text/plain'
 		# response['Content-Disposition'] = 'attachment; filename="%s.txt"' % dataDownloaded
-		response['Content-Disposition'] = 'attachment; filename="GTFS.zip"'
-		return response
-		# response = JsonResponse({'status': 200,}, status=responseCode)
-		# return response
+		response = HttpResponse()
+		response['Content-Disposition'] = 'attachment; filename="{}"'.format(file_name_w_extension)
+		response['X-Accel-Redirect'] = "/protected/{0}".format(file_name_w_extension)
 
-		# return HttpResponseRedirect('http://traffickarma.iiitd.edu.in:9010/static/' + dataDownloaded + '.txt')
+		return response
 
 	return render(request, 'staticData.html', args)
 
@@ -131,6 +130,7 @@ def realtimeData(request):
 	# 		args['notAuthorised'] = '"' + str(passCode) + '" is an invalid Key '
 	return render(request, 'realtimeData.html', args)
 
+
 '''
 	response codes
 	
@@ -158,7 +158,6 @@ def authenticate_api_key(request):
 			except Exception as err:
 				print(err)
 				print('no key found in HTTP_X_ORIGINAL_URI')
-
 
 		if passCode is None or passCode.isalnum() == False:
 			responseCode = 401
@@ -246,8 +245,9 @@ def privacy(request):
 	# policy = Policy.objects.all()
 	# args['policies'] = policy
 	return HttpResponseRedirect("/static/assets/privacy.pdf")
-# return render(request, 'privacy.html', args)
 
+
+# return render(request, 'privacy.html', args)
 
 
 def announcement(request):
