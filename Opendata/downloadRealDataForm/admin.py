@@ -6,6 +6,7 @@ from .models import *
 
 import csv
 from django.http import HttpResponse
+from django.core.mail import send_mail
 
 
 def export_as_csv(self, request, queryset):
@@ -25,6 +26,14 @@ def export_as_csv(self, request, queryset):
 
 
 def authorise(modeladmin, request, queryset):
+    for user_queryset in queryset:
+        send_mail(
+            'Delhi Open EV Database API key Authorization',
+            'Congratulations! \nYour API key has been authorized.',
+            'delhievdb@ev.delhitransport.in',
+            [f'{user_queryset.email}'],
+            fail_silently=False,
+        )
     queryset.update(authorised=True)
 
 
