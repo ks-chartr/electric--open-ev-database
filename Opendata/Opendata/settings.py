@@ -36,6 +36,8 @@ DJANGO_WYSIWYG_FLAVOR = "tinymce"
 INSTALLED_APPS = [
     'contactusform.apps.ContactusformConfig',
     'downloadRealDataForm.apps.DownloadrealdataformConfig',
+    'registerDataProvider.apps.RegisterdataproviderConfig',
+    'EVUpdates.apps.EvupdatesConfig',
     'django_wysiwyg',
     'django.contrib.admin',
     'django.contrib.auth',

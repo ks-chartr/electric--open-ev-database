@@ -16,22 +16,26 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Opendata.views import *
-from django.conf.urls import include, url
+from EVUpdates.views import *
+from django.urls import include, re_path
 
 
 urlpatterns = [
-    url(r'^$', home),
-    url(r'^data/static/$', staticData),
-    url(r'^data/realtime/$', realtimeData),
-    url(r'^contact/$', contact),
-    url(r'^about/$', about),
-    url(r'^documentation/$', documentation),
-    url(r'^terms/$', terms),
-    url(r'^policy/$', policy),
-    url(r'^privacy/$', privacy),
-    url(r'^announcements/$', announcement),
+    re_path(r'^$', home),
+    re_path(r'^data/static/$', staticData),
+    re_path(r'^data/realtime/$', realtimeData),
+    re_path(r'^data/provider/$', dataProvider),
+    re_path(r'^contact/$', contact),
+    re_path(r'^about/$', about),
+    re_path(r'^documentation/$', documentation),
+    re_path(r'^terms/$', terms),
+    re_path(r'^policy/$', policy),
+    re_path(r'^privacy/$', privacy),
+    re_path(r'^announcements/$', announcement),
     path('admin/', admin.site.urls),
-    url(r'^tinymce/', include('tinymce.urls')),
-    url(r'^api/authenticate/', authenticate_api_key),
-
+    re_path(r'^tinymce/', include('tinymce.urls')),
+    re_path(r'^api/authenticate/', authenticate_api_key),
+    re_path(r'^api/update-ev/', addUpdateEV),
+    re_path(r'^api/get-user-ev/', getMyEV),
+    re_path(r'^api/get-ev/', getEV),
 ]

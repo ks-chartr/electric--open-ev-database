@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load staticfiles %}
+{% load static %}
 
 {% block modal %}
     <!-- Modal -->
@@ -268,66 +268,66 @@
                     <button data-toggle="modal" data-target="#exampleModal1"
                             class="btn btn-default download-button dark">Download Data
                     </button>
-                    <p><i>This will download all the static files as .zip.</i></p>
+                    <p><i>This will download static location of all EV charging stations in Delhi as an Excel file.</i></p>
                 </div>
             </div>
 
             <hr/>
-            <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-                <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
-                     style="margin-bottom: 10px">
-                    <div class="my-3 p-3" style="height: 220px">
-                        <h2 class="display-5">STOPS</h2>
-                        <p class="lead"><i>Count: 3464</i><br/>List of all the active stops and terminals.</p>
-                    </div>
-
-                    <p class="_p_small"><i>Last Updated: </i>{{ stopLastUpdated }}<br/></p>
-                    <div class="bg-dark shadow-sm mx-auto"
-                         style="width: 80%; height: 250px; border-radius: 21px 21px 0 0;"><img
-                            src="{% static 'img/busStop1.png' %}" width="80%" style="padding-top: 20%"></div>
-                </div>
-                <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden"
-                     style="margin-bottom: 10px">
-                    <div class="my-3 py-3" style="height: 220px">
-                        <h2 class="display-5">ROUTES</h2>
-                        <p class="lead"><i>Count: 543</i><br/>Information about all the routes plying in Delhi</p>
-                    </div>
-
-
-                    <p class="_p_small"><i>Last Updated: </i>{{ routesLastUpdated }}<br/></p>
-                    <div class="bg-light shadow-sm mx-auto"
-                         style="width: 80%; height: 250px; border-radius: 21px 21px 0 0;"><img
-                            src="{% static 'img/routes.png' %}" width="80%" style="padding-top: 10%"></div>
-                </div>
-
-                <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
-                     style="margin-bottom: 10px">
-                    <div class="my-3 p-3" style="height: 220px">
-                        <h2 class="display-5">STOP TIMES</h2>
-                        <p class="lead"><i>Count: 378324</i><br/>Approximate arrival and departure times of buses on the
-                            stops</p>
-                    </div>
-                    <div class="clearfix"></div>
-
-                    <p class="_p_small"><i>Last Updated: </i>{{ stopTimeLastUpdated }}<br/></p>
-                    <div class="bg-dark shadow-sm mx-auto"
-                         style="width: 80%; height: 250px; border-radius: 21px 21px 0 0;"><img
-                            src="{% static 'img/time.png' %}" width="80%" style="padding-top: 20%"></div>
-                </div>
-                <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden"
-                     style="margin-bottom: 10px">
-                    <div class="my-3 py-3" style="height: 220px;">
-                        <h2 class="display-5">TRIPS</h2>
-                        <p class="lead"><i>Count: 16562</i><br/>Frequency and schedule of routes</p>
-                    </div>
-                    <p class="_p_small"><i>Last Updated: </i>{{ tripsLastUpdated }}<br/></p>
-                    <div class="bg-light shadow-sm mx-auto"
-                         style="width: 80%; height: 250px; border-radius: 21px 21px 0 0;"><img
-                            src="{% static 'img/trips.png' %}" width="100%" style="padding-top: 20%"></div>
-                </div>
-
-
-            </div>
+{#            <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">#}
+{#                <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"#}
+{#                     style="margin-bottom: 10px">#}
+{#                    <div class="my-3 p-3" style="height: 220px">#}
+{#                        <h2 class="display-5">STOPS</h2>#}
+{#                        <p class="lead"><i>Count: 3464</i><br/>List of all the active stops and terminals.</p>#}
+{#                    </div>#}
+{##}
+{#                    <p class="_p_small"><i>Last Updated: </i>{{ stopLastUpdated }}<br/></p>#}
+{#                    <div class="bg-dark shadow-sm mx-auto"#}
+{#                         style="width: 80%; height: 250px; border-radius: 21px 21px 0 0;"><img#}
+{#                            src="{% static 'img/busStop1.png' %}" width="80%" style="padding-top: 20%"></div>#}
+{#                </div>#}
+{#                <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden"#}
+{#                     style="margin-bottom: 10px">#}
+{#                    <div class="my-3 py-3" style="height: 220px">#}
+{#                        <h2 class="display-5">ROUTES</h2>#}
+{#                        <p class="lead"><i>Count: 543</i><br/>Information about all the routes plying in Delhi</p>#}
+{#                    </div>#}
+{##}
+{##}
+{#                    <p class="_p_small"><i>Last Updated: </i>{{ routesLastUpdated }}<br/></p>#}
+{#                    <div class="bg-light shadow-sm mx-auto"#}
+{#                         style="width: 80%; height: 250px; border-radius: 21px 21px 0 0;"><img#}
+{#                            src="{% static 'img/routes.png' %}" width="80%" style="padding-top: 10%"></div>#}
+{#                </div>#}
+{##}
+{#                <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"#}
+{#                     style="margin-bottom: 10px">#}
+{#                    <div class="my-3 p-3" style="height: 220px">#}
+{#                        <h2 class="display-5">STOP TIMES</h2>#}
+{#                        <p class="lead"><i>Count: 378324</i><br/>Approximate arrival and departure times of buses on the#}
+{#                            stops</p>#}
+{#                    </div>#}
+{#                    <div class="clearfix"></div>#}
+{##}
+{#                    <p class="_p_small"><i>Last Updated: </i>{{ stopTimeLastUpdated }}<br/></p>#}
+{#                    <div class="bg-dark shadow-sm mx-auto"#}
+{#                         style="width: 80%; height: 250px; border-radius: 21px 21px 0 0;"><img#}
+{#                            src="{% static 'img/time.png' %}" width="80%" style="padding-top: 20%"></div>#}
+{#                </div>#}
+{#                <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden"#}
+{#                     style="margin-bottom: 10px">#}
+{#                    <div class="my-3 py-3" style="height: 220px;">#}
+{#                        <h2 class="display-5">TRIPS</h2>#}
+{#                        <p class="lead"><i>Count: 16562</i><br/>Frequency and schedule of routes</p>#}
+{#                    </div>#}
+{#                    <p class="_p_small"><i>Last Updated: </i>{{ tripsLastUpdated }}<br/></p>#}
+{#                    <div class="bg-light shadow-sm mx-auto"#}
+{#                         style="width: 80%; height: 250px; border-radius: 21px 21px 0 0;"><img#}
+{#                            src="{% static 'img/trips.png' %}" width="100%" style="padding-top: 20%"></div>#}
+{#                </div>#}
+{##}
+{##}
+{#            </div>#}
         </div>
     </div>
 

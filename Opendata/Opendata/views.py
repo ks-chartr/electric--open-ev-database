@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from contactusform.models import *
 from downloadRealDataForm.models import *
+from registerDataProvider.models import *
 from django.utils.crypto import get_random_string
 import hashlib
 import logging
@@ -130,6 +131,55 @@ def realtimeData(request):
 	# 		args['notAuthorised'] = '"' + str(passCode) + '" is an invalid Key '
 	return render(request, 'realtimeData.html', args)
 
+
+def dataProvider(request):
+	args = {}
+	if request.method == 'POST':
+		name = request.POST.get('name') or ''
+		email = request.POST.get('email') or ''
+		number = request.POST.get('countryCode') + request.POST.get('number') or ''
+		companyName = request.POST.get('companyName') or ''
+		# purpose = str(request.POST.getlist('purpose')) or ''
+		description = request.POST.get('description') or ''
+		# usageType = request.POST.get('usageType')
+		# if request.POST.get('subscribed'):
+		# 	subscribed = True
+		# else:
+		# 	subscribed = False
+		registerDataProvider = RegisterDataProvider(
+			name=name,
+			email=email,
+			number=number,
+			companyName=companyName,
+			description=description,
+		)
+		try:
+			registerDataProvider.save()
+			args['email'] = email
+			args['number'] = number
+			args['success'] = 'success'
+			unique_id = get_random_string(length=32)
+			args['unique_id'] = unique_id
+			registerDataProvider.passCode = hashlib.sha224(unique_id.encode('utf-8')).hexdigest()
+			registerDataProvider.save()
+		except Exception as e:
+			args['e'] = str(e).split(":")[0] == 'UNIQUE constraint failed'
+			args['email'] = email
+			args['number'] = number
+			print(e)
+	# else:
+	# passCode = request.GET.get('key')
+	# if passCode:
+	# 	print('passCode', passCode)
+	# 	try:
+	# 		downloadRealData = DownloadRealData.objects.get(passCode=passCode)
+	# 		if downloadRealData.authorised:
+	# 			return HttpResponseRedirect('http://traffickarma.iiitd.edu.in:9010/static/stops.txt')
+	# 		else:
+	# 			args['notAuthorised'] = '"' + str(passCode) + '" is not authorise yet!'
+	# 	except:
+	# 		args['notAuthorised'] = '"' + str(passCode) + '" is an invalid Key '
+	return render(request, 'dataProvider.html', args)
 
 '''
 	response codes

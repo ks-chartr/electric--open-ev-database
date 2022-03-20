@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load staticfiles %}
+{% load static %}
 
 {% block nav1 %}active{% endblock %}
 
@@ -9,14 +9,14 @@
             <div class="col-md right-half right-padding-xl" style="min-height: 700px">
                 <div class="cover_div col-md-12">
                     <div class="col-md-4 offset-md-4">
-                        <img src="{%static 'img/white_beta.png' %}" width="100%" style="margin-top: 200px">
+                        <img src="{%static 'img/delhi-switch-sarkar.png' %}" width="100%" style="margin-top: 200px">
                     </div>
                 </div>
                 <div class="overlay"></div>
                 <div class="homepage-hero-module">
                     <div class="video-container">
                         <div class="filter"></div>
-                        <video autoplay="" loop="loop" muted="" class="fillWidth" src="{%static 'assets/Road-candies/Road-candies.mp4' %}" type="video/mp4"></video>
+                        <video autoplay="" loop="loop" muted="" class="fillWidth" src="{%static 'assets/Road-candies/ev-back-hd.mp4' %}" type="video/mp4"></video>
                         Your browser does not support the video tag. I suggest you upgrade your browser.
                     </div>
                 </div>
@@ -34,8 +34,8 @@
         <p class="_p_small">Use of Open Transit Data datasets constitutes acceptance of the Open Transit Data <a href="/terms">Terms and Conditions</a></p>
       </div>
       <div class="col-md-6 p-lg-6 my-5 d-none d-md-block">
-      	<img class="bus_1" src="{%static 'img/bus_1.png' %}">
-        <div style="float: right;"><span style="font-size: 10px">Source: <a href="https://www.pinterest.com/pin/360780620131576373/" target="_blank">https://www.pinterest.com/pin/360780620131576373/</a></span></div>
+{#      	<img class="bus_1" src="{%static 'img/bus_1.png' %}">#}
+{#        <div style="float: right;"><span style="font-size: 10px">Source: <a href="https://www.pinterest.com/pin/360780620131576373/" target="_blank">https://www.pinterest.com/pin/360780620131576373/</a></span></div>#}
   	  </div>
     </div>
     </div>
