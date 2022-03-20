@@ -6,3 +6,5 @@ db.sq*
 /*.DS_Store
 .env
 00*.py
+gunicorn_config.py
+start_script.sh
