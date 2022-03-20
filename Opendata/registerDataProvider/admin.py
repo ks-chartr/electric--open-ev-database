@@ -9,7 +9,6 @@ from django.core.mail import send_mail
 
 
 def export_as_csv(self, request, queryset):
-
     meta = self.model._meta
     field_names = [field.name for field in meta.fields]
 
@@ -43,7 +42,9 @@ def unauthorise(modeladmin, request, queryset):
 
 
 class RegisterDataProviderAdmin(admin.ModelAdmin):
-    readonly_fields = ('name', 'email', 'number', 'companyName', 'description', 'created_at', 'updated_at', 'hitsToday', 'hitsAllTime', 'lastHit')
+    readonly_fields = (
+    'name', 'email', 'number', 'companyName', 'description', 'created_at', 'updated_at', 'hitsToday', 'hitsAllTime',
+    'lastHit', 'authorised')
     list_display = ['name', 'email', 'companyName', 'authorised', 'created_at', 'lastHit', 'hitsAllTime']
     ordering = ['created_at', 'name']
     actions = [authorise, unauthorise, export_as_csv]
@@ -53,6 +54,5 @@ class RegisterDataProviderAdmin(admin.ModelAdmin):
 authorise.short_description = "Authorise"
 unauthorise.short_description = "Un-authorise"
 export_as_csv.short_description = "Export Selected"
-
 
 admin.site.register(RegisterDataProvider, RegisterDataProviderAdmin)
