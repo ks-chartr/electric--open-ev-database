@@ -131,3 +131,4 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 # STATIC_ROOT = 'staticfiles'
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

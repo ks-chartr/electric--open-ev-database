@@ -1,3 +1,4 @@
 .env
 gunicorn_config.py
 start_script.sh
+ev_locations.xlsx

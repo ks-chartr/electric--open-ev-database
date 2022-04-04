@@ -38,14 +38,22 @@ def authorise(modeladmin, request, queryset):
 
 def unauthorise(modeladmin, request, queryset):
     print('unauthorising')
+    for user_queryset in queryset:
+        send_mail(
+            'Delhi Open EV Database API key Unauthorization',
+            'Sorry! \nYour API key has been unauthorized.',
+            'delhievdb@ev.delhitransport.in',
+            [f'{user_queryset.email}'],
+            fail_silently=False,
+        )
     queryset.update(authorised=False)
 
 
 class RegisterDataProviderAdmin(admin.ModelAdmin):
     readonly_fields = (
     'name', 'email', 'number', 'companyName', 'description', 'created_at', 'updated_at', 'hitsToday', 'hitsAllTime',
-    'lastHit', 'authorised')
-    list_display = ['name', 'email', 'companyName', 'authorised', 'created_at', 'lastHit', 'hitsAllTime']
+    'lastHit', 'authorised', 'dtl_sites', 'nondtl_sites')
+    list_display = ['name', 'email', 'companyName', 'authorised', 'created_at', 'lastHit', 'hitsAllTime', 'dtl_sites', 'nondtl_sites']
     ordering = ['created_at', 'name']
     actions = [authorise, unauthorise, export_as_csv]
     exclude = ('passCode',)

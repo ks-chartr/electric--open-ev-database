@@ -12,6 +12,8 @@ class RegisterDataProvider(Model):
     created_at = DateTimeField(auto_now_add=True, editable=False)
     updated_at = DateTimeField(auto_now=True)
     authorised = BooleanField(default=False)
+    dtl_sites = BooleanField(default=False)
+    nondtl_sites = BooleanField(default=False)
     hitsToday = IntegerField(default=0)
     hitsAllTime = IntegerField(default=0)
     lastHit = DateTimeField(blank=True, null=True)

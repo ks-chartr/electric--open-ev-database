@@ -1,6 +1,5 @@
 import json
 
-from django.shortcuts import render
 from Opendata.decorators import authenticate_api_key
 from Opendata.serializers import EVLocationsSerializer
 from django.http import JsonResponse
@@ -8,7 +7,13 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from EVUpdates.models import EVLocations
 import io
-from rest_framework.renderers import JSONRenderer
+
+
+def make_json(evlocations_response):
+    for evlocation in evlocations_response:
+        evlocation["charger_type"] = json.loads(evlocation["charger_type"].replace("'", '"'))
+        evlocation["coordinates"] = json.loads(evlocation["coordinates"].replace("'", '"'))
+        evlocation["contact_numbers"] = json.loads(evlocation["contact_numbers"].replace("'", '"'))
 
 
 # Create your views here.
@@ -23,16 +28,16 @@ def addUpdateEV(request, passcode):
         stream = io.BytesIO(request.body)
         data = JSONParser().parse(stream)
         for ev_data in data:
-            ev_data['charger_type'] = json.dumps(ev_data['charger_type'])
+            #     ev_data['charger_type'] = json.dumps(ev_data['charger_type'])
             ev_data['contact_numbers'] = json.dumps(ev_data['contact_numbers'])
         responseCode = 200
         serializer = EVLocationsSerializer(EVLocations.objects.all(), data=data, many=True)
         if serializer.is_valid():
-            msg = 'valid data'
+            msg = 'data updated successfully!'
             serializer.save(provider_passcode=passcode)
             return JsonResponse({"status": responseCode, "msg": msg}, status=responseCode)
         else:
-            msg = 'invalid data'
+            msg = f'{serializer.errors}'
     return JsonResponse({"status": responseCode, "msg": msg}, status=responseCode)
 
 
@@ -51,6 +56,7 @@ def getMyEV(request, passcode):
         user_ev_locations = EVLocations.objects.filter(provider_passcode=passcode)
         serializer = EVLocationsSerializer(user_ev_locations, many=True)
         user_ev_locations_json = serializer.data
+        make_json(user_ev_locations_json)
     return JsonResponse({"status": responseCode, "msg": user_ev_locations_json}, status=responseCode)
 
 
@@ -64,4 +70,5 @@ def getEV(request, passcode):
         all_ev_locations = EVLocations.objects.all()
         serializer = EVLocationsSerializer(all_ev_locations, many=True)
         all_ev_locations_json = serializer.data
+        make_json(all_ev_locations_json)
     return JsonResponse({"status": responseCode, "msg": all_ev_locations_json}, status=responseCode)
