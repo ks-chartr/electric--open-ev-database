@@ -32,6 +32,7 @@ class EVLocations(Model):
     contact_numbers = CharField(max_length=100, null=True, blank=True, )
     provider_passcode = CharField(max_length=100, null=True, blank=True, )
     postal_code = CharField(max_length=100, null=True, blank=True, )
+    dtl_site = BooleanField(default=True)
 
     def __str__(self):
         return self.name + ', ' + str(self.id) + ', ' + str(self.provider_passcode)

@@ -34,6 +34,7 @@ class EVLocationsListSerializer(serializers.ListSerializer):
     payment_modes = serializers.CharField(max_length=100)
     contact_numbers = serializers.JSONField()
     postal_code = serializers.CharField(max_length=100)
+    dtl_site = serializers.BooleanField(default=True)
 
     def create(self, validated_data):
         evlocations = [EVLocations(**item) for item in validated_data]
@@ -72,6 +73,7 @@ class EVLocationsSerializer(serializers.Serializer):
     payment_modes = serializers.CharField(max_length=100)
     contact_numbers = serializers.JSONField()
     postal_code = serializers.CharField(max_length=100)
+    dtl_site = serializers.BooleanField(default=True)
 
     class Meta:
         model = EVLocations
@@ -83,7 +85,7 @@ class EVLocationsSerializer(serializers.Serializer):
         return added_data
 
     def update(self, instance, validated_data):
-        instance.charger_type = validated_data.get('charger_type', instance.charger_type)
-        instance.available = validated_data.get('content', instance.available)
+        # instance.Name = validated_data.get('Name', instance.Name)
+        [setattr(instance, k, v) for k, v in validated_data.items()]
         instance.save()
         return instance
