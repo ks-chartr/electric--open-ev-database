@@ -42,8 +42,16 @@ def addUpdateEV(request, passcode):
 
 
 @authenticate_api_key(role='provider')
-def deleteEV(request):
-    pass
+def deleteEV(request, passcode):
+    if request.method != 'GET':
+        responseCode = 401
+        msg = "Invalid request method"
+    else:
+        id = request.GET.get('id')
+        responseCode = 200
+        EVLocations.objects.filter(provider_passcode=passcode, id=id).delete()
+        msg = f"Successfully deleted station for station ID - {id}"
+    return JsonResponse({"status": responseCode, "msg": msg}, status=responseCode)
 
 
 @authenticate_api_key(role='provider')

@@ -16,6 +16,12 @@ def coordinates_validator(coordinates):
             raise serializers.ValidationError(f"{field} not given in charger type")
 
 
+def station_type_validator(station_type):
+    valid_station_types = ["charging", "battery_swapping"]
+    if station_type not in valid_station_types:
+        raise serializers.ValidationError(f"station_type should be any from {valid_station_types}")
+
+
 class EVLocationsListSerializer(serializers.ListSerializer):
     id = serializers.CharField(max_length=100)
     name = serializers.CharField(max_length=100)
@@ -35,6 +41,7 @@ class EVLocationsListSerializer(serializers.ListSerializer):
     contact_numbers = serializers.JSONField()
     postal_code = serializers.CharField(max_length=100)
     dtl_site = serializers.BooleanField(default=True)
+    station_type = serializers.CharField(max_length=50, default="charging", validators=[station_type_validator])
 
     def create(self, validated_data):
         evlocations = [EVLocations(**item) for item in validated_data]
@@ -74,6 +81,7 @@ class EVLocationsSerializer(serializers.Serializer):
     contact_numbers = serializers.JSONField()
     postal_code = serializers.CharField(max_length=100)
     dtl_site = serializers.BooleanField(default=True)
+    station_type = serializers.CharField(max_length=50, default="charging", validators=[station_type_validator])
 
     class Meta:
         model = EVLocations

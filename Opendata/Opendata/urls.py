@@ -36,6 +36,9 @@ urlpatterns = [
     re_path(r'^tinymce/', include('tinymce.urls')),
     re_path(r'^api/authenticate/', authenticate_api_key),
     re_path(r'^api/update-ev/', addUpdateEV),
+    re_path(r'^api/update-stations/', addUpdateEV),
     re_path(r'^api/get-user-ev/', getMyEV),
+    re_path(r'^api/get-user-stations/', getMyEV),
+    re_path(r'^api/delete-station/', deleteEV),
     re_path(r'^api/get-ev/', getEV),
 ]
