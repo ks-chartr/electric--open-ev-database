@@ -5,6 +5,7 @@ django-tinymce
 django-wysiwyg
 gunicorn
 pip-chill
+psycopg2
 pycparser
 python-decouple
 xlrd
