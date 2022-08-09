@@ -170,7 +170,7 @@ def dataProvider(request):
             args['unique_id'] = unique_id
             registerDataProvider.passCode = hashlib.sha224(unique_id.encode('utf-8')).hexdigest()
             registerDataProvider.save()
-            auto_authorize(user_email=email, user_type="provider")
+            # auto_authorize(user_email=email, user_type="provider")
         except Exception as e:
             args['e'] = str(e).split(":")[0] == 'UNIQUE constraint failed'
             args['email'] = email
