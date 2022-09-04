@@ -309,6 +309,17 @@
                                     style="color: red"> *</span></b></label><br/>
                             <input name="companyName" required="" class="form-control">
                         </div>
+                        <div class="form-group">
+                            <label for="contact"><b>Entity Name <span
+                                    style="color: red"> *</span></b></label><br/>
+                            <input name="entityName" required="" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact"><b>Operational in Delhi since <span
+                                    style="color: red"> *</span></b></label><br/>
+                            <input type="date" name="operationalSince" required="" class="form-control">
+                        </div>
+
                         {#				  <div class="form-group">#}
                         {#				  	<label for="usageType" style="margin-right: 20px"><b>Usage Type <span style="color: red"> *</span></b></label><br/>#}
                         {#					  <input type="radio" value="Commercial" name="usageType" required="">#}
@@ -329,6 +340,15 @@
                         {#					  <input type="checkbox" name="purpose" value="Other">#}
                         {#					  <label>Others</label><br/>#}
                         {#				  </div>#}
+
+                        <div class="form-group">
+                            <label for="contact"><b>Station Type</b></label><br/>
+                            <input type="checkbox" name="charger">
+                            Charging Stations
+                            <input type="checkbox" name="swapping">
+                            Battery Swapping Stations
+                        </div>
+
                         <div class="form-group">
                             <label for="contact"><b>Description </b>(please provide us with more background information
                                 on your application)</label><br/>
