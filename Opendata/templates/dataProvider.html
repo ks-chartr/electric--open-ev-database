@@ -313,7 +313,9 @@
                         <div class="form-group">
                             <label for="contact"><b>Company Website <span
                                     style="color: red"> *</span></b></label><br/>
-                            <input name="companyWebsite" required="" class="form-control">
+                            <input name="companyWebsite" type="url" placeholder="https://example.com"
+                                   pattern="[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?"
+                                   required="" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="contact"><b>Operational in Delhi since <span
@@ -356,14 +358,14 @@
                             <textarea class="form-control" name="description"> </textarea>
                         </div>
 
-{#                        <div class="form-group">#}
-{#                            <label for="contact"><b>Sharing data for </b>(please select the sites for which you will be#}
-{#                                sharing the data for)</label><br/>#}
-{#                            <input type="checkbox" name="dtl">#}
-{#                            DTL sites#}
-{#                            <input type="checkbox" name="nondtl">#}
-{#                            Non-DTL sites#}
-{#                        </div>#}
+                        {#                        <div class="form-group">#}
+                        {#                            <label for="contact"><b>Sharing data for </b>(please select the sites for which you will be#}
+                        {#                                sharing the data for)</label><br/>#}
+                        {#                            <input type="checkbox" name="dtl">#}
+                        {#                            DTL sites#}
+                        {#                            <input type="checkbox" name="nondtl">#}
+                        {#                            Non-DTL sites#}
+                        {#                        </div>#}
 
                         <div class="form-group">
                             <input type="checkbox" required="">
