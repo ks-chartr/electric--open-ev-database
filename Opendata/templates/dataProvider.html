@@ -16,6 +16,7 @@
                 </div>
                 <div class="modal-body">
                     <p>Please note the following secret api key for data collection:</p>
+                    <p><b>The API key will not be shown or shared again.</b></p>
                     <div class="alert alert-primary">
                         {{ unique_id }}
                     </div>
@@ -305,14 +306,14 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="contact"><b>Company/Institution <span
+                            <label for="contact"><b>Company/Institution Name<span
                                     style="color: red"> *</span></b></label><br/>
                             <input name="companyName" required="" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="contact"><b>Entity Name <span
+                            <label for="contact"><b>Company Website <span
                                     style="color: red"> *</span></b></label><br/>
-                            <input name="entityName" required="" class="form-control">
+                            <input name="companyWebsite" required="" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="contact"><b>Operational in Delhi since <span
@@ -355,14 +356,14 @@
                             <textarea class="form-control" name="description"> </textarea>
                         </div>
 
-                        <div class="form-group">
-                            <label for="contact"><b>Sharing data for </b>(please select the sites for which you will be
-                                sharing the data for)</label><br/>
-                            <input type="checkbox" name="dtl">
-                            DTL sites
-                            <input type="checkbox" name="nondtl">
-                            Non-DTL sites
-                        </div>
+{#                        <div class="form-group">#}
+{#                            <label for="contact"><b>Sharing data for </b>(please select the sites for which you will be#}
+{#                                sharing the data for)</label><br/>#}
+{#                            <input type="checkbox" name="dtl">#}
+{#                            DTL sites#}
+{#                            <input type="checkbox" name="nondtl">#}
+{#                            Non-DTL sites#}
+{#                        </div>#}
 
                         <div class="form-group">
                             <input type="checkbox" required="">
