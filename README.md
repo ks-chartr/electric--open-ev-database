@@ -38,6 +38,9 @@ Instructions for setup
         DB_PORT=<db-port>
 
 
+- Static data file for download 
+        copy excel/ csv file in 'static/assets'
+        
 - Migrations
 
         python manage.py makemigrations
