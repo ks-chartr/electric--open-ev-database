@@ -8,7 +8,7 @@ Instructions for setup
 
 - Clone the project
 
-        git clone https://varun_bansal@bitbucket.org/traffickarma/opendata.git
+        git https://gitlab.com/chartrmobility/electric/open-ev-database.git
         cd opendata
 
 
@@ -29,8 +29,18 @@ Instructions for setup
         REALTIME_DATA_FILE_PATH=<real-data-path>
         SECRET_KEY=<secret-key>
         DEBUG=False
+        
+        # postgreSQL config
+        DB_NAME=<db-name>
+        DB_USER=<db-user>
+        DB_PASSWORD=<user-pwd>
+        DB_HOST=<db-host-ip>
+        DB_PORT=<db-port>
 
 
+- Static data file for download 
+        copy excel/ csv file in 'static/assets'
+        
 - Migrations
 
         python manage.py makemigrations
@@ -40,7 +50,7 @@ Instructions for setup
     
         python manage.py runserver
 
-- Your blog app is running at 
+- Your app is running at 
 
         localhost:8000
 
