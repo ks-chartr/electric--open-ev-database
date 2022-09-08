@@ -41,7 +41,7 @@
                         <p style="color: green"><b>We will contact you on {{ email }} or {{ number }} very soon. Please
                             note down your secret api key {{ unique_id }}</b></p>
                     {% endif %}
-                    <form method="POST" action="/data/provider/">
+                    <form method="POST" action="/openev/data/provider/">
                         <input type='hidden' name='csrfmiddlewaretoken' value='{{ csrf_token }}'>
                         <div class="form-group">
                             <label><b>Name<span style="color: red"> *</span></b></label><br/>
@@ -323,27 +323,6 @@
                             <input type="date" name="operationalSince" required="" class="form-control">
                         </div>
 
-                        {#				  <div class="form-group">#}
-                        {#				  	<label for="usageType" style="margin-right: 20px"><b>Usage Type <span style="color: red"> *</span></b></label><br/>#}
-                        {#					  <input type="radio" value="Commercial" name="usageType" required="">#}
-                        {#				  	<label for="usageType" style="margin-right: 20px">Commercial</label>#}
-                        {#					  <input type="radio" value="NonCommercial" name="usageType" required="">#}
-                        {#				  	<label for="usageType">Non-Commercial</label>#}
-                        {#				  </div>#}
-                        {#				  <div class="form-group">#}
-                        {#				  	<label ><b>Purpose of Usage</b> (please select all that is applicable)</label><br/>#}
-                        {#					  <input type="checkbox" name="purpose" value="Mobile App">#}
-                        {#					  <label for="Mobile App" style="margin-right: 20px">Mobile App</label>#}
-                        {#					  <input type="checkbox" name="purpose" value="Website/Portal">#}
-                        {#					  <label>Website/Portal</label><br/>#}
-                        {#					  <input type="checkbox" name="purpose" value="Research">#}
-                        {#					  <label style="margin-right: 35px">Research</label>#}
-                        {#					  <input type="checkbox" name="purpose" value="Student Projects">#}
-                        {#					  <label>Student Projects</label><br/>#}
-                        {#					  <input type="checkbox" name="purpose" value="Other">#}
-                        {#					  <label>Others</label><br/>#}
-                        {#				  </div>#}
-
                         <div class="form-group">
                             <label for="contact"><b>Station Type</b></label><br/>
                             <input type="checkbox" name="charger">
@@ -373,11 +352,6 @@
                             <a target="_blank" href="/terms">Terms
                                 and Conditions</a><span style="color: red"> *</span><br/>
                         </div>
-                        {#				  <div class="form-group">#}
-                        {#					  <input type="checkbox" name="subscribed" value="True">#}
-                        {#					  I want to be notified (via email) when OEV launches new datasets.<br/>#}
-                        {#                  </div>#}
-
                         <div style="align-content: center;">
                             <button type="submit"
                                     style="margin-left: auto;margin-right: auto; display: block;width: 200px"

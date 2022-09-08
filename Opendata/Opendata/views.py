@@ -118,18 +118,6 @@ def realtimeData(request):
             args['email'] = email
             args['number'] = number
             print(e)
-    # else:
-    # passCode = request.GET.get('key')
-    # if passCode:
-    # 	print('passCode', passCode)
-    # 	try:
-    # 		downloadRealData = DownloadRealData.objects.get(passCode=passCode)
-    # 		if downloadRealData.authorised:
-    # 			return HttpResponseRedirect('http://traffickarma.iiitd.edu.in:9010/static/stops.txt')
-    # 		else:
-    # 			args['notAuthorised'] = '"' + str(passCode) + '" is not authorise yet!'
-    # 	except:
-    # 		args['notAuthorised'] = '"' + str(passCode) + '" is an invalid Key '
     return render(request, 'realtimeData.html', args)
 
 
