@@ -42,6 +42,7 @@ urlpatterns = [
     re_path(r'^api/delete-station/', deleteEV),
     re_path(r'^api/get-ev/', getEV),
 
+    re_path(r'^openev/$', home),
     re_path(r'^openev/data/static/$', staticData),
     re_path(r'^openev/data/realtime/$', realtimeData),
     re_path(r'^openev/data/provider/$', dataProvider),
