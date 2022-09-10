@@ -21,6 +21,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 {% block modal %}{% endblock %}
 
+
+
 </head>
 
 <body>
@@ -31,12 +33,16 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="py-2" href="/openev">
-            <img src="{% static 'img/delhi-switch-sarkar.png' %}" height="30px" style="margin-right: 50px">
+        <a class="py-2" href="https://ev.delhi.gov.in/">
+            <img src="{% static 'img/delhi-switch-sarkar.png' %}" height="75px" style="margin-right: 50px">
         </a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item {% block nav8 %}{% endblock %}">
+                <a class="nav-link" href="https://ev.delhi.gov.in/">Switch Delhi</a>
+            </li>
+
             <li class="nav-item {% block nav1 %}{% endblock %}">
-                <a class="nav-link" href="/openev">Home</a>
+                <a class="nav-link" href="/openev/">Home</a>
             </li>
 
             <li class="nav-item {% block nav7 %}{% endblock %}">
