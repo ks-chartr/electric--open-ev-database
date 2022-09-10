@@ -52,7 +52,7 @@ def unauthorise(modeladmin, request, queryset):
 class RegisterDataProviderAdmin(admin.ModelAdmin):
     readonly_fields = (
     'name', 'email', 'number', 'companyName', 'description', 'created_at', 'updated_at', 'hitsToday', 'hitsAllTime',
-    'lastHit', 'authorised', 'dtl_sites', 'nondtl_sites')
+    'lastHit', 'authorised', 'dtl_sites', 'nondtl_sites', 'operational_since', 'company_website')
     list_display = ['name', 'email', 'companyName', 'authorised', 'created_at', 'lastHit', 'hitsAllTime', 'dtl_sites', 'nondtl_sites']
     ordering = ['created_at', 'name']
     actions = [authorise, unauthorise, export_as_csv]
