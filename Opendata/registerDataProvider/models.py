@@ -19,7 +19,7 @@ class RegisterDataProvider(Model):
     lastHit = DateTimeField(blank=True, null=True)
 
     company_website = URLField(default='http://www.example.com')
-    approval_document = FileField(upload_to='approval_documents', default='default.pdf')
+    authorisation_letter = FileField(upload_to='authorisation_letters', default='default.pdf')
     operational_since = DateTimeField(blank=True, null=True)
     battery_swapping = BooleanField(default=False)
     charging = BooleanField(default=False)

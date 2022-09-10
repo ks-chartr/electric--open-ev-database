@@ -131,12 +131,12 @@ def dataProvider(request):
         # purpose = str(request.POST.getlist('purpose')) or ''
         description = request.POST.get('description') or ''
         # usageType = request.POST.get('usageType')
-        approval_doc = request.FILES.get('approvalDocument')
+        authorisation_letter = request.FILES.get('authorisationLetter')
         company_website = request.POST.get('companyWebsite')
         operational_since = request.POST.get('operationalSince')
 
-        if approval_doc:
-            approval_doc.name = f"{companyName}_{name}_approval_doc.pdf"
+        if authorisation_letter:
+            authorisation_letter.name = f"{companyName}_{name}_authorisation_letter.pdf"
 
         if request.POST.get('swapping'):
             battery_swapping = True
@@ -165,7 +165,7 @@ def dataProvider(request):
             description=description,
             dtl_sites=dtl,
             nondtl_sites=nondtl,
-            approval_document=approval_doc,
+            authorisation_letter=authorisation_letter,
             company_website=company_website,
             operational_since=operational_since,
             battery_swapping=battery_swapping,
