@@ -131,6 +131,23 @@ def dataProvider(request):
         # purpose = str(request.POST.getlist('purpose')) or ''
         description = request.POST.get('description') or ''
         # usageType = request.POST.get('usageType')
+        approval_doc = request.FILES.get('approvalDocument')
+        company_website = request.POST.get('companyWebsite')
+        operational_since = request.POST.get('operationalSince')
+
+        if approval_doc:
+            approval_doc.name = f"{companyName}_{name}_approval_doc.pdf"
+
+        if request.POST.get('swapping'):
+            battery_swapping = True
+        else:
+            battery_swapping = False
+
+        if request.POST.get('charging'):
+            charging = True
+        else:
+            charging = False
+
         if request.POST.get('dtl'):
             dtl = True
         else:
@@ -147,7 +164,12 @@ def dataProvider(request):
             companyName=companyName,
             description=description,
             dtl_sites=dtl,
-            nondtl_sites=nondtl
+            nondtl_sites=nondtl,
+            approval_document=approval_doc,
+            company_website=company_website,
+            operational_since=operational_since,
+            battery_swapping=battery_swapping,
+            charging=charging
         )
         try:
             registerDataProvider.save()

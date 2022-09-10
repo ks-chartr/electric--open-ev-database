@@ -18,5 +18,11 @@ class RegisterDataProvider(Model):
     hitsAllTime = IntegerField(default=0)
     lastHit = DateTimeField(blank=True, null=True)
 
+    company_website = URLField(default='http://www.example.com')
+    approval_document = FileField(upload_to='approval_documents', default='default.pdf')
+    operational_since = DateTimeField(blank=True, null=True)
+    battery_swapping = BooleanField(default=False)
+    charging = BooleanField(default=False)
+
     def __str__(self):
         return self.name + ', ' + str(self.authorised)

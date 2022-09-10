@@ -41,7 +41,7 @@
                         <p style="color: green"><b>We will contact you on {{ email }} or {{ number }} very soon. Please
                             note down your secret api key {{ unique_id }}</b></p>
                     {% endif %}
-                    <form method="POST" action="/openev/data/provider/">
+                    <form method="POST" encType="multipart/form-data" action="/openev/data/provider/">
                         <input type='hidden' name='csrfmiddlewaretoken' value='{{ csrf_token }}'>
                         <div class="form-group">
                             <label><b>Name<span style="color: red"> *</span></b></label><br/>
@@ -324,8 +324,13 @@
                         </div>
 
                         <div class="form-group">
+                            <label><b>POC Approval Document<span style="color: red"> *</span></b></label><br/>
+                            <input name="approvalDocument" required="" type="file" placeholder="Choose File" class="form-control">
+                        </div>
+
+                        <div class="form-group">
                             <label for="contact"><b>Station Type</b></label><br/>
-                            <input type="checkbox" name="charger">
+                            <input type="checkbox" name="charging">
                             Charging Stations
                             <input type="checkbox" name="swapping">
                             Battery Swapping Stations

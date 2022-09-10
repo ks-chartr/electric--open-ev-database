@@ -133,3 +133,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 CSRF_TRUSTED_ORIGINS = ['https://openev.delhitransport.in']
 EMAIL_HOST = "localhost"
 DEFAULT_FROM_EMAIL = 'delhievdb@ev.delhitransport.in'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
