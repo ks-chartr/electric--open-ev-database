@@ -182,7 +182,7 @@ def dataProvider(request):
             registerDataProvider.save()
             # auto_authorize(user_email=email, user_type="provider")
         except Exception as e:
-            args['e'] = str(e).split(":")[0] == 'UNIQUE constraint failed'
+            args['e'] = str(e).lower().__contains__('unique constraint')
             args['email'] = email
             args['number'] = number
             print(e)
