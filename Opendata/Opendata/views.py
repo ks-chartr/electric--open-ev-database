@@ -136,7 +136,7 @@ def dataProvider(request):
         operational_since = request.POST.get('operationalSince')
 
         if authorisation_letter:
-            authorisation_letter.name = f"{companyName}_{name}_authorisation_letter.pdf"
+            authorisation_letter.name = f"{companyName}_{name}_{authorisation_letter.name}"
 
         if request.POST.get('swapping'):
             battery_swapping = True
@@ -172,17 +172,21 @@ def dataProvider(request):
             charging=charging
         )
         try:
-            registerDataProvider.save()
-            args['email'] = email
-            args['number'] = number
-            args['success'] = 'success'
-            unique_id = get_random_string(length=32)
-            args['unique_id'] = unique_id
-            registerDataProvider.passCode = hashlib.sha224(unique_id.encode('utf-8')).hexdigest()
-            registerDataProvider.save()
-            # auto_authorize(user_email=email, user_type="provider")
+            valid_file_formats = ["doc", "docx", "pdf"]
+            if not any(file_format in authorisation_letter.name for file_format in valid_file_formats):
+                args['invalid_file'] = True
+            else:
+                registerDataProvider.save()
+                args['email'] = email
+                args['number'] = number
+                args['success'] = 'success'
+                unique_id = get_random_string(length=32)
+                args['unique_id'] = unique_id
+                registerDataProvider.passCode = hashlib.sha224(unique_id.encode('utf-8')).hexdigest()
+                registerDataProvider.save()
+                # auto_authorize(user_email=email, user_type="provider")
         except Exception as e:
-            args['e'] = str(e).lower().__contains__('unique constraint')
+            args['e'] = True if str(e).lower().__contains__('unique constraint') else False
             args['email'] = email
             args['number'] = number
             print(e)
