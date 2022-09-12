@@ -65,9 +65,9 @@ def staticData(request):
         downloadData.save()
         args['success'] = 'success'
 
-        file_path = os.path.join(BASE_DIR, STATIC_DATA_FILE)
-        file_name_w_extension = os.path.basename(file_path)
-        with open(file_path, "rb") as excel:
+        # file_path = os.path.join(BASE_DIR, STATIC_DATA_FILE)
+        file_name_w_extension = os.path.basename(STATIC_DATA_FILE)
+        with open(STATIC_DATA_FILE, "rb") as excel:
             data = excel.read()
         response = HttpResponse(data,
                                 content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
