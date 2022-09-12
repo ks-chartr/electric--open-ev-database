@@ -51,10 +51,6 @@ def staticData(request):
         purpose = str(request.POST.getlist('purpose'))
         dataDownloaded = request.POST.get('dataDownloaded')
 
-        ####################
-        # now downloading all static files as .zip
-        ####################
-
         downloadData = DownloadData(
             name=name,
             email=email,
@@ -66,15 +62,16 @@ def staticData(request):
         args['success'] = 'success'
 
         # file_path = os.path.join(BASE_DIR, STATIC_DATA_FILE)
-        file_name_w_extension = os.path.basename(STATIC_DATA_FILE)
-        with open(STATIC_DATA_FILE, "rb") as excel:
-            data = excel.read()
-        response = HttpResponse(data,
-                                content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-        response['Content-Disposition'] = 'attachment; filename="{}"'.format(file_name_w_extension)
-        response['X-Accel-Redirect'] = "/protected/{0}".format(file_name_w_extension)
+        # file_name_w_extension = os.path.basename(STATIC_DATA_FILE)
+        # with open(STATIC_DATA_FILE, "rb") as excel:
+        #     data = excel.read()
+        # response = HttpResponse(data,
+        #                         content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+        # response['Content-Disposition'] = 'attachment; filename="{}"'.format(file_name_w_extension)
+        # response['X-Accel-Redirect'] = "/protected/{0}".format(file_name_w_extension)
 
-        return response
+        # return response
+        return HttpResponseRedirect("https://ev.delhi.gov.in/openev/static/assets/ev_locations.xlsx")
 
     return render(request, 'staticData.html', args)
 
