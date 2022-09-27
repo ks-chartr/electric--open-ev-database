@@ -21,7 +21,7 @@ from EVUpdates.views import *
 from django.urls import include, re_path
 
 
-admin.site.site_url = '/openev'
+# admin.site.site_url = '/openev'
 
 urlpatterns = [
     #re_path(r'^admin/', admin.site.urls),
