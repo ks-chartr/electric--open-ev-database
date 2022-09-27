@@ -25,27 +25,27 @@ def export_as_csv(self, request, queryset):
 
 def authorise(modeladmin, request, queryset):
     print('authorising')
-    for user_queryset in queryset:
-        send_mail(
-            'Delhi Open EV Database API key Authorization',
-            'Congratulations! \nYour API key has been authorized.',
-            'delhievdb@ev.delhitransport.in',
-            [f'{user_queryset.email}'],
-            fail_silently=False,
-        )
+    # for user_queryset in queryset:
+    #     send_mail(
+    #         'Delhi Open EV Database API key Authorization',
+    #         'Congratulations! \nYour API key has been authorized.',
+    #         'delhievdb@ev.delhitransport.in',
+    #         [f'{user_queryset.email}'],
+    #         fail_silently=False,
+    #     )
     queryset.update(authorised=True)
 
 
 def unauthorise(modeladmin, request, queryset):
     print('unauthorising')
-    for user_queryset in queryset:
-        send_mail(
-            'Delhi Open EV Database API key Unauthorization',
-            'Sorry! \nYour API key has been unauthorized.',
-            'delhievdb@ev.delhitransport.in',
-            [f'{user_queryset.email}'],
-            fail_silently=False,
-        )
+    # for user_queryset in queryset:
+    #     send_mail(
+    #         'Delhi Open EV Database API key Unauthorization',
+    #         'Sorry! \nYour API key has been unauthorized.',
+    #         'delhievdb@ev.delhitransport.in',
+    #         [f'{user_queryset.email}'],
+    #         fail_silently=False,
+    #     )
     queryset.update(authorised=False)
 
 
