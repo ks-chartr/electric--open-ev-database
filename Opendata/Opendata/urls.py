@@ -24,7 +24,7 @@ from django.urls import include, re_path
 # admin.site.site_url = '/openev'
 
 urlpatterns = [
-    #re_path(r'^admin/', admin.site.urls),
+    re_path(r'^admin/', admin.site.urls),
     re_path(r'^$', home),
     re_path(r'^data/static/$', staticData),
     re_path(r'^data/realtime/$', realtimeData),
@@ -56,7 +56,7 @@ urlpatterns = [
     re_path(r'^openev/policy/$', policy),
     re_path(r'^openev/privacy/$', privacy),
     re_path(r'^openev/announcements/$', announcement),
-    re_path(r'^openev/admin/', admin.site.urls),
+    # re_path(r'^openev/admin/', admin.site.urls),
     re_path(r'^openev/tinymce/', include('tinymce.urls')),
     re_path(r'^openev/api/authenticate/', authenticate_api_key),
     re_path(r'^openev/api/update-ev/', addUpdateEV),
