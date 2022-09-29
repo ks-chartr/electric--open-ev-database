@@ -38,7 +38,7 @@
 				{% if success %}
 					<p style="color: green"><b>We will contact you on {{email}} or {{number}} very soon. Please note down your secret api key {{unique_id}}</b></p>
 				{% endif %}
-				<form method="POST" action="/openev/data/realtime/">
+				<form method="POST" action="/data/realtime/">
 				  <input type='hidden' name='csrfmiddlewaretoken' value='{{csrf_token}}' >
 				  <div class="form-group">
 				  	<label ><b>Name<span style="color: red"> *</span></b></label><br/>
