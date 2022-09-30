@@ -1,3 +1,5 @@
+import logging
+
 from django.http import JsonResponse
 from downloadRealDataForm.models import *
 from registerDataProvider.models import *
@@ -73,6 +75,7 @@ def authenticate_api_key(view_function, role):
                     responseCode = 401
                     msg = 'Invalid key.'
                 except Exception as e:
+                    logging.info(e)
                     responseCode = 401
                     msg = 'Unknown error.'
             else:

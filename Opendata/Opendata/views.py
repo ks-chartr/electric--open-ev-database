@@ -254,7 +254,8 @@ def authenticate_api_key(request):
                     downloadRealData.lastHit = datetime.datetime.now()
                     downloadRealData.save()
 
-            except Exception:
+            except Exception as e:
+                logging.info(e)
                 responseCode = 401
                 msg = 'Unknown error.'
         else:
