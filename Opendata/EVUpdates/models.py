@@ -33,7 +33,7 @@ class EVLocations(Model):
     provider_passcode = CharField(max_length=100, null=True, blank=True, )
     postal_code = CharField(max_length=100, null=True, blank=True, )
     dtl_site = BooleanField(default=True)
-    station_type = CharField(max_length=100, default="charging")
+    station_type = CharField(max_length=50, default="charging")
 
     def __str__(self):
         return self.name + ', ' + str(self.id) + ', ' + str(self.provider_passcode)
