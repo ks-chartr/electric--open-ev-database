@@ -38,13 +38,15 @@
                         <p style="color: red">{{ email }} or {{ number }} is already registered.</p>
                     {% endif %}
                     {% if invalid_file %}
-                        <p style="color: red">Only .pdf, .docx, .doc files are supported for POC authorisation letter.</p>
+                        <p style="color: red">Only .pdf, .docx, .doc files are supported for POC authorisation
+                            letter.</p>
                     {% endif %}
                     {% if success %}
                         <p style="color: green"><b>We will contact you on {{ email }} or {{ number }} very soon. Please
                             note down your secret api key {{ unique_id }}</b></p>
                     {% endif %}
-                    <form method="POST" encType="multipart/form-data" action="/openev/data/provider/">
+                    <form class="dataProviderForm" method="POST" encType="multipart/form-data"
+                          action="/openev/data/provider/">
                         <input type='hidden' name='csrfmiddlewaretoken' value='{{ csrf_token }}'>
                         <div class="form-group">
                             <label><b>Name<span style="color: red"> *</span></b></label><br/>
@@ -309,6 +311,11 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="otp"><b>Enter OTP Sent to your number<span
+                                    style="color: red"> *</span></b></label><br/>
+                            <input  name="otp" class="form-control" type="text" pattern="\d*" maxlength="6" />
+                        </div>
+                        <div class="form-group">
                             <label for="contact"><b>Company/Institution Name<span
                                     style="color: red"> *</span></b></label><br/>
                             <input name="companyName" required="" class="form-control">
@@ -379,6 +386,7 @@
 
         </div>
     </div>
+
     {% if success %}
         <script type="text/javascript">
             $(window).on('load', function () {
@@ -387,4 +395,6 @@
         </script>
     {% endif %}
 
+    {% load static %}
+    <script src="{% static 'js/dataProvider.js' %}"></script>
 {% endblock %}

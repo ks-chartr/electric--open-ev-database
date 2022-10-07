@@ -1,9 +1,10 @@
 import mimetypes
 import os
 
-from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
+from django.http import HttpResponseRedirect, JsonResponse, HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, get_object_or_404, redirect
 from contactusform.models import *
+from django.urls import reverse
 from downloadRealDataForm.models import *
 from registerDataProvider.models import *
 from django.utils.crypto import get_random_string
@@ -14,6 +15,8 @@ import datetime
 from registerDataProvider.admin import authorise as provider_auth
 from downloadRealDataForm.admin import authorise as consumer_auth
 import urllib.request  # the lib that handles the url stuff
+
+from modules.messaging_service import send_sms_otp
 
 STATIC_DATA_FILE = config('STATIC_DATA_FILE', default='ev_locations.xlsx', cast=str)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -173,6 +176,7 @@ def dataProvider(request):
             if not any(file_format in authorisation_letter.name for file_format in valid_file_formats):
                 args['invalid_file'] = True
             else:
+                # verify OTP, if 200 proceed else return
                 registerDataProvider.save()
                 args['email'] = email
                 args['number'] = number
@@ -181,24 +185,12 @@ def dataProvider(request):
                 args['unique_id'] = unique_id
                 registerDataProvider.passCode = hashlib.sha224(unique_id.encode('utf-8')).hexdigest()
                 registerDataProvider.save()
-                # auto_authorize(user_email=email, user_type="provider")
+                auto_authorize(user_email=email, user_type="provider")
         except Exception as e:
             args['e'] = True if str(e).lower().__contains__('unique constraint') else False
             args['email'] = email
             args['number'] = number
             print(e)
-    # else:
-    # passCode = request.GET.get('key')
-    # if passCode:
-    # 	print('passCode', passCode)
-    # 	try:
-    # 		downloadRealData = DownloadRealData.objects.get(passCode=passCode)
-    # 		if downloadRealData.authorised:
-    # 			return HttpResponseRedirect('http://traffickarma.iiitd.edu.in:9010/static/stops.txt')
-    # 		else:
-    # 			args['notAuthorised'] = '"' + str(passCode) + '" is not authorise yet!'
-    # 	except:
-    # 		args['notAuthorised'] = '"' + str(passCode) + '" is an invalid Key '
 
     return render(request, 'dataProvider.html', args)
 
@@ -329,3 +321,20 @@ def announcement(request):
     if (announcements):
         args['announcements'] = announcements
     return render(request, 'announcement.html', args)
+
+
+def send_otp(request, mobile_number_str):
+    return send_sms_otp(mobile_number_str)
+
+
+def verify_mobile_number(request):
+    if request.method == 'GET':
+        last_two_digits = mobile_number_str[-2:]
+        # TODO: send OTP to the mobile synchronously
+        response = send_sms_otp(mobile_number_str)
+        args = {"mobile_number_text": f"xxxxxxxx{last_two_digits}", "message": f"{response['description']}",
+                "registerDataProviderObj": registerDataProviderObj}
+        return render(request, 'mobileVerify.html', args)
+    elif request.method == 'POST':
+        # TODO: verify OTP by calling API
+        pass
