@@ -1,8 +1,9 @@
+import logging
+
 import requests
 import json
 
 from Opendata.settings import SMS_API_AUTHORIZATION_TOKEN
-
 
 def send_sms_otp(mobile_number):
     url = f"https://messages.delhitransport.in/v2/create/{mobile_number}"
@@ -11,7 +12,7 @@ def send_sms_otp(mobile_number):
     headers = {
         'Authorization': f'Bearer {SMS_API_AUTHORIZATION_TOKEN}'
     }
-
+    print(url)
     response = requests.request("GET", url, headers=headers, data=payload)
 
     return response.json()
@@ -28,6 +29,7 @@ def verify_otp(mobile_number, otp):
         'Content-Type': 'application/json'
     }
 
+    print(url)
     response = requests.request("POST", url, headers=headers, data=payload)
     return response
 
