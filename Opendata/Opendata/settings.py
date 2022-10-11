@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 from decouple import config
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -31,6 +30,9 @@ ALLOWED_HOSTS = ['*']
 
 DJANGO_WYSIWYG_FLAVOR = "tinymce"
 # Application definition
+
+# SMS API AUTH KEY
+SMS_API_AUTHORIZATION_TOKEN = config('SMS_API_AUTHORIZATION_TOKEN', default=None, cast=str)
 
 INSTALLED_APPS = [
     'contactusform.apps.ContactusformConfig',
@@ -80,15 +82,23 @@ WSGI_APPLICATION = 'Opendata.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default':
-        {'ENGINE': 'django.db.backends.postgresql_psycopg2',
-         'NAME': config('DB_NAME', default=None, cast=str),
-         'USER': config('DB_USER', default=None, cast=str),
-         'PASSWORD': config('DB_PASSWORD', default=None, cast=str),
-         'HOST': config('DB_HOST', default=None, cast=str),
-         'PORT': config('DB_PORT', default=None, cast=int)}
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'db.sqlite3',
+        }
 }
+else:
+    DATABASES = {
+        'default':
+            {'ENGINE': 'django.db.backends.postgresql_psycopg2',
+             'NAME': config('DB_NAME', default=None, cast=str),
+             'USER': config('DB_USER', default=None, cast=str),
+             'PASSWORD': config('DB_PASSWORD', default=None, cast=str),
+             'HOST': config('DB_HOST', default=None, cast=str),
+             'PORT': config('DB_PORT', default=None, cast=int)}
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators

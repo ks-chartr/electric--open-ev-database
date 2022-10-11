@@ -38,13 +38,15 @@
                         <p style="color: red">{{ email }} or {{ number }} is already registered.</p>
                     {% endif %}
                     {% if invalid_file %}
-                        <p style="color: red">Only .pdf, .docx, .doc files are supported for POC authorisation letter.</p>
+                        <p style="color: red">Only .pdf, .docx, .doc files are supported for POC authorisation
+                            letter.</p>
                     {% endif %}
                     {% if success %}
                         <p style="color: green"><b>We will contact you on {{ email }} or {{ number }} very soon. Please
                             note down your secret api key {{ unique_id }}</b></p>
                     {% endif %}
-                    <form method="POST" encType="multipart/form-data" action="/openev/data/provider/">
+                    <form class="dataProviderForm" method="POST" encType="multipart/form-data"
+                          action="/openev/data/provider/">
                         <input type='hidden' name='csrfmiddlewaretoken' value='{{ csrf_token }}'>
                         <div class="form-group">
                             <label><b>Name<span style="color: red"> *</span></b></label><br/>
@@ -374,11 +376,19 @@
                 <div class="col-md-6">
                     <div class="alert alert-info">Further announcements will be added to <a href="/announcements">announcements</a>.
                     </div>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}"
+                                 role="alert">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
                 </div>
+
             </div>
 
         </div>
     </div>
+
     {% if success %}
         <script type="text/javascript">
             $(window).on('load', function () {
@@ -387,4 +397,6 @@
         </script>
     {% endif %}
 
+    {% load static %}
+    <script src="{% static 'js/dataProvider.js' %}"></script>
 {% endblock %}
