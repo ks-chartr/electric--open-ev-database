@@ -97,3 +97,37 @@ class EVLocationsSerializer(serializers.Serializer):
         [setattr(instance, k, v) for k, v in validated_data.items()]
         instance.save()
         return instance
+
+
+class ConnectorMappingListSerializer(serializers.ListSerializer):
+    id = serializers.CharField(max_length=100)
+    vendor_connector_name = serializers.CharField(max_length=100)
+    mapped_connector_name = serializers.CharField(max_length=100)
+
+    def create(self, validated_data):
+        connectormappping = [ConnectorMapping(**item) for item in validated_data]
+        return ConnectorMapping.objects.bulk_create(connectormappping)
+
+    def update(self, instance, validated_data):
+        book_mapping = {book.id: book for book in instance}
+        data_mapping = {item['id']: item for item in validated_data}
+
+        # Perform creations and updates.
+        ret = []
+        for book_id, data in data_mapping.items():
+            book = book_mapping.get(book_id, None)
+            if book is None:
+                ret.append(self.child.create(data))
+            else:
+                ret.append(self.child.update(book, data))
+        return ret
+
+
+class ConnectorMappingSerializer(serializers.Serializer):
+    id = serializers.CharField(max_length=100)
+    vendor_connector_name = serializers.CharField(max_length=100)
+    mapped_connector_name = serializers.CharField(max_length=100)
+
+    class Meta:
+        model = EVLocations
+        list_serializer_class = EVLocationsListSerializer

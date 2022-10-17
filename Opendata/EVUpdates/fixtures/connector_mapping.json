@@ -1,0 +1,154 @@
+[
+  {
+    "model": "EVUpdates.ConnectorMapping",
+    "pk": 1,
+    "fields": {
+      "vendor_connector_name": "DC-001",
+      "mapped_connector_name": "Bharat DC 001"
+    }
+  },
+  {
+    "model": "EVUpdates.ConnectorMapping",
+    "pk": 2,
+    "fields": {
+      "vendor_connector_name": "BEVC-AC001",
+      "mapped_connector_name": "Bharat AC 001"
+    }
+  },
+  {
+    "model": "EVUpdates.ConnectorMapping",
+    "pk": 3,
+    "fields": {
+      "vendor_connector_name": "BEVC AC 001",
+      "mapped_connector_name": "Bharat AC 001"
+    }
+  },
+  {
+    "model": "EVUpdates.ConnectorMapping",
+    "pk": 4,
+    "fields": {
+      "vendor_connector_name": "CCS (DC)",
+      "mapped_connector_name": "CCS-2"
+    }
+  },
+  {
+    "model": "EVUpdates.ConnectorMapping",
+    "pk": 5,
+    "fields": {
+      "vendor_connector_name": "CHAdeMO (DC)",
+      "mapped_connector_name": "CHAdeMO"
+    }
+  },
+  {
+    "model": "EVUpdates.ConnectorMapping",
+    "pk": 6,
+    "fields": {
+      "vendor_connector_name": "TYPE - 2 (AC)",
+      "mapped_connector_name": "AC Type 2"
+    }
+  },
+  {
+    "model": "EVUpdates.ConnectorMapping",
+    "pk": 7,
+    "fields": {
+      "vendor_connector_name": "TYPE - 2",
+      "mapped_connector_name": "AC Type 2"
+    }
+  },
+  {
+    "model": "EVUpdates.ConnectorMapping",
+    "pk": 8,
+    "fields": {
+      "vendor_connector_name": "BEVC-DC001",
+      "mapped_connector_name": "Bharat DC 001"
+    }
+  },
+  {
+    "model": "EVUpdates.ConnectorMapping",
+    "pk": 9,
+    "fields": {
+      "vendor_connector_name": "BEVC DC 001",
+      "mapped_connector_name": "Bharat DC 001"
+    }
+  },
+  {
+    "model": "EVUpdates.ConnectorMapping",
+    "pk": 10,
+    "fields": {
+      "vendor_connector_name": "GBT",
+      "mapped_connector_name": "Bharat DC 001"
+    }
+  },
+  {
+    "model": "EVUpdates.ConnectorMapping",
+    "pk": 11,
+    "fields": {
+      "vendor_connector_name": "Type D",
+      "mapped_connector_name": "AC Plug Point"
+    }
+  },
+  {
+    "model": "EVUpdates.ConnectorMapping",
+    "pk": 12,
+    "fields": {
+      "vendor_connector_name": "CHADEMO",
+      "mapped_connector_name": "CHAdeMO"
+    }
+  },
+  {
+    "model": "EVUpdates.ConnectorMapping",
+    "pk": 13,
+    "fields": {
+      "vendor_connector_name": "CCS2/CHADEMO/TYPE 2 AC",
+      "mapped_connector_name": "CCS-2"
+    }
+  },
+  {
+    "model": "EVUpdates.ConnectorMapping",
+    "pk": 14,
+    "fields": {
+      "vendor_connector_name": "CCS/ CHAdeMO",
+      "mapped_connector_name": "CHAdeMO"
+    }
+  },
+  {
+    "model": "EVUpdates.ConnectorMapping",
+    "pk": 15,
+    "fields": {
+      "vendor_connector_name": "BEVC_DC001",
+      "mapped_connector_name": "Bharat DC 001"
+    }
+  },
+  {
+    "model": "EVUpdates.ConnectorMapping",
+    "pk": 16,
+    "fields": {
+      "vendor_connector_name": "IEC-62196-T2",
+      "mapped_connector_name": "AC Type 2"
+    }
+  },
+  {
+    "model": "EVUpdates.ConnectorMapping",
+    "pk": 17,
+    "fields": {
+      "vendor_connector_name": "IEC-62196-T2-COMBO",
+      "mapped_connector_name": "CCS-2"
+    }
+  },
+  {
+    "model": "EVUpdates.ConnectorMapping",
+    "pk": 18,
+    "fields": {
+      "vendor_connector_name": "5A/15A Socket",
+      "mapped_connector_name": "AC Plug Point"
+    }
+  },
+  {
+    "model": "EVUpdates.ConnectorMapping",
+    "pk": 19,
+    "fields": {
+      "vendor_connector_name": "CHAdeM",
+      "mapped_connector_name": "CHAdeMO"
+    }
+  }
+]
