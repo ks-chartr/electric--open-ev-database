@@ -1,10 +1,6 @@
-asn1crypto
-chardet
-django-rest-framework
-django-tinymce
-django-wysiwyg
-gunicorn
-pip-chill
-pycparser
-python-decouple
-xlrd
+Django==4.0.3
+django_tinymce==3.4.0
+djangorestframework==3.14.0
+pandas==1.5.0
+python-decouple==3.6
+requests==2.28.1
