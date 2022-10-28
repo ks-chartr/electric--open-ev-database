@@ -66,6 +66,7 @@ urlpatterns = [
     re_path(r'^openev/api/delete-station/', deleteEV),
     re_path(r'^openev/api/get-ev/', getEV),
 
+    re_path(r'^openev/view/dashboard', openEVDashboard),
     # re_path(r'^openev/verify/mobile', verify_mobile_number),
     re_path(r'^openev/verify/otp', verify_otp_view)
 ]

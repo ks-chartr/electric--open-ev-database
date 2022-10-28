@@ -1,0 +1,94 @@
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Open EV overview dashboard</title>
+    {#    <link rel="stylesheet" href="../static/css/index.css">#}
+    <style>
+        table {
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th {
+            background: #ccc;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background: #efefef;
+        }
+
+        tr:hover {
+            background: #d1d1d1;
+        }
+
+        /* general styling */
+        body {
+            font-family: "Open Sans", sans-serif;
+            line-height: 1.25;
+        }
+
+        #outer {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+<div id="outer">
+    {{ tables|safe }}
+</div>
+
+<div id="outer" style="margin-top:50px;">
+    <button type="button" class="btn btn-primary"
+            onclick="htmlToCSV('{{ filename }}')">Download CSV
+    </button>
+</div>
+
+
+<script>
+    function htmlToCSV(filename) {
+        var data = [];
+        var rows = document.querySelectorAll("table tr");
+
+        for (var i = 0; i < rows.length; i++) {
+            var row = [], cols = rows[i].querySelectorAll("td, th");
+
+            for (var j = 0; j < cols.length; j++) {
+                row.push(cols[j].innerText);
+            }
+
+            data.push(row.join(","));
+        }
+
+        downloadCSVFile(data.join("\n"), filename);
+    }
+
+    function downloadCSVFile(csv, filename) {
+        var csv_file, download_link;
+
+        csv_file = new Blob([csv], {type: "text/csv"});
+
+        download_link = document.createElement("a");
+
+        download_link.download = filename;
+
+        download_link.href = window.URL.createObjectURL(csv_file);
+
+        download_link.style.display = "none";
+
+        document.body.appendChild(download_link);
+
+        download_link.click();
+    }
+
+</script>
+
+</body>
+</html>

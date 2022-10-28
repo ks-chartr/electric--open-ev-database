@@ -6,6 +6,7 @@ from .models import *
 import csv
 from django.http import HttpResponse
 from django.core.mail import send_mail
+from django.conf import settings
 
 
 def export_as_csv(self, request, queryset):
@@ -25,14 +26,12 @@ def export_as_csv(self, request, queryset):
 
 def authorise(modeladmin, request, queryset):
     print('authorising')
-    # for user_queryset in queryset:
-    #     send_mail(
-    #         'Delhi Open EV Database API key Authorization',
-    #         'Congratulations! \nYour API key has been authorized.',
-    #         'delhievdb@ev.delhitransport.in',
-    #         [f'{user_queryset.email}'],
-    #         fail_silently=False,
-    #     )
+    for user_queryset in queryset:
+        subject = 'Welcome to Delhi Government Open Database for EV Charging'
+        message = f"Dear {user_queryset.name}\nThank you for registering {user_queryset.companyName} on Delhi Government's Open Database for EV Charging and Swapping Stations.\n\nYour API key has been authorised.\n\nThe Open Database for EV charging is an initiative for creating one platform for discovering all EV chargers and Battery Swapping stations in Delhi. We look forward to your support in ensuring the data provided is up to date and pertains only to public charging and swapping stations.\n\nIn case of any query, please mail on delhievcell@gmail.com.\nThanks & Regards\nState EV cell, Delhi"
+        email_from = settings.EMAIL_HOST_USER
+        recipient_list = [user_queryset.email, ]
+        send_mail(subject, message, email_from, recipient_list)
     queryset.update(authorised=True)
 
 
@@ -52,7 +51,7 @@ def unauthorise(modeladmin, request, queryset):
 class RegisterDataProviderAdmin(admin.ModelAdmin):
     readonly_fields = (
     'name', 'email', 'number', 'companyName', 'description', 'created_at', 'updated_at', 'hitsToday', 'hitsAllTime',
-    'lastHit', 'dtl_sites', 'nondtl_sites', 'operational_since', 'company_website')
+    'lastHit', 'dtl_sites', 'nondtl_sites', 'operational_since', 'company_website', 'authorised')
     list_display = ['name', 'email', 'companyName', 'authorised', 'created_at', 'lastHit', 'hitsAllTime', 'dtl_sites', 'nondtl_sites']
     ordering = ['created_at', 'name']
     actions = [authorise, unauthorise, export_as_csv]

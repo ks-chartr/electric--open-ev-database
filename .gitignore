@@ -170,7 +170,7 @@ cython_debug/
 db.sq*
 .DS_Store
 /*.DS_Store
-00*.py
+#00*.py
 gunicorn_config.py
 start_script.sh
 Opendata/templates/*.save
