@@ -181,7 +181,6 @@ def dataProvider(request):
                 registerDataProvider.save()
                 # request.session["mobile_number"] = number
                 return redirect(f'/openev/verify/otp?pk={registerDataProvider.pk}')
-                # auto_authorize(user_email=email, user_type="provider")
         except Exception as e:
             args['e'] = True if str(e).lower().__contains__('unique constraint') else False
             args['email'] = email

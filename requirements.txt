@@ -3,8 +3,12 @@ chardet
 django-rest-framework
 django-tinymce
 django-wysiwyg
+docopt
 gunicorn
+pandas
 pip-chill
+psycopg2
 pycparser
 python-decouple
-xlrd
+uwsgi
+yarg

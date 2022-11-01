@@ -141,8 +141,16 @@ STATICFILES_DIRS = (
 # STATIC_ROOT = 'staticfiles'
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 CSRF_TRUSTED_ORIGINS = ['https://openev.delhitransport.in']
-EMAIL_HOST = "localhost"
-DEFAULT_FROM_EMAIL = 'delhievdb@ev.delhitransport.in'
 
-MEDIA_URL = 'openev/media/'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = config('EMAIL', default=None, cast=str)  # sender's email-id
+EMAIL_HOST_PASSWORD = config('EMAIL_PASS', default=None, cast=str)  # password associated with above email-id
+
+# EMAIL_HOST = "localhost"
+# DEFAULT_FROM_EMAIL = 'delhievdb@ev.delhitransport.in'
+
+MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

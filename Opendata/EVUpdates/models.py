@@ -37,3 +37,11 @@ class EVLocations(Model):
 
     def __str__(self):
         return self.name + ', ' + str(self.id) + ', ' + str(self.provider_passcode)
+
+
+class ConnectorMapping(Model):
+    vendor_connector_name = CharField(max_length=100, null=True, blank=True, )
+    mapped_connector_name = CharField(max_length=100, null=True, blank=True, )
+
+    def __str__(self):
+        return self.vendor_connector_name + ', ' + ', ' + self.mapped_connector_name

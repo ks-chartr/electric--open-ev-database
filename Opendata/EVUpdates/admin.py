@@ -25,7 +25,20 @@ def export_as_csv(self, request, queryset):
     return response
 
 
+class EVLocationsAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'vendor', 'address']
+    ordering = ['vendor']
+    actions = [export_as_csv]
+
+
+class ConnectorMappingAdmin(admin.ModelAdmin):
+    list_display = ['vendor_connector_name', 'mapped_connector_name']
+    ordering = ['mapped_connector_name']
+    actions = [export_as_csv]
+
+
 export_as_csv.short_description = "Export Selected"
 
 
-admin.site.register(EVLocations)
+admin.site.register(EVLocations, EVLocationsAdmin)
+admin.site.register(ConnectorMapping, ConnectorMappingAdmin)
