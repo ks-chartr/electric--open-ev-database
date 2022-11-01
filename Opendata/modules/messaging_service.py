@@ -5,8 +5,10 @@ import json
 
 from Opendata.settings import SMS_API_AUTHORIZATION_TOKEN
 
+
 def send_sms_otp(mobile_number):
-    url = f"https://messages.delhitransport.in/v2/create/{mobile_number}"
+    # send SMS custom to Open EV
+    url = f"https://messages.delhitransport.in/v2/create/{mobile_number}?tid=1107166548167834868"
 
     payload = {}
     headers = {
