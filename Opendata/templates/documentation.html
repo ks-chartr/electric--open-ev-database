@@ -8,84 +8,90 @@
             <h1>Documentation</h1>
             <hr/>
             <br>
-{#            <h2>Open EV Database Delhi</h2>#}
-{#            <p>#}
-{#                The documentation on how to use APIs can be found <a target="_blank"#}
-{#                                                                  href="https://chartrmobility.notion.site/Open-EV-API-Documentation-1a5c77932c3b4e3bb072370ada35c141">here</a>.#}
-{#            <hr/>#}
+            {#            <h2>Open EV Database Delhi</h2>#}
+            {#            <p>#}
+            {#                The documentation on how to use APIs can be found <a target="_blank"#}
+            {#                                                                  href="https://chartrmobility.notion.site/Open-EV-API-Documentation-1a5c77932c3b4e3bb072370ada35c141">here</a>.#}
+            {#            <hr/>#}
             <br>
             <article id="1a5c7793-2c3b-4e3b-b072-370ada35c141" class="page sans">
-    <header><h1 class="page-title">Open EV API Documentation</h1></header>
-    <div class="page-body"><p id="ca7b536d-7d30-49ea-ad22-46dfdee2d0f8" class=""><code>base_url = </code><code><a
-            href="https://ev.delhi.gov.in/openev">https://ev.delhi.gov.in/openev</a></code></p>
-        <h2 id="c7190f10-55b7-462a-95fa-9093454f0fe1" class="">
-            <details>
-                <summary>For Data Providers</summary>
-            </details>
-        </h2>
-        <div class="indented"><p id="0af36458-b39d-45da-916b-e18262f651bc" class=""><strong>NOTE - Users can also share
-            static data using the same API. The data would need to be transformed into the given format and submitted
-            using the API provided. </strong></p>
-            <h3 id="bf986cab-ed8e-4a66-98d3-9b72a0570992" class="">
-                <details>
-                    <summary>Steps for Registration</summary>
-                </details>
-            </h3>
-            <div class="indented">
-                <ul id="ef87957b-4375-4dee-9471-8b8eb534273c" class="toggle">
-                    <li>
+                <header><h1 class="page-title">Open EV API Documentation</h1></header>
+                <div class="page-body"><p id="ca7b536d-7d30-49ea-ad22-46dfdee2d0f8" class=""><code>base_url
+                    = </code><code><a
+                        href="https://ev.delhi.gov.in/openev">https://ev.delhi.gov.in/openev</a></code></p>
+                    <h2 id="c7190f10-55b7-462a-95fa-9093454f0fe1" class="">
                         <details>
-                            <summary>Register as a Data Provider</summary>
-                            <figure id="8c633422-724a-4d79-bcc3-81a89e9bd4f2" class="image"><a
-                                    href="{% static 'img/data-provider-registration.png' %}"><img
-                                    style="width:945px"
-                                    src="{% static 'img/data-provider-registration.png' %}"/></a>
-                            </figure>
+                            <summary>For Data Providers</summary>
                         </details>
-                    </li>
-                </ul>
-                <ul id="07aebcad-f803-446a-87d7-800fa0dad311" class="toggle">
-                    <li>
-                        <details">
-                            <summary>Get API key - note it down</summary>
-                            <figure id="06f4ee73-6fa2-4dd7-8b31-eda23f4ae13c" class="image"><a
-                                    href="{% static 'img/data-provider-api-register-success.png' %}"><img
-                                    style="width:879px"
-                                    src="{% static 'img/data-provider-api-register-success.png' %}"/></a>
-                            </figure>
-                        </details>
-                    </li>
-                </ul>
-                <ul id="fe189661-4a29-42bc-b942-8130612c04bc" class="bulleted-list">
-                    <li style="list-style-type:disc">Once you receive the API approval email, you are ready to push data
-                        using data push API
-                    </li>
-                </ul>
-            </div>
-            <h3 id="19074139-d6ea-4f07-a877-b0058c0d51e6" class="">
-                <details>
-                    <summary>EV add/ update API -</summary>
-                </details>
-            </h3>
-            <div class="indented">
-                <ul id="96584caa-5059-43e2-bb2a-0359ec72138b" class="bulleted-list">
-                    <li style="list-style-type:disc">[PUT] - <code>{base_url}/api/update-ev/?key=[YOUR-API-KEY]</code> -
-                        will deprecate
-                    </li>
-                </ul>
-                <ul id="76b4a0a0-ee96-433b-b270-c933026c6abb" class="bulleted-list">
-                    <li style="list-style-type:disc">New endpoint
-                        <ul id="3500d7e5-2b2d-44b1-ad98-5eaf84cedc63" class="bulleted-list">
-                            <li style="list-style-type:circle">[PUT] - <code>{base_url}/api/update-stations/?key=[YOUR-API-KEY]</code>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul id="567bae26-d01d-4858-bb07-90fef3e9c657" class="toggle">
-                    <li>
-                        <details>
-                            <summary>BODY</summary>
-                            <pre id="4d367485-b8db-48cc-ae86-a9704443e6e3" class="code"><code>[
+                    </h2>
+                    <div class="indented"><p id="0af36458-b39d-45da-916b-e18262f651bc" class=""><strong>NOTE - Users can
+                        also share
+                        static data using the same API. The data would need to be transformed into the given format and
+                        submitted
+                        using the API provided. </strong></p>
+                        <h3 id="bf986cab-ed8e-4a66-98d3-9b72a0570992" class="">
+                            <details>
+                                <summary>Steps for Registration</summary>
+                            </details>
+                        </h3>
+                        <div class="indented">
+                            <ul id="ef87957b-4375-4dee-9471-8b8eb534273c" class="toggle">
+                                <li>
+                                    <details>
+                                        <summary>Register as a Data Provider</summary>
+                                        <figure id="8c633422-724a-4d79-bcc3-81a89e9bd4f2" class="image"><a
+                                                href="{% static 'img/data-provider-registration.png' %}"><img
+                                                style="width:945px"
+                                                src="{% static 'img/data-provider-registration.png' %}"/></a>
+                                        </figure>
+                                    </details>
+                                </li>
+                            </ul>
+                            <ul id="07aebcad-f803-446a-87d7-800fa0dad311" class="toggle">
+                                <li>
+                                    <details
+                                    ">
+                                    <summary>Get API key - note it down</summary>
+                                    <figure id="06f4ee73-6fa2-4dd7-8b31-eda23f4ae13c" class="image"><a
+                                            href="{% static 'img/data-provider-api-register-success.png' %}"><img
+                                            style="width:879px"
+                                            src="{% static 'img/data-provider-api-register-success.png' %}"/></a>
+                                    </figure>
+                                    </details>
+                                </li>
+                            </ul>
+                            <ul id="fe189661-4a29-42bc-b942-8130612c04bc" class="bulleted-list">
+                                <li style="list-style-type:disc">Once you receive the API approval email, you are ready
+                                    to push data
+                                    using data push API
+                                </li>
+                            </ul>
+                        </div>
+                        <h3 id="19074139-d6ea-4f07-a877-b0058c0d51e6" class="">
+                            <details>
+                                <summary>EV add/ update API -</summary>
+                            </details>
+                        </h3>
+                        <div class="indented">
+                            <ul id="96584caa-5059-43e2-bb2a-0359ec72138b" class="bulleted-list">
+                                <li style="list-style-type:disc">[PUT] - <code>{base_url}/api/update-ev/?key=[YOUR-API-KEY]</code>
+                                    -
+                                    will deprecate
+                                </li>
+                            </ul>
+                            <ul id="76b4a0a0-ee96-433b-b270-c933026c6abb" class="bulleted-list">
+                                <li style="list-style-type:disc">New endpoint
+                                    <ul id="3500d7e5-2b2d-44b1-ad98-5eaf84cedc63" class="bulleted-list">
+                                        <li style="list-style-type:circle">[PUT] - <code>{base_url}/api/update-stations/?key=[YOUR-API-KEY]</code>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul id="567bae26-d01d-4858-bb07-90fef3e9c657" class="toggle">
+                                <li>
+                                    <details>
+                                        <summary>BODY</summary>
+                                        <pre id="4d367485-b8db-48cc-ae86-a9704443e6e3" class="code"><code>[
   {
     &quot;address&quot;: &quot;Build parking ,New Delhi &quot;,
     &quot;available&quot;: 4,
@@ -138,148 +144,157 @@
     &quot;vendor&quot;: &quot;EESL&quot;
   }
 ]</code></pre>
-                        </details>
-                    </li>
-                </ul>
-                <ul id="0dfd8c3a-9e13-4d2e-9543-1ea1ed14de1e" class="bulleted-list">
-                    <li style="list-style-type:disc">A detailed description of parameters can be below</li>
-                </ul>
-                <ul id="7eb263b4-e3bf-4ef1-aed7-0a54d0d31a62" class="bulleted-list">
-                    <li style="list-style-type:disc"><code>logo</code>
-                        <ul id="aaeac2ed-7435-4a22-8aa8-1b41a6ad65c8" class="bulleted-list">
-                            <li style="list-style-type:circle">.png file preferred</li>
-                        </ul>
-                        <ul id="6e373844-5178-48f0-bda6-6d3177339f03" class="bulleted-list">
-                            <li style="list-style-type:circle">the vendor can provide a URL to the logo file, else leave
-                                the field empty.
-                            </li>
-                        </ul>
-                        <ul id="6a51f869-3a1a-4f9d-8867-6b2104bcadae" class="bulleted-list">
-                            <li style="list-style-type:circle">share the logo with us, we’ll add it</li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul id="198798b2-4b29-4281-8d03-fa26b5d4ef33" class="bulleted-list">
-                    <li style="list-style-type:disc"><code>dtl_site</code> - true or false
-                        <ul id="512e6db4-9a06-4fda-b141-506697a0d6fd" class="bulleted-list">
-                            <li style="list-style-type:circle"><code>true</code> if the station is a DTL site</li>
-                        </ul>
-                        <ul id="b7109900-041f-489f-91ca-43d3a262098c" class="bulleted-list">
-                            <li style="list-style-type:circle"><code>false</code> if the station is not a DTL site</li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul id="553269a9-f65d-44be-9dde-304790e85798" class="bulleted-list">
-                    <li style="list-style-type:disc"><code>diagram</code> in “charger_type”
-                        <ul id="67456c67-4ca1-4e46-889c-6529466a3f5e" class="bulleted-list">
-                            <li style="list-style-type:circle">the vendor can provide a URL to the charger diagram file,
-                                else leave the field empty.
-                            </li>
-                        </ul>
-                        <ul id="f33db3d0-e6e6-4f4c-a864-138274427c9a" class="bulleted-list">
-                            <li style="list-style-type:circle">if applicable, we will add the diagram from our side
-                                otherwise
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <h3 id="71fa93b4-d0f1-4e3d-a1dd-e8e84cc5fd8b" class="">
-                <details>
-                    <summary>View my EV locations</summary>
-                </details>
-            </h3>
-            <div class="indented">
-                <ul id="87545eb5-5f18-4965-8962-fc07a1a02f3e" class="bulleted-list">
-                    <li style="list-style-type:disc">URL - <code>{base_url}/api/get-user-ev/?key=[YOUR-API-KEY]</code> -
-                        will deprecate
-                    </li>
-                </ul>
-                <ul id="ce69c70a-1614-405a-a371-4034e0de5ff5" class="bulleted-list">
-                    <li style="list-style-type:disc">New endpoint
-                        <ul id="4f543a65-b1cf-4349-978c-f89f03888631" class="bulleted-list">
-                            <li style="list-style-type:circle">URL - <code>{base_url}/api/get-user-stations/?key=[YOUR-API-KEY]</code>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <h3 id="47e28897-8ebf-4ae0-b5e4-7aaed4d469b3" class="">
-                <details>
-                    <summary>Delete EV location/ station</summary>
-                </details>
-            </h3>
-            <div class="indented">
-                <ul id="608f479b-547b-410b-925f-6d19305798b7" class="bulleted-list">
-                    <li style="list-style-type:disc">[GET] - <code>{base_url}/api/delete-station/?key=[YOUR-API-KEY]&amp;id=[STATION-ID]</code>
-                    </li>
-                </ul>
-                <ul id="9df21e7f-258c-4154-8761-71e6562dcaa8" class="toggle">
-                    <li>
-                        <details>
-                            <summary>Response</summary>
-                            <pre id="1d0c2485-3367-453c-b2f0-bb5051f36ee3" class="code"><code>{
+                                    </details>
+                                </li>
+                            </ul>
+                            <ul id="0dfd8c3a-9e13-4d2e-9543-1ea1ed14de1e" class="bulleted-list">
+                                <li style="list-style-type:disc">A detailed description of parameters can be below</li>
+                            </ul>
+                            <ul id="7eb263b4-e3bf-4ef1-aed7-0a54d0d31a62" class="bulleted-list">
+                                <li style="list-style-type:disc"><code>logo</code>
+                                    <ul id="aaeac2ed-7435-4a22-8aa8-1b41a6ad65c8" class="bulleted-list">
+                                        <li style="list-style-type:circle">.png file preferred</li>
+                                    </ul>
+                                    <ul id="6e373844-5178-48f0-bda6-6d3177339f03" class="bulleted-list">
+                                        <li style="list-style-type:circle">the vendor can provide a URL to the logo
+                                            file, else leave
+                                            the field empty.
+                                        </li>
+                                    </ul>
+                                    <ul id="6a51f869-3a1a-4f9d-8867-6b2104bcadae" class="bulleted-list">
+                                        <li style="list-style-type:circle">share the logo with us, we’ll add it</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul id="198798b2-4b29-4281-8d03-fa26b5d4ef33" class="bulleted-list">
+                                <li style="list-style-type:disc"><code>dtl_site</code> - true or false
+                                    <ul id="512e6db4-9a06-4fda-b141-506697a0d6fd" class="bulleted-list">
+                                        <li style="list-style-type:circle"><code>true</code> if the station is a DTL
+                                            site
+                                        </li>
+                                    </ul>
+                                    <ul id="b7109900-041f-489f-91ca-43d3a262098c" class="bulleted-list">
+                                        <li style="list-style-type:circle"><code>false</code> if the station is not a
+                                            DTL site
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul id="553269a9-f65d-44be-9dde-304790e85798" class="bulleted-list">
+                                <li style="list-style-type:disc"><code>diagram</code> in “charger_type”
+                                    <ul id="67456c67-4ca1-4e46-889c-6529466a3f5e" class="bulleted-list">
+                                        <li style="list-style-type:circle">the vendor can provide a URL to the charger
+                                            diagram file,
+                                            else leave the field empty.
+                                        </li>
+                                    </ul>
+                                    <ul id="f33db3d0-e6e6-4f4c-a864-138274427c9a" class="bulleted-list">
+                                        <li style="list-style-type:circle">if applicable, we will add the diagram from
+                                            our side
+                                            otherwise
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <h3 id="71fa93b4-d0f1-4e3d-a1dd-e8e84cc5fd8b" class="">
+                            <details>
+                                <summary>View my EV locations</summary>
+                            </details>
+                        </h3>
+                        <div class="indented">
+                            <ul id="87545eb5-5f18-4965-8962-fc07a1a02f3e" class="bulleted-list">
+                                <li style="list-style-type:disc">URL - <code>{base_url}/api/get-user-ev/?key=[YOUR-API-KEY]</code>
+                                    -
+                                    will deprecate
+                                </li>
+                            </ul>
+                            <ul id="ce69c70a-1614-405a-a371-4034e0de5ff5" class="bulleted-list">
+                                <li style="list-style-type:disc">New endpoint
+                                    <ul id="4f543a65-b1cf-4349-978c-f89f03888631" class="bulleted-list">
+                                        <li style="list-style-type:circle">URL - <code>{base_url}/api/get-user-stations/?key=[YOUR-API-KEY]</code>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <h3 id="47e28897-8ebf-4ae0-b5e4-7aaed4d469b3" class="">
+                            <details>
+                                <summary>Delete EV location/ station</summary>
+                            </details>
+                        </h3>
+                        <div class="indented">
+                            <ul id="608f479b-547b-410b-925f-6d19305798b7" class="bulleted-list">
+                                <li style="list-style-type:disc">[GET] - <code>{base_url}/api/delete-station/?key=[YOUR-API-KEY]&amp;id=[STATION-ID]</code>
+                                </li>
+                            </ul>
+                            <ul id="9df21e7f-258c-4154-8761-71e6562dcaa8" class="toggle">
+                                <li>
+                                    <details>
+                                        <summary>Response</summary>
+                                        <pre id="1d0c2485-3367-453c-b2f0-bb5051f36ee3" class="code"><code>{
     &quot;status&quot;: 200,
     &quot;msg&quot;: &quot;Successfully deleted station for station ID - S12&quot;
 }</code></pre>
-                        </details>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <h2 id="f8ea2344-7abd-4d97-b822-6392e1de5d73" class="">
-            <details>
-                <summary>For Data Consumers</summary>
-            </details>
-        </h2>
-        <div class="indented">
-            <h3 id="b7573193-b75a-4c7a-bce2-a45494e12f11" class="">
-                <details>
-                    <summary>Steps for Registration</summary>
-                </details>
-            </h3>
-            <div class="indented">
-                <ul id="5f6bed6a-2820-4445-8e4e-c8d02ce89f30" class="toggle">
-                    <li>
+                                    </details>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h2 id="f8ea2344-7abd-4d97-b822-6392e1de5d73" class="">
                         <details>
-                            <summary>Register as a data consumer</summary>
-                            <figure id="faa56487-45c6-4755-8506-0c01ab242f97" class="image"><a
-                                    href="{% static 'img/real-time-data-registration.png' %}"><img
-                                    style="width:982px"
-                                    src="{% static 'img/real-time-data-registration.png' %}"/></a>
-                            </figure>
+                            <summary>For Data Consumers</summary>
                         </details>
-                    </li>
-                </ul>
-                <ul id="a4bfadd2-d2c9-4c18-a8a2-d59947c26264" class="toggle">
-                    <li>
-                        <details>
-                            <summary>Get API key - note it down</summary>
-                            <figure id="d2a0c54b-ef68-46f4-9793-b2c0d0683d91" class="image"><a
-                                    href="{% static 'img/real-time-data-registration.png' %}"><img
-                                    style="width:784px"
-                                    src="{% static 'img/real-time-data-registration.png' %}"/></a>
-                            </figure>
-                        </details>
-                    </li>
-                </ul>
-                <ul id="2e508a2f-f233-4874-8278-13df21703fe8" class="bulleted-list">
-                    <li style="list-style-type:disc">Once you receive the API approval email, you are ready to fetch
-                        data
-                    </li>
-                </ul>
-            </div>
-            <ul id="f878ddb7-2400-4117-b4d3-e617bd5349c1" class="bulleted-list">
-                <li style="list-style-type:disc">Get EV Locations
-                    <ul id="c0244467-3d30-44ba-82d1-a49b278de30c" class="bulleted-list">
-                        <li style="list-style-type:circle">[GET] <code>{base_url}/api/get-ev/?key=[YOUR-API-KEY]</code>
-                        </li>
-                    </ul>
-                    <ul id="6ab52e1d-b659-47c3-83a4-0c4ed0e972f1" class="toggle">
-                        <li>
+                    </h2>
+                    <div class="indented">
+                        <h3 id="b7573193-b75a-4c7a-bce2-a45494e12f11" class="">
                             <details>
-                                <summary>Response</summary>
-                                <pre id="928a2148-b528-47df-a515-0eef141e98d1" class="code"><code>[
+                                <summary>Steps for Registration</summary>
+                            </details>
+                        </h3>
+                        <div class="indented">
+                            <ul id="5f6bed6a-2820-4445-8e4e-c8d02ce89f30" class="toggle">
+                                <li>
+                                    <details>
+                                        <summary>Register as a data consumer</summary>
+                                        <figure id="faa56487-45c6-4755-8506-0c01ab242f97" class="image"><a
+                                                href="{% static 'img/real-time-data-registration.png' %}"><img
+                                                style="width:982px"
+                                                src="{% static 'img/real-time-data-registration.png' %}"/></a>
+                                        </figure>
+                                    </details>
+                                </li>
+                            </ul>
+                            <ul id="a4bfadd2-d2c9-4c18-a8a2-d59947c26264" class="toggle">
+                                <li>
+                                    <details>
+                                        <summary>Get API key - note it down</summary>
+                                        <figure id="d2a0c54b-ef68-46f4-9793-b2c0d0683d91" class="image"><a
+                                                href="{% static 'img/real-time-data-registration.png' %}"><img
+                                                style="width:784px"
+                                                src="{% static 'img/real-time-data-registration.png' %}"/></a>
+                                        </figure>
+                                    </details>
+                                </li>
+                            </ul>
+                            <ul id="2e508a2f-f233-4874-8278-13df21703fe8" class="bulleted-list">
+                                <li style="list-style-type:disc">Once you receive the API approval email, you are ready
+                                    to fetch
+                                    data
+                                </li>
+                            </ul>
+                        </div>
+                        <ul id="f878ddb7-2400-4117-b4d3-e617bd5349c1" class="bulleted-list">
+                            <li style="list-style-type:disc">Get EV Locations
+                                <ul id="c0244467-3d30-44ba-82d1-a49b278de30c" class="bulleted-list">
+                                    <li style="list-style-type:circle">[GET] <code>{base_url}/api/get-ev/?key=[YOUR-API-KEY]</code>
+                                    </li>
+                                </ul>
+                                <ul id="6ab52e1d-b659-47c3-83a4-0c4ed0e972f1" class="toggle">
+                                    <li>
+                                        <details>
+                                            <summary>Response</summary>
+                                            <pre id="928a2148-b528-47df-a515-0eef141e98d1" class="code"><code>[
   {
     &quot;data&quot;: [
       {
@@ -323,199 +338,214 @@
     &quot;timestamp&quot;: &quot;2022-03-28T12:53:49+0530&quot;
   }
 ]</code></pre>
-                                <p id="33e479ff-5c9b-478b-94e0-1739fceacaf8" class="">
-                                </p></details>
-                        </li>
-                    </ul>
-                    <ul id="51b62d5e-d919-4435-9481-20497c1d35ba" class="bulleted-list">
-                        <li style="list-style-type:circle">Status codes -
-                            <ul id="69977e71-01c9-4bb1-a266-d98161efb9c5" class="bulleted-list">
-                                <li style="list-style-type:square">1000 - success</li>
-                            </ul>
-                            <ul id="940a0f1a-1ae2-4bd4-b471-76c7c20c957e" class="bulleted-list">
-                                <li style="list-style-type:square">2000 - client-side error</li>
-                            </ul>
-                            <ul id="e85266e7-fda6-4f95-aaa8-1874a72a85f9" class="bulleted-list">
-                                <li style="list-style-type:square">3000 - server-side error</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <ul id="59623ff3-ac0a-47b7-b783-09d6826a557c" class="bulleted-list">
-                <li style="list-style-type:disc">A detailed description of parameters can be found below</li>
-            </ul>
-            <p id="9805ce3f-bf6d-4237-a8cf-0e3144716d56" class="">
-            </p></div>
-        <p id="f549e9d6-af3f-4780-af07-19c35de15ee6" class="">
-        </p></div>
-</article>
+                                            <p id="33e479ff-5c9b-478b-94e0-1739fceacaf8" class="">
+                                            </p></details>
+                                    </li>
+                                </ul>
+                                <ul id="51b62d5e-d919-4435-9481-20497c1d35ba" class="bulleted-list">
+                                    <li style="list-style-type:circle">Status codes -
+                                        <ul id="69977e71-01c9-4bb1-a266-d98161efb9c5" class="bulleted-list">
+                                            <li style="list-style-type:square">1000 - success</li>
+                                        </ul>
+                                        <ul id="940a0f1a-1ae2-4bd4-b471-76c7c20c957e" class="bulleted-list">
+                                            <li style="list-style-type:square">2000 - client-side error</li>
+                                        </ul>
+                                        <ul id="e85266e7-fda6-4f95-aaa8-1874a72a85f9" class="bulleted-list">
+                                            <li style="list-style-type:square">3000 - server-side error</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul id="59623ff3-ac0a-47b7-b783-09d6826a557c" class="bulleted-list">
+                            <li style="list-style-type:disc">A detailed description of parameters can be found below
+                            </li>
+                        </ul>
+                        <p id="9805ce3f-bf6d-4237-a8cf-0e3144716d56" class="">
+                        </p></div>
+                    <p id="f549e9d6-af3f-4780-af07-19c35de15ee6" class="">
+                    </p></div>
+            </article>
 
             <article id="351ed8ac-8d50-4892-be68-254c3302b9ad" class="page sans">
-    <header><h1 class="page-title">API fields params:</h1></header>
-    <div class="page-body">
-        <table class="collection-content">
-            <thead>
-            <tr>
-                <th><span class="icon property-icon"><svg viewBox="0 0 14 14"
-                                                          style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden"
-                                                          class="typesTitle"><path
-                        d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Name
-                </th>
-                <th><span class="icon property-icon"><svg viewBox="0 0 14 14"
-                                                          style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden"
-                                                          class="typesText"><path
-                        d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>description
-                </th>
-                <th><span class="icon property-icon"><svg viewBox="0 0 14 14"
-                                                          style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden"
-                                                          class="typesText"><path
-                        d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Type
-                </th>
-                <th><span class="icon property-icon"><svg viewBox="0 0 14 14"
-                                                          style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden"
-                                                          class="typesText"><path
-                        d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Format
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr id="f071a204-60a4-4da3-92fc-f5ef2b367c54">
-                <td class="cell-title">address</td>
-                <td class="cell-iLXD">address of the charging station</td>
-                <td class="cell-mqNS">string</td>
-                <td class="cell-[R?r"></td>
-            </tr>
-            <tr id="81d4bb1a-38be-4aa2-be56-e0cf9231e1ba">
-                <td class="cell-title">available
-                </td>
-                <td class="cell-iLXD">total number of chargers available at the charging station</td>
-                <td class="cell-mqNS">integer count</td>
-                <td class="cell-[R?r"></td>
-            </tr>
-            <tr id="b61bfd39-fb36-44d1-955c-f4716ea7b629">
-                <td class="cell-title">charger_type
-                </td>
-                <td class="cell-iLXD">- types of chargers at the charging station with their individual availability
-                    total + availability counts
-                </td>
-                <td class="cell-mqNS">charger type format</td>
-                <td class="cell-[R?r"><strong>Charger Type Format</strong>
-                    For each type of connector present at the charging station, add a new entry as below<br>
+                <header><h1 class="page-title">API fields params:</h1></header>
+                <div class="page-body">
+                    <table class="collection-content">
+                        <thead>
+                        <tr>
+                            <th><span class="icon property-icon"><svg viewBox="0 0 14 14"
+                                                                      style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden"
+                                                                      class="typesTitle"><path
+                                    d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Name
+                            </th>
+                            <th><span class="icon property-icon"><svg viewBox="0 0 14 14"
+                                                                      style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden"
+                                                                      class="typesText"><path
+                                    d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>description
+                            </th>
+                            <th><span class="icon property-icon"><svg viewBox="0 0 14 14"
+                                                                      style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden"
+                                                                      class="typesText"><path
+                                    d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Type
+                            </th>
+                            <th><span class="icon property-icon"><svg viewBox="0 0 14 14"
+                                                                      style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden"
+                                                                      class="typesText"><path
+                                    d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Format
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr id="f071a204-60a4-4da3-92fc-f5ef2b367c54">
+                            <td class="cell-title">address</td>
+                            <td class="cell-iLXD">address of the charging station</td>
+                            <td class="cell-mqNS">string</td>
+                            <td class="cell-[R?r"></td>
+                        </tr>
+                        <tr id="81d4bb1a-38be-4aa2-be56-e0cf9231e1ba">
+                            <td class="cell-title">available
+                            </td>
+                            <td class="cell-iLXD">total number of chargers available at the charging station</td>
+                            <td class="cell-mqNS">integer count</td>
+                            <td class="cell-[R?r"></td>
+                        </tr>
+                        <tr id="b61bfd39-fb36-44d1-955c-f4716ea7b629">
+                            <td class="cell-title">charger_type
+                            </td>
+                            <td class="cell-iLXD">types of chargers at the charging station with their individual
+                                availability
+                                total + availability counts
+                                <br> Permissible values for "type" field-
+                                <ul>
+                                    <li>LEVAC</li>
+                                    <li>DC-001</li>
+                                    <li>AC001</li>
+                                    <li>CCS-2</li>
+                                    <li>CHAdeMO (DC)</li>
+                                    <li>TYPE - 2 (AC)</li>
+                                    <li>Type D</li>
+                                    <li>5A/15A Socket</li>
+                                </ul>
+                            </td>
+                            <td class="cell-mqNS">charger type format</td>
+                            <td class="cell-[R?r"><strong>Charger Type Format</strong>
+                                For each type of connector present at the charging station, add a new entry as below<br>
 
-                    <code># charger type format<br>
-                        {
-                        &quot;available&quot;: 1, # number of connectors available<br>
-                        &quot;capacity&quot;: &quot;22 kW&quot;, # power capacity of the connector<br>
-                        &quot;cost_per_unit&quot;: &quot;₹13 per unit&quot;, # charging cost per unit<br>
-                        &quot;diagram&quot;: &quot;connector_diagram/type2ac.png&quot;,<br>
-                        &quot;total&quot;: 3, # total number of connectors<br>
-                        &quot;type&quot;: &quot;T2&quot; # type of connector<br>
-                        }</code>
-                </td>
-            </tr>
-            <tr id="ec8b816f-1624-46c9-ad16-39e7a87b56df">
-                <td class="cell-title">vendor</td>
-                <td class="cell-iLXD">vendor name</td>
-                <td class="cell-mqNS">string</td>
-                <td class="cell-[R?r"></td>
-            </tr>
-            <tr id="fddd9a9d-b612-43c0-a4a4-a1b0d48982ea">
-                <td class="cell-title">total
-                </td>
-                <td class="cell-iLXD">total number of chargers at the station</td>
-                <td class="cell-mqNS">integer count</td>
-                <td class="cell-[R?r"></td>
-            </tr>
-            <tr id="08edafe9-e06f-4684-a4ac-db55fc58b29b">
-                <td class="cell-title">staff
-                </td>
-                <td class="cell-iLXD">indicates whether the charging station is staffed or unstaffed</td>
-                <td class="cell-mqNS">string</td>
-                <td class="cell-[R?r">Staffed/ Unstaffed</td>
-            </tr>
-            <tr id="4d03b000-50f7-4e15-b4de-61c2ad5b8677">
-                <td class="cell-title">postal_code
-                </td>
-                <td class="cell-iLXD">pin code of the charging station</td>
-                <td class="cell-mqNS">string</td>
-                <td class="cell-[R?r"></td>
-            </tr>
-            <tr id="930229ba-824f-4bc0-8d1b-82afd1e0eb1b">
-                <td class="cell-title">payment_modes
-                </td>
-                <td class="cell-iLXD">payment modes accepted for charging at the charging station</td>
-                <td class="cell-mqNS">string</td>
-                <td class="cell-[R?r"></td>
-            </tr>
-            <tr id="f3663892-42d9-4bd6-ad7d-cb0daaf69baa">
-                <td class="cell-title">open
-                </td>
-                <td class="cell-iLXD">time for when the charging station is open for operations</td>
-                <td class="cell-mqNS">string</td>
-                <td class="cell-[R?r">HH:MM:SS</td>
-            </tr>
-            <tr id="904845ce-2d81-4b3f-93b2-fac783b31581">
-                <td class="cell-title">name
-                </td>
-                <td class="cell-iLXD">name of the charging station</td>
-                <td class="cell-mqNS">string</td>
-                <td class="cell-[R?r"></td>
-            </tr>
-            <tr id="6178856a-1e7e-47af-8e23-a4496d66acfd">
-                <td class="cell-title">id</td>
-                <td class="cell-iLXD">charging station ID</td>
-                <td class="cell-mqNS">string or integer</td>
-                <td class="cell-[R?r"></td>
-            </tr>
-            <tr id="dd63b3fc-e293-4d6a-a382-e943765e9dfd">
-                <td class="cell-title">country</td>
-                <td class="cell-iLXD">India</td>
-                <td class="cell-mqNS"></td>
-                <td class="cell-[R?r"></td>
-            </tr>
-            <tr id="2959ff6a-f93d-41c4-ab01-82f1311bdca9">
-                <td class="cell-title">coordinates
-                </td>
-                <td class="cell-iLXD">latitude, longitude points for the charging station</td>
-                <td class="cell-mqNS">float values</td>
-                <td class="cell-[R?r"></td>
-            </tr>
-            <tr id="3fb56f0a-de36-462f-8ab3-02865c1265e1">
-                <td class="cell-title">contact_numbers
-                </td>
-                <td class="cell-iLXD">contact number(s) for the charging station/ vendor</td>
-                <td class="cell-mqNS"></td>
-                <td class="cell-[R?r"></td>
-            </tr>
-            <tr id="a7c29ac5-33f2-46a2-b1ad-ad1f364d8123">
-                <td class="cell-title">close
-                </td>
-                <td class="cell-iLXD">time for when the charging station is closed for operations</td>
-                <td class="cell-mqNS">string</td>
-                <td class="cell-[R?r">HH:MM:SS</td>
-            </tr>
-            <tr id="6fddd2e3-556a-441e-aada-ece316c922d1">
-                <td class="cell-title">city
-                </td>
-                <td class="cell-iLXD">city in which the charging station is located</td>
-                <td class="cell-mqNS">string</td>
-                <td class="cell-[R?r"></td>
-            </tr>
-            <tr id="e11aae46-4549-4aff-b41e-38c24a0ebd95">
-                <td class="cell-title">station_type
-                </td>
-                <td class="cell-iLXD">the type of station, whether the location is a ev charging station or a battery
-                    swapping station.
-                    Default value - “charging”
-                </td>
-                <td class="cell-mqNS">string</td>
-                <td class="cell-[R?r">[”battery_swapping”, “charging”]</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</article>
+                                <code># charger type format<br>
+                                    {
+                                    &quot;available&quot;: 1, # number of connectors available<br>
+                                    &quot;capacity&quot;: &quot;22 kW&quot;, # power capacity of the connector<br>
+                                    &quot;cost_per_unit&quot;: &quot;₹13 per unit&quot;, # charging cost per unit<br>
+                                    &quot;diagram&quot;: &quot;connector_diagram/type2ac.png&quot;,<br>
+                                    &quot;total&quot;: 3, # total number of connectors<br>
+                                    &quot;type&quot;: &quot;T2&quot; # type of connector<br>
+                                    }</code>
+                            </td>
+                        </tr>
+                        <tr id="ec8b816f-1624-46c9-ad16-39e7a87b56df">
+                            <td class="cell-title">vendor</td>
+                            <td class="cell-iLXD">vendor name</td>
+                            <td class="cell-mqNS">string</td>
+                            <td class="cell-[R?r"></td>
+                        </tr>
+                        <tr id="fddd9a9d-b612-43c0-a4a4-a1b0d48982ea">
+                            <td class="cell-title">total
+                            </td>
+                            <td class="cell-iLXD">total number of chargers at the station</td>
+                            <td class="cell-mqNS">integer count</td>
+                            <td class="cell-[R?r"></td>
+                        </tr>
+                        <tr id="08edafe9-e06f-4684-a4ac-db55fc58b29b">
+                            <td class="cell-title">staff
+                            </td>
+                            <td class="cell-iLXD">indicates whether the charging station is staffed or unstaffed</td>
+                            <td class="cell-mqNS">string</td>
+                            <td class="cell-[R?r">Staffed/ Unstaffed</td>
+                        </tr>
+                        <tr id="4d03b000-50f7-4e15-b4de-61c2ad5b8677">
+                            <td class="cell-title">postal_code
+                            </td>
+                            <td class="cell-iLXD">pin code of the charging station</td>
+                            <td class="cell-mqNS">string</td>
+                            <td class="cell-[R?r"></td>
+                        </tr>
+                        <tr id="930229ba-824f-4bc0-8d1b-82afd1e0eb1b">
+                            <td class="cell-title">payment_modes
+                            </td>
+                            <td class="cell-iLXD">payment modes accepted for charging at the charging station</td>
+                            <td class="cell-mqNS">string</td>
+                            <td class="cell-[R?r"></td>
+                        </tr>
+                        <tr id="f3663892-42d9-4bd6-ad7d-cb0daaf69baa">
+                            <td class="cell-title">open
+                            </td>
+                            <td class="cell-iLXD">time for when the charging station is open for operations</td>
+                            <td class="cell-mqNS">string</td>
+                            <td class="cell-[R?r">HH:MM:SS</td>
+                        </tr>
+                        <tr id="904845ce-2d81-4b3f-93b2-fac783b31581">
+                            <td class="cell-title">name
+                            </td>
+                            <td class="cell-iLXD">name of the charging station</td>
+                            <td class="cell-mqNS">string</td>
+                            <td class="cell-[R?r"></td>
+                        </tr>
+                        <tr id="6178856a-1e7e-47af-8e23-a4496d66acfd">
+                            <td class="cell-title">id</td>
+                            <td class="cell-iLXD">charging station ID</td>
+                            <td class="cell-mqNS">string or integer</td>
+                            <td class="cell-[R?r"></td>
+                        </tr>
+                        <tr id="dd63b3fc-e293-4d6a-a382-e943765e9dfd">
+                            <td class="cell-title">country</td>
+                            <td class="cell-iLXD">India</td>
+                            <td class="cell-mqNS"></td>
+                            <td class="cell-[R?r"></td>
+                        </tr>
+                        <tr id="2959ff6a-f93d-41c4-ab01-82f1311bdca9">
+                            <td class="cell-title">coordinates
+                            </td>
+                            <td class="cell-iLXD">latitude, longitude points for the charging station</td>
+                            <td class="cell-mqNS">float values</td>
+                            <td class="cell-[R?r"></td>
+                        </tr>
+                        <tr id="3fb56f0a-de36-462f-8ab3-02865c1265e1">
+                            <td class="cell-title">contact_numbers
+                            </td>
+                            <td class="cell-iLXD">contact number(s) for the charging station/ vendor</td>
+                            <td class="cell-mqNS"></td>
+                            <td class="cell-[R?r"></td>
+                        </tr>
+                        <tr id="a7c29ac5-33f2-46a2-b1ad-ad1f364d8123">
+                            <td class="cell-title">close
+                            </td>
+                            <td class="cell-iLXD">time for when the charging station is closed for operations</td>
+                            <td class="cell-mqNS">string</td>
+                            <td class="cell-[R?r">HH:MM:SS</td>
+                        </tr>
+                        <tr id="6fddd2e3-556a-441e-aada-ece316c922d1">
+                            <td class="cell-title">city
+                            </td>
+                            <td class="cell-iLXD">city in which the charging station is located</td>
+                            <td class="cell-mqNS">string</td>
+                            <td class="cell-[R?r"></td>
+                        </tr>
+                        <tr id="e11aae46-4549-4aff-b41e-38c24a0ebd95">
+                            <td class="cell-title">station_type
+                            </td>
+                            <td class="cell-iLXD">the type of station, whether the location is a ev charging station or
+                                a battery
+                                swapping station.
+                                <br>Permissible values - "charging", "battery_swapping"
+                                <br>Default value - “charging”
+                            </td>
+                            <td class="cell-mqNS">string</td>
+                            <td class="cell-[R?r">[”battery_swapping”, “charging”]</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
         </div>
     </div>
 

@@ -1,9 +1,11 @@
 import mimetypes
 import os
+import re
 
-from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
+from django.http import HttpResponseRedirect, JsonResponse, HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, get_object_or_404, redirect
 from contactusform.models import *
+from django.urls import reverse
 from downloadRealDataForm.models import *
 from registerDataProvider.models import *
 from django.utils.crypto import get_random_string
@@ -14,6 +16,8 @@ import datetime
 from registerDataProvider.admin import authorise as provider_auth
 from downloadRealDataForm.admin import authorise as consumer_auth
 import urllib.request  # the lib that handles the url stuff
+
+from modules.messaging_service import send_sms_otp, verify_otp
 
 STATIC_DATA_FILE = config('STATIC_DATA_FILE', default='ev_locations.xlsx', cast=str)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -173,32 +177,15 @@ def dataProvider(request):
             if not any(file_format in authorisation_letter.name for file_format in valid_file_formats):
                 args['invalid_file'] = True
             else:
+                # verify OTP, if 200 proceed else return
                 registerDataProvider.save()
-                args['email'] = email
-                args['number'] = number
-                args['success'] = 'success'
-                unique_id = get_random_string(length=32)
-                args['unique_id'] = unique_id
-                registerDataProvider.passCode = hashlib.sha224(unique_id.encode('utf-8')).hexdigest()
-                registerDataProvider.save()
-                # auto_authorize(user_email=email, user_type="provider")
+                # request.session["mobile_number"] = number
+                return redirect(f'/openev/verify/otp?pk={registerDataProvider.pk}')
         except Exception as e:
             args['e'] = True if str(e).lower().__contains__('unique constraint') else False
             args['email'] = email
             args['number'] = number
             print(e)
-    # else:
-    # passCode = request.GET.get('key')
-    # if passCode:
-    # 	print('passCode', passCode)
-    # 	try:
-    # 		downloadRealData = DownloadRealData.objects.get(passCode=passCode)
-    # 		if downloadRealData.authorised:
-    # 			return HttpResponseRedirect('http://traffickarma.iiitd.edu.in:9010/static/stops.txt')
-    # 		else:
-    # 			args['notAuthorised'] = '"' + str(passCode) + '" is not authorise yet!'
-    # 	except:
-    # 		args['notAuthorised'] = '"' + str(passCode) + '" is an invalid Key '
 
     return render(request, 'dataProvider.html', args)
 
@@ -329,3 +316,104 @@ def announcement(request):
     if (announcements):
         args['announcements'] = announcements
     return render(request, 'announcement.html', args)
+
+
+def send_otp(request, mobile_number_str):
+    return send_sms_otp(mobile_number_str)
+
+
+PHONE_NUM_PATTERN = re.compile("^[5-9]\d{9}$")
+from django.contrib import messages
+
+
+def verify_mobile_number(request):
+    """
+    :param request: user's mobile number in payload
+    :return: render verify mobile number page
+    """
+
+    try:
+        mobile_number = request.session["mobile_number"]
+    except Exception as e:
+        pass
+
+    send_sms_otp(mobile_number)
+    # TODO: redirect to OTP input screen
+    return redirect(f'/openev/verify/otp')  # ?mobile_number={mobile_number_str}')
+
+    """
+    if request.method == 'GET':
+        # last_two_digits = mobile_number_str[-2:]
+        # response = send_sms_otp(mobile_number_str)
+        # args = {"mobile_number_text": f"xxxxxxxx{last_two_digits}", "message": f"{response['description']}",
+        #         "registerDataProviderObj": registerDataProviderObj}
+        return render(request, 'mobileVerify.html')
+    elif request.method == 'POST':
+        # TODO: send OTP
+        # TODO: redirect to OTP input screen
+        mobile_number_str = request.POST.get('mobile_number')
+        if not PHONE_NUM_PATTERN.match(mobile_number_str):
+            messages.error(request, 'Invalid mobile number.')
+            return HttpResponseRedirect(request.path_info)
+
+        # send sms
+        # TODO: uncomment for production
+        send_sms_otp(mobile_number_str)
+        # TODO: redirect to OTP input screen
+        return redirect(f'/openev/verify/otp')  # ?mobile_number={mobile_number_str}')
+    """
+
+
+def verify_otp_view(request):
+    """
+    :param pk:
+    :param request: user's mobile number in payload
+    :return: render verify mobile number page
+    """
+    try:
+        # mobile_number = request.session["mobile_number"]
+        # assert mobile_number is not None
+
+        pk = int(request.GET.get('pk'))
+        obj = RegisterDataProvider.objects.get(pk=pk)
+        # assert obj is not None
+        # if not PHONE_NUM_PATTERN.match(mobile_number):
+        #     messages.error(request, 'Invalid mobile number.')
+        #     return HttpResponseRedirect(request.path_info)
+    except Exception as e:
+        # del request.session['mobile_number']
+        messages.error(request, 'Invalid user.')
+        return render(request, 'otpVerify.html')
+
+    mobile_number = obj.number[-10:]
+    if request.method == 'GET':
+        # send OTP sms
+        send_sms_otp(mobile_number)
+        return render(request, 'otpVerify.html',
+                      context={"mobile_number": mobile_number,
+                               "mobile_number_text": f"xxxxxxxx{mobile_number[-2:]}"})
+
+    elif request.method == 'POST':
+        otp = request.POST.get('otp')
+        if len(otp) != 4:
+            messages.error(request, 'Invalid OTP.')
+            return HttpResponseRedirect(request.path_info)
+
+        # send sms
+        response = verify_otp(mobile_number, otp)
+        if response.status_code in range(200, 300):
+            # TODO: create api key and save it
+
+            args = {'email': obj.email, 'number': mobile_number, 'success': 'success'}
+            unique_id = get_random_string(length=32)
+            args['unique_id'] = unique_id
+            obj.passCode = hashlib.sha224(unique_id.encode('utf-8')).hexdigest()
+            obj.save()
+
+            messages.success(request, f'API KEY: {unique_id}')
+            # TODO: redirect to OTP input screen
+
+            return redirect("/openev/data/provider/")
+        else:
+            messages.error(request, f'{response.json()["description"]}')
+            return HttpResponseRedirect(request.path_info)

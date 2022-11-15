@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block nav2 %}active{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="position-relative overflow-hidden p-3 p-md-5 text-left bg-light" style="min-height: 300px">
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <h4>Verify OTP</h4>
+                </div>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}"
+                             role="alert">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+
+                <div class="col-md-4">
+                    <p>Enter the OTP send on number {{ mobile_number_text }}.</p>
+                    <form method="POST" action="">
+                        <input type='hidden' name='csrfmiddlewaretoken' value='{{ csrf_token }}'>
+                        <div class="form-group">
+                            <input id="otp" name="otp" class="form-control" type="text"
+                                   pattern="\d*" maxlength="4" placeholder="Enter OTP"
+                                   aria-describedby="otpHelp"/>
+                            <small id="otpHelp" class="form-text text-muted">SMS can take upto 120 seconds to arrive.</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <hr/>
+        </div>
+    </div>
+
+{% endblock %}

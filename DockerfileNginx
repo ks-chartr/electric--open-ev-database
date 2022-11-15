@@ -1,0 +1,5 @@
+FROM nginx
+RUN mkdir -p /usr/share/nginx/html/openevstatic/
+COPY Opendata/static /usr/share/nginx/html/
+COPY Opendata/staticfiles /usr/share/nginx/html/openevstatic/
+EXPOSE 80

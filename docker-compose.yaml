@@ -1,0 +1,21 @@
+version: '3.1'
+services:
+  app:
+    image: pyapp:7
+    restart: always
+    extra_hosts:
+      - "postgres: 172.31.11.199"
+    volumes:
+      - ./Opendata/media/openev/media/:/app/Opendata/media/
+    ports: 
+      - "8051:8000"
+  nginx:
+    image: staticfile:3
+    restart: always
+    ports: 
+      - "8050:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+
