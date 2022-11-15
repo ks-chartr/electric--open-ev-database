@@ -178,9 +178,15 @@ def dataProvider(request):
                 args['invalid_file'] = True
             else:
                 # verify OTP, if 200 proceed else return
+                args['email'] = email
+                args['number'] = number
+                args['success'] = 'success'
+                unique_id = get_random_string(length=32)
+                args['unique_id'] = unique_id
+                registerDataProvider.passCode = hashlib.sha224(unique_id.encode('utf-8')).hexdigest()
                 registerDataProvider.save()
                 # request.session["mobile_number"] = number
-                return redirect(f'/openev/verify/otp?pk={registerDataProvider.pk}')
+                # return redirect(f'/openev/verify/otp?pk={registerDataProvider.pk}')
         except Exception as e:
             args['e'] = True if str(e).lower().__contains__('unique constraint') else False
             args['email'] = email

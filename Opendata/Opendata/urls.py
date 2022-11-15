@@ -69,6 +69,6 @@ urlpatterns = [
     re_path(r'^openev/view/dashboard', openEVDashboard),
     re_path(r'^view/dashboard', openEVDashboard),
     # re_path(r'^openev/verify/mobile', verify_mobile_number),
-    re_path(r'^openev/verify/otp', verify_otp_view)
+    re_path(r'^openev/verify/otp', verify_otp_view),
     re_path(r'^verify/otp', verify_otp_view)
 ]
