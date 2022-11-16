@@ -35,7 +35,7 @@ def verify_otp(mobile_number, otp):
     response = requests.request("POST", url, headers=headers, data=payload)
     return response
 
-
+print(SMS_API_AUTHORIZATION_TOKEN)
 if __name__ == "__main__":
     # send_sms_otp("9818711051")
     # print(verify_otp("1234567890", "3558"))

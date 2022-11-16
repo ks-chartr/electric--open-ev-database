@@ -54,3 +54,4 @@ export_as_csv.short_description = "Export Selected"
 
 
 admin.site.register(DownloadRealData, DownloadRealDataAdmin)
+print(settings.EMAIL_HOST_USER)
